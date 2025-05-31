@@ -3,15 +3,25 @@ import streamlit as st
 from PIL import Image
 
 # --- Configuration ---
-st.set_page_config(page_title="AKASH. S (AKASH SOMASEKHARAN)", layout="wide")
+st.set_page_config(page_title="AKASH. S", layout="wide")
 
 # --- Sidebar Navigation ---
 menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "CV"])
 
+
+st.markdown(
+    """
+    <div style='text-align: center;'>
+        <img src='static/cover2.png' style='max-width: 100%; height: auto; border-radius: 10px;' />
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 # --- Home Page ---
 if menu == "Home":
     #st.image("static/cover.jpg", use_column_width=True)
-    st.image("static/cover.png", width=800, caption="Data meets AI – Akash S.")
+    #st.image("static/cover.png", width=800, caption="Data meets AI – Akash S.")
     st.title("Hi, I'm AKASH. S (AKASH SOMASEKHARAN)")
     st.subheader("Oceanography Researcher | Data Scientist | Scientific Consultant")
 
