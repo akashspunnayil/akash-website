@@ -23,7 +23,7 @@ if menu == "Home":
     st.subheader("Oceanography Researcher | Data Scientist | Scientific Consultant")
 
     st.markdown("""
-    I am a multidisciplinary scientist with over 7 years of experience in **physical oceanography**, 
+    I am a multidisciplinary researcher with over 7 years of experience in **physical oceanography**, 
     **biogeochemical modeling**, and **data science consulting**. My work bridges academic research and 
     applied analytics, focusing on climate–ocean dynamics, dissolved oxygen variability, and actionable 
     insights from complex datasets.
