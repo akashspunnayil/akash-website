@@ -37,7 +37,7 @@ if menu == "Home":
     </div>
     """,
     unsafe_allow_html=True
-)
+    )
 
 
     st.title("Hi, I'm AKASH. S (AKASH SOMASEKHARAN)")
