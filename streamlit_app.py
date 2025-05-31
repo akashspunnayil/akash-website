@@ -9,6 +9,10 @@ st.set_page_config(page_title="AKASH. S", layout="wide")
 menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "CV"])
 
 
+from PIL import Image
+cover = Image.open("static/cover2.png")
+st.image(cover, use_column_width=True)
+
 
 # --- Home Page ---
 if menu == "Home":
