@@ -3,14 +3,14 @@ import streamlit as st
 from PIL import Image
 
 # --- Configuration ---
-st.set_page_config(page_title="Akash Somasekharan", layout="wide")
+st.set_page_config(page_title="AKASH. S (AKASH SOMASEKHARAN)", layout="wide")
 
 # --- Sidebar Navigation ---
 menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "CV"])
 
 # --- Home Page ---
 if menu == "Home":
-    st.title("👋 Hi, I'm Akash Somasekharan")
+    st.title("Hi, I'm AKASH. S (AKASH SOMASEKHARAN)")
     st.write("""
     Ph.D. candidate in Physical Oceanography, passionate about climate-ocean interactions,
     OMZ dynamics, and applying AI in marine science.
