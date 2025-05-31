@@ -33,7 +33,7 @@ if menu == "Home":
     </style>
 
     <div class="responsive-img-container">
-        <img src="static/cover.png" alt="Cover Image">
+        <img src="static/cover2.png" alt="Cover Image">
     </div>
     """,
     unsafe_allow_html=True
