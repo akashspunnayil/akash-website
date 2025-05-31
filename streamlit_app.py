@@ -17,27 +17,12 @@ if menu == "Home":
     
     st.markdown(
     """
-    <style>
-    .responsive-img-container {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        text-align: center;
-        margin-bottom: 1rem;
-    }
-    .responsive-img-container img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
-    </style>
-
-    <div class="responsive-img-container">
-        <img src="static/cover2.png" alt="Cover Image">
+    <div style='text-align: center;'>
+        <img src='static/cover2.png' style='max-width: 100%; height: auto; border-radius: 10px;' />
     </div>
     """,
-    unsafe_allow_html=True
-    )
+    unsafe_allow_html=True)
+
 
 
     st.title("Hi, I'm AKASH. S (AKASH SOMASEKHARAN)")
