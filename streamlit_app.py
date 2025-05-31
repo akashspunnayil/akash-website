@@ -15,7 +15,7 @@ st.markdown(
         <img src='static/cover2.png' style='max-width: 100%; height: auto; border-radius: 10px;' />
     </div>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=False
 )
 
 # --- Home Page ---
