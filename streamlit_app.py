@@ -9,19 +9,37 @@ st.set_page_config(page_title="AKASH. S", layout="wide")
 menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "CV"])
 
 
-st.markdown(
-    """
-    <div style='text-align: center;'>
-        <img src='static/cover2.png' style='max-width: 100%; height: auto; border-radius: 10px;' />
-    </div>
-    """,
-    unsafe_allow_html=False
-)
 
 # --- Home Page ---
 if menu == "Home":
     #st.image("static/cover.jpg", use_column_width=True)
     #st.image("static/cover.png", width=800, caption="Data meets AI – Akash S.")
+    
+    st.markdown(
+    """
+    <style>
+    .responsive-img-container {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .responsive-img-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+    </style>
+
+    <div class="responsive-img-container">
+        <img src="static/cover.jpg" alt="Cover Image">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+
     st.title("Hi, I'm AKASH. S (AKASH SOMASEKHARAN)")
     st.subheader("Oceanography Researcher | Data Scientist | Scientific Consultant")
 
