@@ -10,17 +10,51 @@ menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "
 
 # --- Home Page ---
 if menu == "Home":
-    st.title("Hi, I'm AKASH. S (AKASH SOMASEKHARAN)")
-    st.write("""
-    Ph.D. candidate in Physical Oceanography, passionate about climate-ocean interactions,
-    OMZ dynamics, and applying AI in marine science.
-    """)
-    
-    st.subheader("About Me")
+    st.title("Hi, I'm Akash S. (Akash Somasekharan)")
+    st.subheader("Oceanography Researcher | Data Scientist | Scientific Consultant")
+
     st.markdown("""
-    I work on biogeochemical modeling, ocean transports, and data-driven analysis of the Arabian Sea OMZ.
-    This site showcases my work, research, blogs, and tools.
+    I am a multidisciplinary scientist with over 7 years of experience in **physical oceanography**, 
+    **biogeochemical modeling**, and **data science consulting**. My work bridges academic research and 
+    applied analytics, focusing on climate–ocean dynamics, dissolved oxygen variability, and actionable 
+    insights from complex datasets.
+
+    ### 🔬 Academic & Research Focus
+    - Ocean-climate interactions: **OMZ dynamics**, **upwelling**, **circulation**, **ENSO/IOD impacts**
+    - Biogeochemical and physical modeling using **HYCOM-ECOSMO**
+    - High-resolution data analysis using **in-situ**, **reanalysis**, and **remote sensing** datasets
+
+    ### 🧠 Data Science & Programming
+    - Machine learning (XGBoost, Random Forests, GAMs) for predictive modeling
+    - HPC, automation, and custom scripting in **Python, R, FORTRAN**
+    - Interactive dashboards and visualization workflows
+
+    ### 💼 Freelance Consulting Services
+    As a consultant, I’ve delivered custom **data analytics solutions** and **scientific scripting support** 
+    to M.Sc., Ph.D. students, and researchers across domains such as:
+    - **Environmental and climate research**
+    - **Water quality and fisheries analytics**
+    - **Health and medical risk modeling**
+    - **Business and geospatial insights**
+
+    **Recent Projects** include:
+    - *Air Pollution Hotspot Tool*: Ranking cities using percentile-based exposure logic  
+    - *Catch Prediction Models*: AI-driven models for fishery productivity and effort optimization  
+    - *Diabetes Risk Classifier*: ML-based PDF health report generator  
+    - *Sea Level Trend Detector*: Sliding window tool for spatial sea level trend mapping  
+    - *argohycom-toolbox*: Python module for collocating BGC-Argo profiles with HYCOM model outputs
+
+    ---
+    ### 📌 About This Website
+    This website serves as my **portfolio and academic space** where I share:
+    - **Research highlights** and **journal publications**
+    - Selected **projects and tools**
+    - **Technical blogs and notes**
+    - Downloadable **CV and contact info**
+
+    I'm passionate about bringing **scientific depth and technical fluency** to real-world problems — across oceanography, climate science, and beyond.
     """)
+
 
 # --- Research Page ---
 elif menu == "Research":
