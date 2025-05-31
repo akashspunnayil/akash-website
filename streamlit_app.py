@@ -10,6 +10,8 @@ menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "
 
 # --- Home Page ---
 if menu == "Home":
+    #st.image("static/cover.jpg", use_column_width=True)
+    st.image("static/cover.png", width=800, caption="Data meets AI – Akash S.")
     st.title("Hi, I'm AKASH. S (AKASH SOMASEKHARAN)")
     st.subheader("Oceanography Researcher | Data Scientist | Scientific Consultant")
 
