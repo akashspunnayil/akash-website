@@ -11,7 +11,7 @@ menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "
 
 from PIL import Image
 cover = Image.open("static/cover2.png")
-st.image(cover, use_column_width=True)
+st.image(cover, use_container_width=True)
 
 
 # --- Home Page ---
@@ -19,16 +19,6 @@ if menu == "Home":
     #st.image("static/cover.jpg", use_column_width=True)
     #st.image("static/cover.png", width=800, caption="Data meets AI – Akash S.")
     
-    st.markdown(
-    """
-    <div style='text-align: center;'>
-        <img src='static/cover2.png' style='max-width: 100%; height: auto; border-radius: 10px;' />
-    </div>
-    """,
-    unsafe_allow_html=True)
-
-
-
     st.title("Hi, I'm AKASH. S (AKASH SOMASEKHARAN)")
     st.subheader("Oceanography Researcher | Data Scientist | Scientific Consultant")
 
