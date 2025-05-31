@@ -3,7 +3,7 @@ import streamlit as st
 from PIL import Image
 
 # --- Configuration ---
-st.set_page_config(page_title="AKASH. S", layout="wide")
+st.set_page_config(page_title="AKASH.S", layout="wide")
 
 # --- Sidebar Navigation ---
 menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "CV"])
