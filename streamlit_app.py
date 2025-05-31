@@ -10,7 +10,7 @@ menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "
 
 # --- Home Page ---
 if menu == "Home":
-    st.title("Hi, I'm Akash S. (Akash Somasekharan)")
+    st.title("Hi, I'm AKASH. S (AKASH SOMASEKHARAN)")
     st.subheader("Oceanography Researcher | Data Scientist | Scientific Consultant")
 
     st.markdown("""
@@ -59,41 +59,100 @@ if menu == "Home":
 # --- Research Page ---
 elif menu == "Research":
     st.title("🔬 Research")
-    st.write("Current focus:")
     st.markdown("""
-    - Seasonal/interannual OMZ variability in the Arabian Sea
-    - Zonal and meridional transport analysis (HYCOM-ECOSMO)
-    - Scalar transport of oxygen, detritus, nitrate across regional boundaries
-    - Application of ML models (e.g., XGBoost, GAM) in catch/OMZ prediction
+    My doctoral research focuses on the **interplay between ocean physics and biogeochemistry** in shaping the Oxygen Minimum Zone (OMZ) in the Arabian Sea. By combining **numerical modeling**, **observational data**, and **machine learning**, I aim to uncover key mechanisms behind OMZ variability and its ecological implications.
+
+    ### 🧪 Core Research Themes
+    - **Seasonal and interannual OMZ variability** in the Arabian Sea  
+    - Influence of **climate drivers** such as ENSO and IOD on ocean oxygenation  
+    - **Circulation and scalar transport diagnostics** using HYCOM-ECOSMO outputs  
+    - Vertical and lateral export of **oxygen, detritus, nitrate** through undercurrents and offshore jets  
+    - Role of **intermediate water masses and upwelling** in biogeochemical redistribution  
+
+    ### 📊 Modeling Tools & Approaches
+    - High-resolution simulations with **HYCOM-ECOSMO** for coupled physical-biogeochemical analysis  
+    - Development of a **physics-informed OMZ Intensity Index**  
+    - Scalar transport estimators for oxygen, detritus, nitrate, and phytoplankton  
+    - **Hovmöller-style diagrams**, seasonal climatologies, and transport cross-sections  
+
+    ### 🤖 AI & Machine Learning in Ocean Science
+    - Application of **XGBoost**, **Random Forests**, and **GAM models** to predict:
+        - OMZ structure and seasonal shifts  
+        - Myctophid catch and biomass based on ecological predictors  
+    - Feature engineering from ocean circulation, productivity, and oxygen gradients  
+
+    ---
+    My research aims to bridge traditional physical oceanography with modern data science to better understand **marine oxygen variability**, its drivers, and broader implications for ecosystem functioning and fisheries.
     """)
+
 
 # --- Projects Page ---
 elif menu == "Projects":
     st.title("📁 Projects")
+
     st.markdown("""
-    - `argohycom-toolbox`: Python module for BGC-Argo and HYCOM colocation
-    - Ocean Transport Estimator: Zonal/meridional transport computation
-    - DSL Depth Estimator: Python tool for DSL + OMZ mapping
-    - Water Quality Stats Tool: Panchayat-level statistical analysis dashboard
+    I actively develop scientific tools, analytical pipelines, and domain-specific machine learning models across environmental science, health, and geospatial domains. Below are selected projects reflecting both my academic research and data science consulting portfolio.
+
+    ### 🌊 Oceanography & Climate Tools
+    - [`argohycom-toolbox`](https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/argohycom_toolbox): Python module for colocation and filtering of BGC-Argo profiles with HYCOM model outputs.
+    - Ocean Transport Estimator: Custom script for computing zonal and meridional transport of scalar variables. *(link coming soon)*
+    - DSL Depth Estimator: Tool for mapping DSL (Deep Scattering Layer) and OMZ boundaries from cruise observations. *(link coming soon)*
+
+    ### 🏥 Health, Water, and Urban Analytics
+    - [`Air Pollution Hotspot Calculator`](https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/aph_calculator): CLI/Jupyter-based tool for identifying and ranking pollution hotspots using percentile and threshold logic.
+    - [`Drinking Water Quality Dashboard`](https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/brc_stream_drinking_water_quality): Statistical analysis and visualization tool for panchayat-level water survey data.
+    - Diabetes Risk Classifier: Supervised ML model with automated PDF report generation. *(link coming soon)*
+
+    ### 🚗 ML Models & Predictive Analytics
+    - Car Price Prediction Dashboard: Applied EDA and regression models for automobile pricing. *(link coming soon)*
+    - Sea Level Trend Detector: Sliding window algorithm to detect long-term changes in sea level using gridded spatiotemporal data. *(link coming soon)*
+
+    ---
+    📌 Many of these tools are open-source and built with reproducibility in mind. I regularly maintain and expand them under the ClimoMarineLab GitHub workspace.
     """)
+
 
 # --- Blog Page ---
 elif menu == "Blog":
     st.title("✍️ Blog")
     st.markdown("""
-    **Coming Soon!**
-    I'll be sharing insights, tutorials, and research notes on:
-    - OMZ science and data analysis
-    - Machine learning workflows
-    - Remote sensing and cruise survey learnings
+    I regularly share tutorials, research notes, and data science experiments through my blog **[Aireen Project](https://aireenproject.wordpress.com/category/python-classes/)**.
+
+    ### 🔍 What I Write About:
+    - 🔬 Ocean science, OMZ dynamics, and data-driven marine research  
+    - 🤖 Machine learning workflows for scientific and real-world problems  
+    - 🛰️ Remote sensing, cruise-based survey experiences, and field insights  
+    - 🛠️ Python scripting, automation, and tool building  
+    - 😄 Occasionally... fun experiments with code and observations from the field
+
+    📖 Visit: [aireenproject.wordpress.com/category/python-classes/](https://aireenproject.wordpress.com/category/python-classes/)
     """)
+
+    st.info("New posts and internal blog integration coming soon!")
+
 
 # --- CV Page ---
 elif menu == "CV":
     st.title("📄 Curriculum Vitae")
-    with open("resume.pdf", "rb") as file:
-        st.download_button("Download My CV", file.read(), file_name="Akash_Somasekharan_CV.pdf")
 
-    st.write("You can also connect with me on:")
-    st.markdown("[LinkedIn](https://www.linkedin.com/in/your-profile/)  |  [GitHub](https://github.com/your-username)")
+    with open("resume.pdf", "rb") as file:
+        st.download_button(
+            label="📥 Download My CV",
+            data=file.read(),
+            file_name="Akash_Somasekharan_CV.pdf",
+            mime="application/pdf"
+        )
+
+    st.markdown("---")
+    st.subheader("📬 Connect with Me")
+
+    st.markdown("""
+    - [🔗 LinkedIn](https://www.linkedin.com/in/akash-s-1a68868b/)  
+    - [💻 GitHub](https://github.com/akashspunnayil)  
+    - [📚 ResearchGate](https://www.researchgate.net/profile/Akash-Somasekharan)  
+    - [🛠️ Upwork – Freelance Profile](https://www.upwork.com/freelancers/~01e11e300ee896d62c?mp_source=share)
+    """)
+
+    st.info("I'm open to collaborations, freelance consulting, and research partnerships across oceanography, environmental science, and data-driven domains.")
+
 
