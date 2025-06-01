@@ -116,9 +116,23 @@ elif menu == "Projects":
     - Car Price Prediction Dashboard: Applied EDA and regression models for automobile pricing. *(link coming soon)*
     - Sea Level Trend Detector: Sliding window algorithm to detect long-term changes in sea level using gridded spatiotemporal data. *(link coming soon)*
 
+    ### 🧠 AI/ML Practice Notebooks
+    A collection of hands-on practice notebooks developed using classic ML and deep learning datasets for skill-building and experimentation:
+
+    - [Automobiles EDA + ML](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/1_Automobiles_EDA_ML.ipynb)
+    - [Diabetes EDA + ML](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/2_Diabetes_EDA_ML.ipynb)
+    - [Housing Price Prediction](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/3_Housing_EDA_ML.ipynb)
+    - [Insurance Risk Analysis](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/4_Insurance_EDA_ML.ipynb)
+    - [MNIST ANN + Hyperparameter Tuning](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/5_MNIST_hyperparameter_ANN.ipynb)
+    - [Fashion MNIST with ANN](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/6_FASHION_MNIST_ANN.ipynb)
+    - [CIFAR-10 with ANN](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/7_CIFAR_ANN.ipynb)
+    - [Fashion MNIST with CNN](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/8_FASHION_MNIST_CNN.ipynb)
+    - [CIFAR-10 with CNN](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/9_CIFAR_CNN.ipynb)
+
     ---
-    📌 Many of these tools are open-source and built with reproducibility in mind. I regularly maintain and expand them under the ClimoMarineLab GitHub workspace.
+    📌 Many of these tools are open-source and built with reproducibility in mind. I regularly maintain and expand them under the my GitHub workspace.
     """)
+
 
 
 # --- Blog Page ---
