@@ -15,35 +15,26 @@ menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "
 #resized_cover = cover.resize((600, 300))  # (width, height)
 #st.image(resized_cover)
 
-# --- Function to convert image to base64 ---
-def get_image_base64(image_path):
-    img = Image.open(image_path)
-    buffered = BytesIO()
-    img.save(buffered, format="PNG")
-    img_base64 = base64.b64encode(buffered.getvalue()).decode()
-    return img_base64
-
-# --- Embed cover image as HTML ---
-cover_base64 = get_image_base64("static/cover2.png")
+# --- Cover Image ---
 st.markdown(
-    f"""
+    """
     <style>
-    .cover-container {{
+    .cover-container {
         width: 100%;
         max-height: 300px;
         overflow: hidden;
-        border-radius: 16px;
+        border-radius: 12px;
         margin-bottom: 20px;
-    }}
-    .cover-container img {{
+    }
+    .cover-container img {
         width: 100%;
         height: auto;
         object-fit: cover;
-        border-radius: 16px;
-    }}
+        border-radius: 12px;
+    }
     </style>
     <div class="cover-container">
-        <img src="data:image/png;base64,{cover_base64}" alt="Cover Image">
+        <img src="static/cover2.png" alt="Cover Image">
     </div>
     """,
     unsafe_allow_html=True)
