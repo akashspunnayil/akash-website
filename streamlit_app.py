@@ -9,13 +9,13 @@ st.set_page_config(page_title="AKASH.S", layout="wide")
 menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "CV"])
 
 
-#from PIL import Image
-#cover = Image.open("static/cover2.png")
-##st.image(cover, use_container_width=True)
-#resized_cover = cover.resize((600, 300))  # (width, height)
-#st.image(resized_cover)
+from PIL import Image
+cover = Image.open("static/cover2.png")
+#st.image(cover, use_container_width=True)
+resized_cover = cover.resize((800, 300))  # (width, height)
+st.image(resized_cover)
 
-
+'''
 import base64
 from io import BytesIO
 
@@ -52,6 +52,7 @@ st.markdown(
     </div>
     """,
     unsafe_allow_html=True)
+'''
 
 # --- Home Page ---
 if menu == "Home":
