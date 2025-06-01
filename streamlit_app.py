@@ -12,7 +12,7 @@ menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "
 from PIL import Image
 cover = Image.open("static/cover2.png")
 #st.image(cover, use_container_width=True)
-resized_cover = cover.resize((800, 400))  # (width, height)
+resized_cover = cover.resize((600, 300))  # (width, height)
 st.image(resized_cover)
 
 # --- Home Page ---
