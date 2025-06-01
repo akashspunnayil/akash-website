@@ -9,11 +9,36 @@ st.set_page_config(page_title="AKASH.S", layout="wide")
 menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "CV"])
 
 
-from PIL import Image
-cover = Image.open("static/cover2.png")
-#st.image(cover, use_container_width=True)
-resized_cover = cover.resize((600, 300))  # (width, height)
-st.image(resized_cover)
+#from PIL import Image
+#cover = Image.open("static/cover2.png")
+##st.image(cover, use_container_width=True)
+#resized_cover = cover.resize((600, 300))  # (width, height)
+#st.image(resized_cover)
+
+# --- Cover Image ---
+st.markdown(
+    """
+    <style>
+    .cover-container {
+        width: 100%;
+        max-height: 300px;
+        overflow: hidden;
+        border-radius: 12px;
+        margin-bottom: 20px;
+    }
+    .cover-container img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+    </style>
+    <div class="cover-container">
+        <img src="static/cover2.png" alt="Cover Image">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # --- Home Page ---
 if menu == "Home":
