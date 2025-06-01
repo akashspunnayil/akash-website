@@ -139,7 +139,7 @@ elif menu == "Projects":
 elif menu == "Blog":
     st.title("✍️ Blog")
     st.markdown("""
-    I regularly share tutorials, research notes, and data science experiments through my blog **[Aireen Project](https://aireenproject.wordpress.com/category/python-classes/)**.
+    I regularly share tutorials, research notes, and data science experiments through my blog under **[Aireen Project](https://aireenproject.wordpress.com/category/python-classes/)**.
 
     ### 🔍 What I Write About:
     - 🔬 Ocean science, OMZ dynamics, and data-driven marine research  
