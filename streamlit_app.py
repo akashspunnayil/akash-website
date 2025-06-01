@@ -34,15 +34,16 @@ st.markdown(
     <style>
     .cover-container {{
         width: 100%;
-        max-height: 300px;
-        overflow: hidden;
+         /*max-height: 300px;*/
+        /*overflow: hidden;*/
         border-radius: 16px;
         margin-bottom: 20px;
     }}
     .cover-container img {{
         width: 100%;
         height: auto;
-        object-fit: cover;
+        /*object-fit: cover;*/
+        object-fit: contain;
         border-radius: 16px;
     }}
     </style>
