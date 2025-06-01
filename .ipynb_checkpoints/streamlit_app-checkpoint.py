@@ -150,10 +150,10 @@ elif menu == "Projects":
     ### 🏥 Health, Water, and Urban Analytics
     - [`Air Pollution Hotspot Calculator`](https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/aph_calculator): CLI/Jupyter-based tool for identifying and ranking pollution hotspots using percentile and threshold logic.
     - [`Drinking Water Quality Dashboard`](https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/brc_stream_drinking_water_quality): Statistical analysis and visualization tool for panchayat-level water survey data.
-    - ['Diabetes Risk Classifier'](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/2_Diabetes_EDA_ML.ipynb): Supervised ML model with automated PDF report generation.
+    - [`Diabetes Risk Classifier`](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/2_Diabetes_EDA_ML.ipynb): Supervised ML model with automated PDF report generation.
 
     ### 🚗 ML Models & Predictive Analytics
-    - ['Car Price Prediction Dashboard'](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/1_Automobiles_EDA_ML.ipynb): Applied EDA and regression models for automobile pricing.
+    - [`Car Price Prediction Dashboard`](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/1_Automobiles_EDA_ML.ipynb): Applied EDA and regression models for automobile pricing.
     - Sea Level Trend Detector: Sliding window algorithm to detect long-term changes in sea level using gridded spatiotemporal data. *(link not available)*
 
     ### 🧠 AI/ML Practice Notebooks
