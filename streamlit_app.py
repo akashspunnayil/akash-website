@@ -306,7 +306,7 @@ elif menu == "Projects":
         st.markdown(render_tile(
             title="argohycom-toolbox",
             url="https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/argohycom_toolbox",
-            description="Colocation and filtering of BGC-Argo profiles with HYCOM outputs."
+            description="Colocation and filtering of BGC-Argo profiles with HYCOM outputs.",
             img_base64=shared_img_base64  # ✅ Required fourth argument
         ), unsafe_allow_html=True)
 
