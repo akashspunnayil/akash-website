@@ -105,10 +105,10 @@ def get_wp_preview(url):
     except Exception as e:
         return "Blog Title", "Click to read more.", None
 
-def render_blog_tile(title, url, excerpt, image_url=None, margin_right=True):
+def render_blog_tile(title, url, excerpt, image_url=None):
     tile_height = 380
     image_height = 150
-    line_clamp = 6
+    line_clamp = 4
 
     img_tag = f"""
     <img src='{image_url}' style='
@@ -119,20 +119,18 @@ def render_blog_tile(title, url, excerpt, image_url=None, margin_right=True):
         margin-bottom:10px;
     '/>""" if image_url else ""
 
-    margin_style = "margin-right: 10px;" if margin_right else ""
-
     return f"""
     <div style="
         border: 1px solid #e6e6e6;
-        border-radius: 20px;
+        border-radius: 12px;
         padding: 16px;
+        margin: 6px;  /* ✅ adds spacing between tiles */
         background-color: #fafafa;
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.06);
         height: {tile_height}px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        {margin_style}
     ">
         {img_tag}
         <h4 style='margin-bottom: 8px; font-size: 16px; line-height: 1.3;'>
@@ -144,7 +142,6 @@ def render_blog_tile(title, url, excerpt, image_url=None, margin_right=True):
         </p>
     </div>
     """
-
 
 
 
@@ -351,7 +348,7 @@ elif menu == "Blog":
     📖 Visit: [aireenproject.wordpress.com/category/python-classes/](https://aireenproject.wordpress.com/category/python-classes/)
     """)
 
-    st.markdown("### 📚 Blog Posts with Live Previews")
+    st.markdown("### 📚 Blog Posts")
     
     blog_links = [
         "https://aireenproject.wordpress.com/2024/07/21/python-loading-multiple-netcdf-files-and-plotting-subplots/",
