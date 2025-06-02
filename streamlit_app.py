@@ -105,38 +105,46 @@ def get_wp_preview(url):
     except Exception as e:
         return "Blog Title", "Click to read more.", None
 
-def render_blog_tile(title, url, excerpt, image_url=None):
+def render_blog_tile(title, url, excerpt, image_url=None, margin_right=True):
+    tile_height = 380
+    image_height = 150
+    line_clamp = 4
+
     img_tag = f"""
     <img src='{image_url}' style='
         width:100%;
-        height:160px;
+        height:{image_height}px;
         object-fit:cover;
         border-radius:6px;
         margin-bottom:10px;
     '/>""" if image_url else ""
 
+    margin_style = "margin-right: 10px;" if margin_right else ""
+
     return f"""
     <div style="
         border: 1px solid #e6e6e6;
         border-radius: 10px;
-        padding: 10px;
+        padding: 16px;
         background-color: #fafafa;
         box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-        height: 370px;
+        height: {tile_height}px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        {margin_style}
     ">
         {img_tag}
         <h4 style='margin-bottom: 8px; font-size: 16px; line-height: 1.3;'>
             <a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a>
         </h4>
         <p style='font-size: 13px; line-height: 1.4; overflow: hidden; display: -webkit-box;
-                  -webkit-line-clamp: 4; -webkit-box-orient: vertical;'>
+                  -webkit-line-clamp: {line_clamp}; -webkit-box-orient: vertical;'>
             {excerpt}
         </p>
     </div>
     """
+
 
 
 
