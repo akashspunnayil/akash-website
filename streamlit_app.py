@@ -68,22 +68,36 @@ def get_base64_image(path):
 shared_img_base64 = get_base64_image("static/preview/preview.jpeg")  # ✅ Your current shared image
 
 st.markdown("""
-    <style>
-    .element-container {
-        background: transparent !important;
-        padding: 0px !important;
-        margin: 0px !important;
-    }
+<style>
+/* ✅ Fully remove Streamlit’s wrapper backgrounds */
+.element-container {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
 
-    .stMarkdown {
-        background: transparent !important;
-    }
+.stMarkdown {
+    background: transparent !important;
+}
 
-    body {
-        background-color: #0e1117;
-    }
-    </style>
+/* ✅ Also override column background if used */
+.css-1kyxreq, .block-container {
+    background: transparent !important;
+}
+
+/* ✅ Page background dark */
+body {
+    background-color: #0e1117 !important;
+}
+
+/* Optional: soften text color globally */
+h4, p, a {
+    color: #ffffffcc;
+}
+</style>
 """, unsafe_allow_html=True)
+
 
 
 # --- Tile Renderer with Preview ---
@@ -94,8 +108,12 @@ def render_tile(title, url, description, img_base64):
 
     return f"""
 	<div class="transparent-tile" style="
-	    background: rgba(255, 255, 255, 0.05);
+	 
+	    background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(6px);
+
 	    border: 1px solid rgba(255, 255, 255, 0.1);
+	    
 	    border-radius: 14px;
 	    padding: 16px;
 	    margin: 6px;
