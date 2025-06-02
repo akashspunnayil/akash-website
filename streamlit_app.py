@@ -139,39 +139,74 @@ elif menu == "Research":
 elif menu == "Projects":
     st.title("📁 Projects")
 
-    st.markdown("""
-    I actively develop scientific tools, analytical pipelines, and domain-specific machine learning models across environmental science, health, and geospatial domains. Below are selected projects reflecting both my academic research and data science consulting portfolio.
+    st.markdown("I actively develop scientific tools, analytical pipelines, and domain-specific machine learning models across environmental science, health, and geospatial domains. Below are selected projects:")
 
-    ### 🌊 Oceanography & Climate Tools
-    - [`argohycom-toolbox`](https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/argohycom_toolbox): Python module for colocation and filtering of BGC-Argo profiles with HYCOM model outputs.
-    - Ocean Transport Estimator: Custom script for computing zonal and meridional transport of scalar variables. *(link coming soon)*
-    - DSL Depth Estimator: Tool for mapping DSL (Deep Scattering Layer) and OMZ boundaries from cruise observations. *(link coming soon)*
+    # --- Oceanography & Climate Tools ---
+    st.subheader("🌊 Oceanography & Climate Tools")
+    col1, col2, col3 = st.columns(3)
 
-    ### 🏥 Health, Water, and Urban Analytics
-    - [`Air Pollution Hotspot Calculator`](https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/aph_calculator): CLI/Jupyter-based tool for identifying and ranking pollution hotspots using percentile and threshold logic.
-    - [`Drinking Water Quality Dashboard`](https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/brc_stream_drinking_water_quality): Statistical analysis and visualization tool for panchayat-level water survey data.
-    - [`Diabetes Risk Classifier`](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/2_Diabetes_EDA_ML.ipynb): Supervised ML model with automated PDF report generation.
+    with col1:
+        st.markdown("#### [argohycom-toolbox](https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/argohycom_toolbox)")
+        st.markdown("Colocation and filtering of BGC-Argo profiles with HYCOM outputs.")
 
-    ### 🚗 ML Models & Predictive Analytics
-    - [`Car Price Prediction Dashboard`](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/1_Automobiles_EDA_ML.ipynb): Applied EDA and regression models for automobile pricing.
-    - Sea Level Trend Detector: Sliding window algorithm to detect long-term changes in sea level using gridded spatiotemporal data. *(link not available)*
+    with col2:
+        st.markdown("#### Ocean Transport Estimator")
+        st.markdown("*Link coming soon*<br>Compute zonal & meridional scalar transport.", unsafe_allow_html=True)
 
-    ### 🧠 AI/ML Practice Notebooks
-    A collection of hands-on practice notebooks developed using classic ML and deep learning datasets for skill-building and experimentation:
+    with col3:
+        st.markdown("#### DSL Depth Estimator")
+        st.markdown("*Link coming soon*<br>Estimate OMZ/DSL depths from cruise data.", unsafe_allow_html=True)
 
-    - [Automobiles EDA + ML](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/1_Automobiles_EDA_ML.ipynb)
-    - [Diabetes EDA + ML](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/2_Diabetes_EDA_ML.ipynb)
-    - [Housing Price Prediction](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/3_Housing_EDA_ML.ipynb)
-    - [Insurance Risk Analysis](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/4_Insurance_EDA_ML.ipynb)
-    - [MNIST ANN](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/5_MNIST_hyperparameter_ANN.ipynb)
-    - [Fashion MNIST with ANN](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/6_FASHION_MNIST_ANN.ipynb)
-    - [CIFAR-10 with ANN](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/7_CIFAR_ANN.ipynb)
-    - [Fashion MNIST with CNN](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/8_FASHION_MNIST_CNN.ipynb)
-    - [CIFAR-10 with CNN](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/9_CIFAR_CNN.ipynb)
+    # --- Health, Water, and Urban Analytics ---
+    st.subheader("🏥 Health, Water, and Urban Analytics")
+    col1, col2, col3 = st.columns(3)
 
-    ---
-    📌 Many of these tools are open-source and built with reproducibility in mind. I regularly maintain and expand them under the my GitHub workspace.
-    """)
+    with col1:
+        st.markdown("#### [Air Pollution Hotspot Calculator](https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/aph_calculator)")
+        st.markdown("Rank urban hotspots using percentile + threshold logic.")
+
+    with col2:
+        st.markdown("#### [Drinking Water Quality Dashboard](https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/brc_stream_drinking_water_quality)")
+        st.markdown("Panchayat-level survey data analytics + visualization.")
+
+    with col3:
+        st.markdown("#### [Diabetes Risk Classifier](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/2_Diabetes_EDA_ML.ipynb)")
+        st.markdown("ML-based classifier with PDF auto-report.")
+
+    # --- ML Models & Predictive Analytics ---
+    st.subheader("🚗 ML Models & Predictive Analytics")
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown("#### [Car Price Prediction Dashboard](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/1_Automobiles_EDA_ML.ipynb)")
+        st.markdown("EDA and regression on automobile pricing.")
+
+    with col2:
+        st.markdown("#### Sea Level Trend Detector")
+        st.markdown("*Link coming soon*<br>Sliding window detection on spatiotemporal grids.", unsafe_allow_html=True)
+
+    # --- AI/ML Practice Notebooks ---
+    st.subheader("🧠 AI/ML Practice Notebooks")
+
+    notebooks = [
+        ("Automobiles EDA + ML", "1_Automobiles_EDA_ML.ipynb"),
+        ("Diabetes EDA + ML", "2_Diabetes_EDA_ML.ipynb"),
+        ("Housing Price Prediction", "3_Housing_EDA_ML.ipynb"),
+        ("Insurance Risk Analysis", "4_Insurance_EDA_ML.ipynb"),
+        ("MNIST ANN", "5_MNIST_hyperparameter_ANN.ipynb"),
+        ("Fashion MNIST with ANN", "6_FASHION_MNIST_ANN.ipynb"),
+        ("CIFAR-10 with ANN", "7_CIFAR_ANN.ipynb"),
+        ("Fashion MNIST with CNN", "8_FASHION_MNIST_CNN.ipynb"),
+        ("CIFAR-10 with CNN", "9_CIFAR_CNN.ipynb"),
+    ]
+
+    for i in range(0, len(notebooks), 3):
+        cols = st.columns(3)
+        for col, (title, link) in zip(cols, notebooks[i:i+3]):
+            with col:
+                st.markdown(f"#### [{title}](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/{link})")
+                st.markdown("Click to view notebook", unsafe_allow_html=True)
+
 
 
 
