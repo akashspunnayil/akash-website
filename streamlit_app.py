@@ -101,7 +101,9 @@ h4, p, a {
 
 
 # --- Tile Renderer with Preview ---
-def render_tile(title, url, description, img_base64):
+#def render_tile(title, url, description, img_base64):
+def render_tile(title, url, description, img_base64=shared_img_base64):
+
     tile_height = 400
     image_height = 160
     line_clamp = 4
@@ -305,6 +307,7 @@ elif menu == "Projects":
             title="argohycom-toolbox",
             url="https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/argohycom_toolbox",
             description="Colocation and filtering of BGC-Argo profiles with HYCOM outputs."
+            img_base64=shared_img_base64  # ✅ Required fourth argument
         ), unsafe_allow_html=True)
 
     with col2:
