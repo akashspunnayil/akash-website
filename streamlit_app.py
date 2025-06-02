@@ -69,7 +69,6 @@ shared_img_base64 = get_base64_image("static/preview/preview.jpeg")  # ✅ Your 
 
 st.markdown("""
     <style>
-    /* Target Streamlit's column wrapper and markdown container */
     .element-container {
         background: transparent !important;
         padding: 0px !important;
@@ -80,12 +79,12 @@ st.markdown("""
         background: transparent !important;
     }
 
-    /* Optionally make global body background dark if not already */
     body {
         background-color: #0e1117;
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 # --- Tile Renderer with Preview ---
 def render_tile(title, url, description, img_base64):
