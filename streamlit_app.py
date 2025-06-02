@@ -103,33 +103,26 @@ h4, p, a {
 # --- Tile Renderer with Preview ---
 #def render_tile(title, url, description, img_base64):
 def render_tile(title, url, description, img_base64=shared_img_base64):
-
-    tile_height = 400
-    image_height = 160
+    tile_height = 380
+    image_height = 150
     line_clamp = 4
 
     return f"""
-	<div class="transparent-tile" style="
-	 
-	    background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(6px);
-
-	    border: 1px solid rgba(255, 255, 255, 0.1);
-	    
-	    border-radius: 14px;
-	    padding: 16px;
-	    margin: 6px;
-	    height: 400px;
-	    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-	    display: flex;
-	    flex-direction: column;
-	    justify-content: flex-start;
-	    backdrop-filter: blur(8px);
-	    -webkit-backdrop-filter: blur(8px);
-	    box-sizing: border-box;  /* ✅ add this */
-	">
-
-
+    <div class="transparent-tile" style="
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 16px;
+        margin: 6px;
+        height: {tile_height}px;
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-sizing: border-box;
+    ">
         <img src="data:image/png;base64,{img_base64}" style="
             width: 100%;
             height: {image_height}px;
@@ -137,7 +130,7 @@ def render_tile(title, url, description, img_base64=shared_img_base64):
             border-radius: 8px;
             margin-bottom: 10px;
         " />
-        <h4 style='margin-bottom: 8px; font-size: 16px; line-height: 1.3; color: #00BFFF;'>
+        <h4 style="margin-bottom: 8px; font-size: 16px; line-height: 1.3; color: #00BFFF;">
             <a href="{url}" target="_blank" style="text-decoration: none; color: #00BFFF;">{title}</a>
         </h4>
         <p style="color: #ffffffcc; font-size: 13px; line-height: 1.4; overflow: hidden;
@@ -147,7 +140,6 @@ def render_tile(title, url, description, img_base64=shared_img_base64):
         </p>
     </div>
     """
-
 
 
 
