@@ -74,20 +74,21 @@ def render_tile(title, url, description, img_base64):
     line_clamp = 4
 
     return f"""
-    <div style="
-        background: rgba(255, 255, 255, 0.05);  /* ✅ translucent glass effect */
-        border: 1px solid rgba(255, 255, 255, 0.1);  /* ✅ light border */
-        border-radius: 14px;
-        padding: 16px;
-        margin: 6px;
-        height: {tile_height}px;
-        box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        backdrop-filter: blur(8px);  /* ✅ soft blur background */
-        -webkit-backdrop-filter: blur(8px);
-    ">
+<div class="transparent-tile" style="
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 16px;
+    margin: 6px;
+    height: {tile_height}px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+">
+
         <img src="data:image/png;base64,{img_base64}" style="
             width: 100%;
             height: {image_height}px;
@@ -251,6 +252,24 @@ elif menu == "Research":
 
 # --- Projects Section ---
 elif menu == "Projects":
+
+    st.markdown("""
+    <style>
+    /* Remove Streamlit white padding and background from columns */
+    .element-container:has(.transparent-tile) {
+        background: transparent !important;
+        padding: 0 !important;
+    }
+
+    /* Optional: full width content block styling if needed */
+    .block-container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+
     st.title("📁 Projects")
 
     st.markdown("I actively develop scientific tools, analytical pipelines, and domain-specific machine learning models across environmental science, health, and geospatial domains. Below are selected projects:")
