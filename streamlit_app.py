@@ -94,21 +94,21 @@ def render_tile(title, url, description, img_base64):
     line_clamp = 4
 
     return f"""
-<div class="transparent-tile" style="
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 14px;
-    padding: 16px;
-    margin: 6px;
-    height: 400px;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-sizing: border-box;  /* ✅ add this */
-">
+	<div class="transparent-tile" style="
+	    background: rgba(255, 255, 255, 0.05);
+	    border: 1px solid rgba(255, 255, 255, 0.1);
+	    border-radius: 14px;
+	    padding: 16px;
+	    margin: 6px;
+	    height: 400px;
+	    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: flex-start;
+	    backdrop-filter: blur(8px);
+	    -webkit-backdrop-filter: blur(8px);
+	    box-sizing: border-box;  /* ✅ add this */
+	">
 
 
         <img src="data:image/png;base64,{img_base64}" style="
