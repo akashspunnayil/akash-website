@@ -91,6 +91,7 @@ def render_tile(title, url, description, img_base64=shared_img_base64):
 # --- Blog Page ---
 import requests
 from bs4 import BeautifulSoup
+
 def get_wp_preview(url):
     try:
         response = requests.get(url, timeout=5)
@@ -123,6 +124,7 @@ def render_blog_tile(title, url, excerpt, image_url=None):
         <p style='font-size: 14px;'>{excerpt}</p>
     </div>
     """
+
 
 
 # --- Home Page ---
@@ -313,6 +315,22 @@ elif menu == "Projects":
 elif menu == "Blog":
     st.title("✍️ Blog")
 
+    # --- Intro Section ---
+    st.markdown("""
+    I regularly share tutorials, research notes, and data science experiments through my blog under **[Aireen Project](https://aireenproject.wordpress.com/category/python-classes/)**.
+
+    ### 🔍 What I Write About:
+    - 🔬 Ocean science, OMZ dynamics, and data-driven marine research  
+    - 🤖 Machine learning workflows for scientific and real-world problems  
+    - 🛰️ Remote sensing, cruise-based survey experiences, and field insights  
+    - 🛠️ Python scripting, automation, and tool building  
+    - 😄 Occasionally... fun experiments with code and observations from the field
+
+    📖 Visit: [aireenproject.wordpress.com/category/python-classes/](https://aireenproject.wordpress.com/category/python-classes/)
+    """)
+
+    st.markdown("### 📚 Blog Posts with Live Previews")
+    
     blog_links = [
         "https://aireenproject.wordpress.com/2024/07/21/python-loading-multiple-netcdf-files-and-plotting-subplots/",
         "https://aireenproject.wordpress.com/2024/06/05/python-a-guide-to-customizing-themes-in-jupyter/",
@@ -323,8 +341,6 @@ elif menu == "Blog":
         "https://aireenproject.wordpress.com/2023/10/19/the-world-of-netcdf/",
         "https://aireenproject.wordpress.com/2023/10/10/dive-into-python-essential-tutorial-series-for-ocean-and-climate-researchers/"
     ]
-
-    st.markdown("Blogs loaded from [Aireen Project](https://aireenproject.wordpress.com/category/python-classes/) with live previews:")
 
     for i in range(0, len(blog_links), 2):
         cols = st.columns(2)
