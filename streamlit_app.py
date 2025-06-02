@@ -53,6 +53,41 @@ st.image(resized_cover)
 #     """,
 #     unsafe_allow_html=True)
 
+# --- Projects Page ---
+from PIL import Image
+from io import BytesIO
+import base64
+
+# --- Load Shared Preview Image ---
+def get_base64_image(path):
+    img = Image.open(path)
+    buffered = BytesIO()
+    img.save(buffered, format="PNG")
+    return base64.b64encode(buffered.getvalue()).decode()
+
+shared_img_base64 = get_base64_image("static/preview/preview.jpeg")  # ✅ Your current shared image
+
+# --- Tile Renderer with Preview ---
+def render_tile(title, url, description, img_base64=shared_img_base64):
+    return f"""
+    <div style="
+        border: 1px solid #e6e6e6;
+        border-radius: 10px;
+        padding: 16px;
+        background-color: #fafafa;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+        margin-bottom: 10px;
+        height: 100%;
+    ">
+        <img src="data:image/png;base64,{img_base64}" style="width:100%; height:auto; border-radius: 6px; margin-bottom: 10px;" />
+        <h4 style="margin-bottom: 10px;">
+            <a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a>
+        </h4>
+        <p style='font-size: 14px;'>{description}</p>
+    </div>
+    """
+
+
 
 # --- Home Page ---
 if menu == "Home":
@@ -135,39 +170,6 @@ elif menu == "Research":
     """)
 
 
-# --- Projects Page ---
-from PIL import Image
-from io import BytesIO
-import base64
-
-# --- Load Shared Preview Image ---
-def get_base64_image(path):
-    img = Image.open(path)
-    buffered = BytesIO()
-    img.save(buffered, format="PNG")
-    return base64.b64encode(buffered.getvalue()).decode()
-
-shared_img_base64 = get_base64_image("static/preview/preview.jpeg")  # ✅ Your current shared image
-
-# --- Tile Renderer with Preview ---
-def render_tile(title, url, description, img_base64=shared_img_base64):
-    return f"""
-    <div style="
-        border: 1px solid #e6e6e6;
-        border-radius: 10px;
-        padding: 16px;
-        background-color: #fafafa;
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-        margin-bottom: 10px;
-        height: 100%;
-    ">
-        <img src="data:image/png;base64,{img_base64}" style="width:100%; height:auto; border-radius: 6px; margin-bottom: 10px;" />
-        <h4 style="margin-bottom: 10px;">
-            <a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a>
-        </h4>
-        <p style='font-size: 14px;'>{description}</p>
-    </div>
-    """
 
 # --- Projects Section ---
 elif menu == "Projects":
