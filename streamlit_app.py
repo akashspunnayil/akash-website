@@ -68,24 +68,40 @@ def get_base64_image(path):
 shared_img_base64 = get_base64_image("static/preview/preview.jpeg")  # ✅ Your current shared image
 
 # --- Tile Renderer with Preview ---
-def render_tile(title, url, description, img_base64=shared_img_base64):
+def render_tile(title, url, description, img_base64):
+    tile_height = 380     # You can adjust this
+    image_height = 150    # You can adjust this too
+
     return f"""
     <div style="
         border: 1px solid #e6e6e6;
-        border-radius: 10px;
+        border-radius: 12px;
         padding: 16px;
+        margin: 6px;  /* ✅ spacing around tiles */
         background-color: #fafafa;
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-        margin-bottom: 10px;
-        height: 100%;
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.06);
+        height: {tile_height}px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
     ">
-        <img src="data:image/png;base64,{img_base64}" style="width:100%; height:auto; border-radius: 6px; margin-bottom: 10px;" />
-        <h4 style="margin-bottom: 10px;">
-            <a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a>
+        <img src="data:image/png;base64,{img_base64}" style="
+            width: 100%;
+            height: {image_height}px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        " />
+        <h4 style="margin-bottom: 8px; font-size: 16px; line-height: 1.3;">
+            <a href="{url}" target="_blank" style="text-decoration: none; color: #0066cc;">{title}</a>
         </h4>
-        <p style='font-size: 14px;'>{description}</p>
+        <p style="font-size: 13px; line-height: 1.4; overflow: hidden; display: -webkit-box;
+                  -webkit-line-clamp: 4; -webkit-box-orient: vertical;">
+            {description}
+        </p>
     </div>
     """
+
 
 
 # --- Blog Page ---
