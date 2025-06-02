@@ -108,7 +108,7 @@ def get_wp_preview(url):
 def render_blog_tile(title, url, excerpt, image_url=None, margin_right=True):
     tile_height = 380
     image_height = 150
-    line_clamp = 4
+    line_clamp = 6
 
     img_tag = f"""
     <img src='{image_url}' style='
