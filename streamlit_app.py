@@ -83,7 +83,10 @@ def render_tile(title, url, description, img_base64=shared_img_base64):
         <h4 style="margin-bottom: 10px;">
             <a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a>
         </h4>
-        <p style='font-size: 14px;'>{description}</p>
+        <p style="min-height: 60px; font-size: 13px; line-height: 1.4; overflow: hidden;
+          display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
+    {description} </p>
+
     </div>
     """
 
