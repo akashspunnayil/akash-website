@@ -141,49 +141,89 @@ elif menu == "Projects":
 
     st.markdown("I actively develop scientific tools, analytical pipelines, and domain-specific machine learning models across environmental science, health, and geospatial domains. Below are selected projects:")
 
+    # --- CSS Style for Tiles ---
+    tile_style = """
+    <div style="
+        border: 1px solid #e6e6e6;
+        border-radius: 10px;
+        padding: 16px;
+        background-color: #fafafa;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+        margin-bottom: 10px;
+        height: 100%;
+    ">
+        <h4 style="margin-bottom: 10px;"><a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a></h4>
+        <p style='font-size: 14px;'>{description}</p>
+    </div>
+    """
+
     # --- Oceanography & Climate Tools ---
     st.subheader("🌊 Oceanography & Climate Tools")
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        st.markdown("#### [argohycom-toolbox](https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/argohycom_toolbox)")
-        st.markdown("Colocation and filtering of BGC-Argo profiles with HYCOM outputs.")
+        st.markdown(tile_style.format(
+            title="argohycom-toolbox",
+            url="https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/argohycom_toolbox",
+            description="Colocation and filtering of BGC-Argo profiles with HYCOM outputs."
+        ), unsafe_allow_html=True)
 
     with col2:
-        st.markdown("#### Ocean Transport Estimator")
-        st.markdown("*Link coming soon*<br>Compute zonal & meridional scalar transport.", unsafe_allow_html=True)
+        st.markdown(tile_style.format(
+            title="Ocean Transport Estimator",
+            url="#",
+            description="Compute zonal & meridional transport of scalar variables. *(link coming soon)*"
+        ), unsafe_allow_html=True)
 
     with col3:
-        st.markdown("#### DSL Depth Estimator")
-        st.markdown("*Link coming soon*<br>Estimate OMZ/DSL depths from cruise data.", unsafe_allow_html=True)
+        st.markdown(tile_style.format(
+            title="DSL Depth Estimator",
+            url="#",
+            description="Estimate OMZ/DSL depths from cruise observations. *(link coming soon)*"
+        ), unsafe_allow_html=True)
 
     # --- Health, Water, and Urban Analytics ---
     st.subheader("🏥 Health, Water, and Urban Analytics")
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        st.markdown("#### [Air Pollution Hotspot Calculator](https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/aph_calculator)")
-        st.markdown("Rank urban hotspots using percentile + threshold logic.")
+        st.markdown(tile_style.format(
+            title="Air Pollution Hotspot Calculator",
+            url="https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/aph_calculator",
+            description="Rank urban hotspots using percentile + threshold logic."
+        ), unsafe_allow_html=True)
 
     with col2:
-        st.markdown("#### [Drinking Water Quality Dashboard](https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/brc_stream_drinking_water_quality)")
-        st.markdown("Panchayat-level survey data analytics + visualization.")
+        st.markdown(tile_style.format(
+            title="Drinking Water Quality Dashboard",
+            url="https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/brc_stream_drinking_water_quality",
+            description="Panchayat-level survey data analytics and visualization."
+        ), unsafe_allow_html=True)
 
     with col3:
-        st.markdown("#### [Diabetes Risk Classifier](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/2_Diabetes_EDA_ML.ipynb)")
-        st.markdown("ML-based classifier with PDF auto-report.")
+        st.markdown(tile_style.format(
+            title="Diabetes Risk Classifier",
+            url="https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/2_Diabetes_EDA_ML.ipynb",
+            description="ML-based health risk classification with PDF reports."
+        ), unsafe_allow_html=True)
 
     # --- ML Models & Predictive Analytics ---
     st.subheader("🚗 ML Models & Predictive Analytics")
     col1, col2 = st.columns(2)
 
     with col1:
-        st.markdown("#### [Car Price Prediction Dashboard](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/1_Automobiles_EDA_ML.ipynb)")
-        st.markdown("EDA and regression on automobile pricing.")
+        st.markdown(tile_style.format(
+            title="Car Price Prediction Dashboard",
+            url="https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/1_Automobiles_EDA_ML.ipynb",
+            description="EDA and regression modeling on automobile pricing data."
+        ), unsafe_allow_html=True)
 
     with col2:
-        st.markdown("#### Sea Level Trend Detector")
-        st.markdown("*Link coming soon*<br>Sliding window detection on spatiotemporal grids.", unsafe_allow_html=True)
+        st.markdown(tile_style.format(
+            title="Sea Level Trend Detector",
+            url="#",
+            description="Sliding window detection of long-term trends in sea level. *(link coming soon)*"
+        ), unsafe_allow_html=True)
 
     # --- AI/ML Practice Notebooks ---
     st.subheader("🧠 AI/ML Practice Notebooks")
@@ -204,8 +244,11 @@ elif menu == "Projects":
         cols = st.columns(3)
         for col, (title, link) in zip(cols, notebooks[i:i+3]):
             with col:
-                st.markdown(f"#### [{title}](https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/{link})")
-                st.markdown("Click to view notebook", unsafe_allow_html=True)
+                st.markdown(tile_style.format(
+                    title=title,
+                    url=f"https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/{link}",
+                    description="Click to view notebook."
+                ), unsafe_allow_html=True)
 
 
 
