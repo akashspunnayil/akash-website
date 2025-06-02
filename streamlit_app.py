@@ -108,7 +108,7 @@ def get_wp_preview(url):
 def render_blog_tile(title, url, excerpt, image_url=None):
     img_tag = f"""
     <img src='{image_url}' style='
-        width:100%;
+        width:80%;
         height:160px;
         object-fit:cover;
         border-radius:6px;
