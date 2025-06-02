@@ -108,7 +108,7 @@ def get_wp_preview(url):
 def render_blog_tile(title, url, excerpt, image_url=None):
     img_tag = f"""
     <img src='{image_url}' style='
-        width:80%;
+        width:100%;
         height:160px;
         object-fit:cover;
         border-radius:6px;
@@ -357,7 +357,7 @@ elif menu == "Blog":
     ]
 
     for i in range(0, len(blog_links), 2):
-        cols = st.columns(2)
+        cols = st.columns(3)
         for col, link in zip(cols, blog_links[i:i+2]):
             title, excerpt, img_url = get_wp_preview(link)
             with col:
