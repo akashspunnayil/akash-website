@@ -124,7 +124,7 @@ def render_blog_tile(title, url, excerpt, image_url=None, margin_right=True):
     return f"""
     <div style="
         border: 1px solid #e6e6e6;
-        border-radius: 10px;
+        border-radius: 6px;
         padding: 16px;
         background-color: #fafafa;
         box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
