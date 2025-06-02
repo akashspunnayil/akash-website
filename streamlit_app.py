@@ -68,41 +68,44 @@ def get_base64_image(path):
 shared_img_base64 = get_base64_image("static/preview/preview.jpeg")  # ✅ Your current shared image
 
 # --- Tile Renderer with Preview ---
-def render_tile(title, url, description, img_base64=shared_img_base64):
-    tile_height = 400   # 🔁 you can adjust this (ideal: 380–420)
-    image_height = 160  # 🔁 fixed image height
-    line_clamp = 4      # 🔁 controls excerpt line limit
+def render_tile(title, url, description, img_base64):
+    tile_height = 400
+    image_height = 160
+    line_clamp = 4
 
     return f"""
     <div style="
-        border: 1px solid #e6e6e6;
-        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.05);  /* ✅ translucent glass effect */
+        border: 1px solid rgba(255, 255, 255, 0.1);  /* ✅ light border */
+        border-radius: 14px;
         padding: 16px;
         margin: 6px;
-        background-color: #fafafa;
-        box-shadow: 2px 2px 8px rgba(0,0,0,0.06);
         height: {tile_height}px;
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        backdrop-filter: blur(8px);  /* ✅ soft blur background */
+        -webkit-backdrop-filter: blur(8px);
     ">
         <img src="data:image/png;base64,{img_base64}" style="
             width: 100%;
             height: {image_height}px;
             object-fit: cover;
-            border-radius: 6px;
+            border-radius: 8px;
             margin-bottom: 10px;
         " />
-        <h4 style="margin-bottom: 8px; font-size: 16px; line-height: 1.3;">
-            <a href="{url}" target="_blank" style="text-decoration: none; color: #0066cc;">{title}</a>
+        <h4 style='margin-bottom: 8px; font-size: 16px; line-height: 1.3; color: #00BFFF;'>
+            <a href="{url}" target="_blank" style="text-decoration: none; color: #00BFFF;">{title}</a>
         </h4>
-        <p style="font-size: 13px; line-height: 1.4; overflow: hidden;
+        <p style="color: #ffffffcc; font-size: 13px; line-height: 1.4; overflow: hidden;
                   display: -webkit-box; -webkit-line-clamp: {line_clamp}; -webkit-box-orient: vertical;
                   min-height: 60px;">
             {description}
         </p>
     </div>
     """
+
 
 
 
