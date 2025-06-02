@@ -69,26 +69,41 @@ shared_img_base64 = get_base64_image("static/preview/preview.jpeg")  # ✅ Your 
 
 # --- Tile Renderer with Preview ---
 def render_tile(title, url, description, img_base64=shared_img_base64):
+    tile_height = 400   # 🔁 you can adjust this (ideal: 380–420)
+    image_height = 160  # 🔁 fixed image height
+    line_clamp = 4      # 🔁 controls excerpt line limit
+
     return f"""
     <div style="
         border: 1px solid #e6e6e6;
-        border-radius: 10px;
+        border-radius: 12px;
         padding: 16px;
+        margin: 6px;
         background-color: #fafafa;
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-        margin-bottom: 10px;
-        height: 100%;
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.06);
+        height: {tile_height}px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
     ">
-        <img src="data:image/png;base64,{img_base64}" style="width:100%; height:auto; border-radius: 6px; margin-bottom: 10px;" />
-        <h4 style="margin-bottom: 10px;">
-            <a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a>
+        <img src="data:image/png;base64,{img_base64}" style="
+            width: 100%;
+            height: {image_height}px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        " />
+        <h4 style="margin-bottom: 8px; font-size: 16px; line-height: 1.3;">
+            <a href="{url}" target="_blank" style="text-decoration: none; color: #0066cc;">{title}</a>
         </h4>
-        <p style="min-height: 60px; font-size: 13px; line-height: 1.4; overflow: hidden;
-          display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
-    {description} </p>
-
+        <p style="font-size: 13px; line-height: 1.4; overflow: hidden;
+                  display: -webkit-box; -webkit-line-clamp: {line_clamp}; -webkit-box-orient: vertical;
+                  min-height: 60px;">
+            {description}
+        </p>
     </div>
     """
+
 
 
 # --- Blog Page ---
