@@ -8,7 +8,7 @@ st.set_page_config(page_title="AKASH.S", layout="wide")
 # --- Sidebar Navigation ---
 menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "CV"])
 
-
+# --- Cover Image ---
 from PIL import Image
 cover = Image.open("static/cover2.png")
 #st.image(cover, use_container_width=True)
@@ -87,6 +87,42 @@ def render_tile(title, url, description, img_base64=shared_img_base64):
     </div>
     """
 
+
+# --- Blog Page ---
+import requests
+from bs4 import BeautifulSoup
+def get_wp_preview(url):
+    try:
+        response = requests.get(url, timeout=5)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        title = soup.title.string.strip()
+        og_image = soup.find("meta", property="og:image")
+        image_url = og_image["content"] if og_image else None
+        description_tag = soup.find("meta", property="og:description")
+        excerpt = description_tag["content"] if description_tag else "Click to read more."
+        return title, excerpt, image_url
+    except Exception as e:
+        return "Blog Title", "Click to read more.", None
+
+def render_blog_tile(title, url, excerpt, image_url=None):
+    img_tag = f"<img src='{image_url}' style='width:100%; border-radius:6px; margin-bottom:10px;' />" if image_url else ""
+    return f"""
+    <div style="
+        border: 1px solid #e6e6e6;
+        border-radius: 10px;
+        padding: 16px;
+        background-color: #fafafa;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+        margin-bottom: 10px;
+        height: 100%;
+    ">
+        {img_tag}
+        <h4 style="margin-bottom: 10px;">
+            <a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a>
+        </h4>
+        <p style='font-size: 14px;'>{excerpt}</p>
+    </div>
+    """
 
 
 # --- Home Page ---
@@ -276,20 +312,27 @@ elif menu == "Projects":
 # --- Blog Page ---
 elif menu == "Blog":
     st.title("✍️ Blog")
-    st.markdown("""
-    I regularly share tutorials, research notes, and data science experiments through my blog under **[Aireen Project](https://aireenproject.wordpress.com/category/python-classes/)**.
 
-    ### 🔍 What I Write About:
-    - 🔬 Ocean science, OMZ dynamics, and data-driven marine research  
-    - 🤖 Machine learning workflows for scientific and real-world problems  
-    - 🛰️ Remote sensing, cruise-based survey experiences, and field insights  
-    - 🛠️ Python scripting, automation, and tool building  
-    - 😄 Occasionally... fun experiments with code and observations from the field
+    blog_links = [
+        "https://aireenproject.wordpress.com/2024/07/21/python-loading-multiple-netcdf-files-and-plotting-subplots/",
+        "https://aireenproject.wordpress.com/2024/06/05/python-a-guide-to-customizing-themes-in-jupyter/",
+        "https://aireenproject.wordpress.com/2023/12/26/python-clipping-netcdf-data-using-shapefile/",
+        "https://aireenproject.wordpress.com/2023/11/10/python-calculations-made-easy/",
+        "https://aireenproject.wordpress.com/2023/11/03/handling-table-data/",
+        "https://aireenproject.wordpress.com/2023/10/27/the-key-to-time-series-plotting/",
+        "https://aireenproject.wordpress.com/2023/10/19/the-world-of-netcdf/",
+        "https://aireenproject.wordpress.com/2023/10/10/dive-into-python-essential-tutorial-series-for-ocean-and-climate-researchers/"
+    ]
 
-    📖 Visit: [aireenproject.wordpress.com/category/python-classes/](https://aireenproject.wordpress.com/category/python-classes/)
-    """)
+    st.markdown("Blogs loaded from [Aireen Project](https://aireenproject.wordpress.com/category/python-classes/) with live previews:")
 
-    st.info("New posts and internal blog integration coming soon!")
+    for i in range(0, len(blog_links), 2):
+        cols = st.columns(2)
+        for col, link in zip(cols, blog_links[i:i+2]):
+            title, excerpt, img_url = get_wp_preview(link)
+            with col:
+                st.markdown(render_blog_tile(title, link, excerpt, img_url), unsafe_allow_html=True)
+
 
 
 # --- CV Page ---
