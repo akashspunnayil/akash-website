@@ -136,13 +136,22 @@ elif menu == "Research":
 
 
 # --- Projects Page ---
-elif menu == "Projects":
-    st.title("📁 Projects")
+from PIL import Image
+from io import BytesIO
+import base64
 
-    st.markdown("I actively develop scientific tools, analytical pipelines, and domain-specific machine learning models across environmental science, health, and geospatial domains. Below are selected projects:")
+# --- Load Shared Preview Image ---
+def get_base64_image(path):
+    img = Image.open(path)
+    buffered = BytesIO()
+    img.save(buffered, format="PNG")
+    return base64.b64encode(buffered.getvalue()).decode()
 
-    # --- CSS Style for Tiles ---
-    tile_style = """
+shared_img_base64 = get_base64_image("static/preview/preview.jpeg")  # ✅ Your current shared image
+
+# --- Tile Renderer with Preview ---
+def render_tile(title, url, description, img_base64=shared_img_base64):
+    return f"""
     <div style="
         border: 1px solid #e6e6e6;
         border-radius: 10px;
@@ -152,82 +161,90 @@ elif menu == "Projects":
         margin-bottom: 10px;
         height: 100%;
     ">
-        <h4 style="margin-bottom: 10px;"><a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a></h4>
+        <img src="data:image/png;base64,{img_base64}" style="width:100%; height:auto; border-radius: 6px; margin-bottom: 10px;" />
+        <h4 style="margin-bottom: 10px;">
+            <a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a>
+        </h4>
         <p style='font-size: 14px;'>{description}</p>
     </div>
     """
 
-    # --- Oceanography & Climate Tools ---
+# --- Projects Section ---
+elif menu == "Projects":
+    st.title("📁 Projects")
+
+    st.markdown("I actively develop scientific tools, analytical pipelines, and domain-specific machine learning models across environmental science, health, and geospatial domains. Below are selected projects:")
+
+    # 🌊 Oceanography & Climate Tools
     st.subheader("🌊 Oceanography & Climate Tools")
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        st.markdown(tile_style.format(
+        st.markdown(render_tile(
             title="argohycom-toolbox",
             url="https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/argohycom_toolbox",
             description="Colocation and filtering of BGC-Argo profiles with HYCOM outputs."
         ), unsafe_allow_html=True)
 
     with col2:
-        st.markdown(tile_style.format(
+        st.markdown(render_tile(
             title="Ocean Transport Estimator",
             url="#",
             description="Compute zonal & meridional transport of scalar variables. *(link coming soon)*"
         ), unsafe_allow_html=True)
 
     with col3:
-        st.markdown(tile_style.format(
+        st.markdown(render_tile(
             title="DSL Depth Estimator",
             url="#",
             description="Estimate OMZ/DSL depths from cruise observations. *(link coming soon)*"
         ), unsafe_allow_html=True)
 
-    # --- Health, Water, and Urban Analytics ---
+    # 🏥 Health, Water, and Urban Analytics
     st.subheader("🏥 Health, Water, and Urban Analytics")
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        st.markdown(tile_style.format(
+        st.markdown(render_tile(
             title="Air Pollution Hotspot Calculator",
             url="https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/aph_calculator",
             description="Rank urban hotspots using percentile + threshold logic."
         ), unsafe_allow_html=True)
 
     with col2:
-        st.markdown(tile_style.format(
+        st.markdown(render_tile(
             title="Drinking Water Quality Dashboard",
             url="https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/brc_stream_drinking_water_quality",
             description="Panchayat-level survey data analytics and visualization."
         ), unsafe_allow_html=True)
 
     with col3:
-        st.markdown(tile_style.format(
+        st.markdown(render_tile(
             title="Diabetes Risk Classifier",
             url="https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/2_Diabetes_EDA_ML.ipynb",
             description="ML-based health risk classification with PDF reports."
         ), unsafe_allow_html=True)
 
-    # --- ML Models & Predictive Analytics ---
+    # 🚗 ML Models & Predictive Analytics
     st.subheader("🚗 ML Models & Predictive Analytics")
     col1, col2 = st.columns(2)
 
     with col1:
-        st.markdown(tile_style.format(
+        st.markdown(render_tile(
             title="Car Price Prediction Dashboard",
             url="https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/1_Automobiles_EDA_ML.ipynb",
             description="EDA and regression modeling on automobile pricing data."
         ), unsafe_allow_html=True)
 
     with col2:
-        st.markdown(tile_style.format(
+        st.markdown(render_tile(
             title="Sea Level Trend Detector",
             url="#",
             description="Sliding window detection of long-term trends in sea level. *(link coming soon)*"
         ), unsafe_allow_html=True)
 
-    # --- AI/ML Practice Notebooks ---
+    # 🧠 AI/ML Practice Notebooks
     st.subheader("🧠 AI/ML Practice Notebooks")
-
     notebooks = [
         ("Automobiles EDA + ML", "1_Automobiles_EDA_ML.ipynb"),
         ("Diabetes EDA + ML", "2_Diabetes_EDA_ML.ipynb"),
@@ -244,10 +261,11 @@ elif menu == "Projects":
         cols = st.columns(3)
         for col, (title, link) in zip(cols, notebooks[i:i+3]):
             with col:
-                st.markdown(tile_style.format(
+                st.markdown(render_tile(
                     title=title,
                     url=f"https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/{link}",
                     description="Click to view notebook."
+                    # In future: img_base64=get_base64_image("static/preview/your_custom.png")
                 ), unsafe_allow_html=True)
 
 
