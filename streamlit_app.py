@@ -8,28 +8,34 @@ st.set_page_config(page_title="AKASH.S", layout="wide")
 # --- Sidebar Navigation ---
 # menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "CV"])
 # --- Custom Sidebar Navigation ---
-st.sidebar.markdown("""
+st.markdown("""
 <style>
-.nav-button {
-    background-color: transparent;
-    color: inherit;
-    padding: 8px 16px;
-    display: block;
-    text-align: left;
-    border: none;
-    font-size: 15px;
-    margin: 4px 0;
-    cursor: pointer;
+/* Fix sidebar label and radio button text color across themes */
+section[data-testid="stSidebar"] {
+    color: #1a1a1a !important; /* dark gray works in both themes */
 }
-.nav-button:hover {
-    background-color: rgba(100, 100, 100, 0.1);
+
+section[data-testid="stSidebar"] .css-1cypcdb,
+section[data-testid="stSidebar"] .css-1n76uvr {
+    color: #1a1a1a !important;
+    font-weight: 500;
+    font-size: 16px;
 }
-.selected {
-    font-weight: bold;
-    color: #1f77b4;
+
+/* Fix header or text above sidebar (like "Navigation") */
+section[data-testid="stSidebar"] h1, 
+section[data-testid="stSidebar"] h2, 
+section[data-testid="stSidebar"] h3, 
+section[data-testid="stSidebar"] h4, 
+section[data-testid="stSidebar"] h5, 
+section[data-testid="stSidebar"] h6, 
+section[data-testid="stSidebar"] p {
+    color: #1a1a1a !important;
 }
 </style>
 """, unsafe_allow_html=True)
+st.sidebar.markdown("## 🧭 Navigation")
+
 
 nav_options = ["Home", "Research", "Projects", "Blog", "CV"]
 menu = st.sidebar.radio("Navigation", nav_options, index=0)
