@@ -207,21 +207,20 @@ def render_publication_tile(title, url, authors, journal, year):
         padding: 16px;
         margin: 6px;
         background-color: #fafafa;
-        color: #1a1a1a;
+        color: #1a1a1a;  /* ✅ Ensures dark text on light background */
         box-shadow: 2px 2px 8px rgba(0,0,0,0.06);
         height: auto;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
     ">
-        <h4 style='margin-bottom: 6px; font-size: 16px; line-height: 1.3;'>
+        <h4 style='margin-bottom: 6px; font-size: 16px; line-height: 1.3; color: #1a1a1a;'>
             <a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a>
         </h4>
         <p style='font-size: 13px; margin: 4px 0 0 0;'><i>{authors}</i></p>
         <p style='font-size: 13px; margin: 2px 0 0 0;'><i>{journal}, {year}</i></p>
     </div>
     """
-
 
 
 
