@@ -248,7 +248,7 @@ if menu == "Home":
     insights from complex datasets.
     </p>
     
-    <h4 style='margin-top: 1.5em;'>🔬 Academic & Research Focus</h4>
+    <h4 style='margin-top: 2em;'>🔬 Academic & Research Focus</h4>
     <ul>
         <li>Ocean-climate interactions: <strong>OMZ dynamics</strong>, <strong>upwelling</strong>, <strong>circulation</strong>, <strong>ENSO/IOD impacts</strong></li>
         <li>Biogeochemical and physical modeling using <strong>HYCOM-ECOSMO</strong></li>
