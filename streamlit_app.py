@@ -280,6 +280,72 @@ elif menu == "Research":
     ---
     My research aims to bridge traditional physical oceanography with modern data science to better understand **marine oxygen variability**, its drivers, and broader implications for ecosystem functioning and fisheries.
     """)
+        # --- Publications Section ---
+    st.markdown("### 📚 Selected Publications")
+
+    # Most recent 5 publications as tiles
+    publication_tiles = [
+        {
+            "title": "HYCOM-ECOSMO for the Indian Ocean: a simulation of oxygen minimum zone variability over the last two decades",
+            "authors": "Akash, S. et al.",
+            "journal": "Journal of Oceanography",
+            "year": "2025",
+            "doi": "https://doi.org/10.1007/s10872-025-00744-0"
+        },
+        {
+            "title": "Distribution dynamics of kiddi prawn using multi-dimensional approach",
+            "authors": "Dineshbabu A.P. et al., incl. Akash S.",
+            "journal": "Regional Studies in Marine Science",
+            "year": "2024",
+            "doi": "https://doi.org/10.1016/j.rsma.2023.103364"
+        },
+        {
+            "title": "Interannual variability of chlorophyll-a and impact of extreme climatic events in SE Arabian Sea",
+            "authors": "Shafeeque, M. et al., incl. Akash S.",
+            "journal": "Regional Studies in Marine Science",
+            "year": "2021",
+            "doi": "https://doi.org/10.1016/j.rsma.2021.101986"
+        },
+        {
+            "title": "Spatio-temporal variations of chlorophyll from satellite and CMIP5 models",
+            "authors": "Joseph, D. et al., incl. Akash S.",
+            "journal": "Journal of Earth System Science",
+            "year": "2021",
+            "doi": "https://doi.org/10.1007/s12040-021-01663-6"
+        },
+        {
+            "title": "Observed links between coastal ocean processes and Indian Oil Sardine fishery",
+            "authors": "Akash, S. et al.",
+            "journal": "Regional Studies in Marine Science",
+            "year": "2021",
+            "doi": "https://doi.org/10.1016/j.rsma.2021.101850"
+        }
+    ]
+
+    for pub in publication_tiles:
+        st.markdown(f"""
+        <div style='
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+        '>
+            <b>{pub['title']}</b><br>
+            <i>{pub['authors']}</i><br>
+            <i>{pub['journal']}, {pub['year']}</i><br>
+            <a href="{pub['doi']}" target="_blank">🔗 Read Online</a>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # Remaining publications as list
+    st.markdown("### 🗂️ Earlier Publications")
+    st.markdown("""
+- Sajna V.H. et al., incl. Akash S., 2021. *Impact of climate change on the fishery of Indian mackerel.* [DOI: 10.1016/j.rsma.2021.101773](https://doi.org/10.1016/j.rsma.2021.101773)
+- Shah, P. et al., incl. Akash S., 2019. *A holistic approach to upwelling and downwelling along the SW coast of India.* [DOI: 10.1080/01490419.2018.1553805](https://doi.org/10.1080/01490419.2018.1553805)
+    """)
+
+
 
 
 
