@@ -32,7 +32,7 @@ st.sidebar.markdown("""
 """, unsafe_allow_html=True)
 
 nav_options = ["Home", "Research", "Projects", "Blog", "CV"]
-nav_selection = st.sidebar.radio("Navigation", nav_options, index=0)
+menu = st.sidebar.radio("Navigation", nav_options, index=0)
 
 
 # --- Cover Image ---
