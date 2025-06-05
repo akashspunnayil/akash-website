@@ -310,6 +310,8 @@ if menu == "Home":
 elif menu == "Research":
     st.title("🔬 Research")
     st.markdown("""
+    <div style='font-size: 16px; line-height: 1.7; color: inherit;'>
+    
     <p style="color: inherit;">
     My doctoral research focuses on the **interplay between ocean physics and biogeochemistry** in shaping the Oxygen Minimum Zone (OMZ) in the Arabian Sea. By combining **numerical modeling**, **observational data**, and **machine learning**, I aim to uncover key mechanisms behind OMZ variability and its ecological implications.
     </p>
