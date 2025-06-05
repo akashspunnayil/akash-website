@@ -413,7 +413,16 @@ elif menu == "Projects":
 
     st.title("📁 Projects")
 
-    st.markdown("I actively develop scientific tools, analytical pipelines, and domain-specific machine learning models across environmental science, health, and geospatial domains. Below are selected projects:")
+    st.markdown("""
+<div style='font-size: 16px; line-height: 1.7; color: inherit;'>
+
+<p style="color: inherit;">
+    I actively develop scientific tools, analytical pipelines, and domain-specific machine learning models across environmental science, health, and geospatial domains. Below are selected projects:
+</p>
+
+</div>
+""", unsafe_allow_html=True)
+
 
     # 🌊 Oceanography & Climate Tools
     st.subheader("🌊 Oceanography & Climate Tools")
