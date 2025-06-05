@@ -310,7 +310,9 @@ if menu == "Home":
 elif menu == "Research":
     st.title("🔬 Research")
     st.markdown("""
+    <p style="color: inherit;">
     My doctoral research focuses on the **interplay between ocean physics and biogeochemistry** in shaping the Oxygen Minimum Zone (OMZ) in the Arabian Sea. By combining **numerical modeling**, **observational data**, and **machine learning**, I aim to uncover key mechanisms behind OMZ variability and its ecological implications.
+    </p>
 
     ### 🧪 Core Research Themes
     - **Seasonal and interannual OMZ variability** in the Arabian Sea  
