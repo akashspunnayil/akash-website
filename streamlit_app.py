@@ -287,7 +287,7 @@ if menu == "Home":
     <hr>
     
     <p style="color: inherit;"><strong>📌 About This Website</strong></p>
-    <p>
+    <p style="color: inherit;">
     This website serves as my <strong>portfolio and academic space</strong> where I share:
     </p>
     <ul>
