@@ -55,43 +55,6 @@ resized_cover = cover.resize((800, 300))  # (width, height)
 st.image(resized_cover)
 
 
-# import base64
-# from io import BytesIO
-
-# # --- Function to convert image to base64 ---
-# def get_image_base64(image_path):
-#     img = Image.open(image_path)
-#     buffered = BytesIO()
-#     img.save(buffered, format="PNG")
-#     img_base64 = base64.b64encode(buffered.getvalue()).decode()
-#     return img_base64
-
-# # --- Embed cover image as HTML ---
-# cover_base64 = get_image_base64("static/cover2.png")
-# st.markdown(
-#     f"""
-#     <style>
-#     .cover-container {{
-#         width: 100%;
-#          /*max-height: 300px;*/
-#         /*overflow: hidden;*/
-#         border-radius: 16px;
-#         margin-bottom: 20px;
-#     }}
-#     .cover-container img {{
-#         width: 100%;
-#         height: auto;
-#         /*object-fit: cover;*/
-#         object-fit: contain;
-#         border-radius: 16px;
-#     }}
-#     </style>
-#     <div class="cover-container">
-#         <img src="data:image/png;base64,{cover_base64}" alt="Cover Image">
-#     </div>
-#     """,
-#     unsafe_allow_html=True)
-
 # --- Projects Page ---
 from PIL import Image
 from io import BytesIO
@@ -269,11 +232,21 @@ if menu == "Home":
     st.title("Hi, I'm AKASH. S (AKASH SOMASEKHARAN)")
     st.subheader("Oceanography Researcher | Data Scientist | Scientific Consultant")
 
-    st.markdown("""
-    I am a multidisciplinary researcher with over 7 years of experience in **physical oceanography**, 
-    **biogeochemical modeling**, and **data science consulting**. My work bridges academic research and 
-    applied analytics, focusing on climate–ocean dynamics, dissolved oxygen variability, and actionable 
-    insights from complex datasets.
+    #st.markdown("""
+    #I am a multidisciplinary researcher with over 7 years of experience in **physical oceanography**, 
+    #**biogeochemical modeling**, and **data science consulting**. My work bridges academic research and 
+    #applied analytics, focusing on climate–ocean dynamics, dissolved oxygen variability, and actionable 
+    #insights from complex datasets.
+
+	st.markdown("""
+	<div style='font-size:16px; line-height:1.6; color: inherit;'>
+	I am a multidisciplinary researcher with over 7 years of experience in <b>physical oceanography</b>, 
+	<b>biogeochemical modeling</b>, and <b>data science consulting</b>. My work bridges academic research and 
+	applied analytics, focusing on climate–ocean dynamics, dissolved oxygen variability, and actionable 
+	insights from complex datasets.
+	</div>
+	""", unsafe_allow_html=True)
+
 
     ### 🔬 Academic & Research Focus
     - Ocean-climate interactions: **OMZ dynamics**, **upwelling**, **circulation**, **ENSO/IOD impacts**
