@@ -263,10 +263,6 @@ if menu == "Home":
     </ul>
     
     <h4 style='margin-top: 2em;'>💼 Freelance Consulting Services</h4>
-    # <p>
-    # As a consultant, I’ve delivered custom <strong>data analytics solutions</strong> and <strong>scientific scripting support</strong> 
-    # to M.Sc., Ph.D. students, and researchers across domains such as:
-    # </p>
     <p style="color: inherit;">
     As a consultant, I’ve delivered custom <strong>data analytics solutions</strong> and <strong>scientific scripting support</strong> 
     to M.Sc., Ph.D. students, and researchers across domains such as:
