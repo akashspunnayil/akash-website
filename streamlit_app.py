@@ -285,7 +285,7 @@ if menu == "Home":
     
     <hr>
     
-    <h4 style='margin-top: 2em;'>📌 About This Website</strong</h4>
+    <h4 style='margin-top: 1.5em;'>📌 About This Website</strong</h4>
     <p>
     This website serves as my <strong>portfolio and academic space</strong> where I share:
     </p>
