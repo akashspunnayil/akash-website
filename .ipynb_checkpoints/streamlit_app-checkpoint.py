@@ -225,72 +225,81 @@ def render_publication_tile(title, url, authors, journal, year):
 
 
 # --- Home Page ---
-# --- Home Page ---
 if menu == "Home":
-    # st.image("static/cover.jpg", use_column_width=True)
-    # st.image("static/cover.png", width=800, caption="Data meets AI – Akash S.")
-
+    #st.image("static/cover.jpg", use_column_width=True)
+    #st.image("static/cover.png", width=800, caption="Data meets AI – Akash S.")
+    
     st.title("Hi, I'm AKASH. S (AKASH SOMASEKHARAN)")
     st.subheader("Oceanography Researcher | Data Scientist | Scientific Consultant")
 
+    #st.markdown("""
+    #I am a multidisciplinary researcher with over 7 years of experience in **physical oceanography**, 
+    #**biogeochemical modeling**, and **data science consulting**. My work bridges academic research and 
+    #applied analytics, focusing on climate–ocean dynamics, dissolved oxygen variability, and actionable 
+    #insights from complex datasets.
+
     st.markdown("""
-    <div style='font-size:16px; line-height:1.6; color: inherit;'>
-        <p>
-        I am a multidisciplinary researcher with over 7 years of experience in <b>physical oceanography</b>, 
-        <b>biogeochemical modeling</b>, and <b>data science consulting</b>. My work bridges academic research and 
-        applied analytics, focusing on climate–ocean dynamics, dissolved oxygen variability, and actionable 
-        insights from complex datasets.
-        </p>
-
-        <h4>🔬 Academic & Research Focus</h4>
-        <ul>
-            <li>Ocean-climate interactions: <b>OMZ dynamics</b>, <b>upwelling</b>, <b>circulation</b>, <b>ENSO/IOD impacts</b></li>
-            <li>Biogeochemical and physical modeling using <b>HYCOM-ECOSMO</b></li>
-            <li>High-resolution data analysis using <b>in-situ</b>, <b>reanalysis</b>, and <b>remote sensing</b> datasets</li>
-        </ul>
-
-        <h4>🧠 Data Science & Programming</h4>
-        <ul>
-            <li>Machine learning (XGBoost, Random Forests, GAMs) for predictive modeling</li>
-            <li>HPC, automation, and custom scripting in <b>Python, R, FORTRAN</b></li>
-            <li>Interactive dashboards and visualization workflows</li>
-        </ul>
-
-        <h4>💼 Freelance Consulting Services</h4>
-        <p>As a consultant, I’ve delivered custom <b>data analytics solutions</b> and <b>scientific scripting support</b> 
-        to M.Sc., Ph.D. students, and researchers across domains such as:</p>
-        <ul>
-            <li><b>Environmental and climate research</b></li>
-            <li><b>Water quality and fisheries analytics</b></li>
-            <li><b>Health and medical risk modeling</b></li>
-            <li><b>Business and geospatial insights</b></li>
-        </ul>
-
-        <b>Recent Projects</b> include:
-        <ul>
-            <li><i>Air Pollution Hotspot Tool</i>: Ranking cities using percentile-based exposure logic</li>
-            <li><i>Catch Prediction Models</i>: AI-driven models for fishery productivity and effort optimization</li>
-            <li><i>Diabetes Risk Classifier</i>: ML-based PDF health report generator</li>
-            <li><i>Sea Level Trend Detector</i>: Sliding window tool for spatial sea level trend mapping</li>
-            <li><i>argohycom-toolbox</i>: Python module for collocating BGC-Argo profiles with HYCOM model outputs</li>
-        </ul>
-
-        <hr>
-
-        <h4>📌 About This Website</h4>
-        <p>
-        This website serves as my <b>portfolio and academic space</b> where I share:
-        </p>
-        <ul>
-            <li><b>Research highlights</b> and <b>journal publications</b></li>
-            <li>Selected <b>projects and tools</b></li>
-            <li><b>Technical blogs and notes</b></li>
-            <li>Downloadable <b>CV and contact info</b></li>
-        </ul>
-
-        <p>
-        I'm passionate about bringing <b>scientific depth and technical fluency</b> to real-world problems — across oceanography, climate science, and beyond.
-        </p>
+    <div style='font-size: 16px; line-height: 1.7; color: inherit;'>
+    
+    <p>
+    I am a multidisciplinary researcher with over 7 years of experience in <strong>physical oceanography</strong>, 
+    <strong>biogeochemical modeling</strong>, and <strong>data science consulting</strong>. My work bridges academic research and 
+    applied analytics, focusing on climate–ocean dynamics, dissolved oxygen variability, and actionable 
+    insights from complex datasets.
+    </p>
+    
+    <p><strong>🔬 Academic & Research Focus</strong></p>
+    <ul>
+        <li>Ocean-climate interactions: <strong>OMZ dynamics</strong>, <strong>upwelling</strong>, <strong>circulation</strong>, <strong>ENSO/IOD impacts</strong></li>
+        <li>Biogeochemical and physical modeling using <strong>HYCOM-ECOSMO</strong></li>
+        <li>High-resolution data analysis using <strong>in-situ</strong>, <strong>reanalysis</strong>, and <strong>remote sensing</strong> datasets</li>
+    </ul>
+    
+    <p><strong>🧠 Data Science & Programming</strong></p>
+    <ul>
+        <li>Machine learning (XGBoost, Random Forests, GAMs) for predictive modeling</li>
+        <li>HPC, automation, and custom scripting in <strong>Python, R, FORTRAN</strong></li>
+        <li>Interactive dashboards and visualization workflows</li>
+    </ul>
+    
+    <p><strong>💼 Freelance Consulting Services</strong></p>
+    <p>
+    As a consultant, I’ve delivered custom <strong>data analytics solutions</strong> and <strong>scientific scripting support</strong> 
+    to M.Sc., Ph.D. students, and researchers across domains such as:
+    </p>
+    <ul>
+        <li><strong>Environmental and climate research</strong></li>
+        <li><strong>Water quality and fisheries analytics</strong></li>
+        <li><strong>Health and medical risk modeling</strong></li>
+        <li><strong>Business and geospatial insights</strong></li>
+    </ul>
+    
+    <p><strong>Recent Projects</strong> include:</p>
+    <ul>
+        <li><em>Air Pollution Hotspot Tool</em>: Ranking cities using percentile-based exposure logic</li>
+        <li><em>Catch Prediction Models</em>: AI-driven models for fishery productivity and effort optimization</li>
+        <li><em>Diabetes Risk Classifier</em>: ML-based PDF health report generator</li>
+        <li><em>Sea Level Trend Detector</em>: Sliding window tool for spatial sea level trend mapping</li>
+        <li><em>argohycom-toolbox</em>: Python module for collocating BGC-Argo profiles with HYCOM model outputs</li>
+    </ul>
+    
+    <hr>
+    
+    <p><strong>📌 About This Website</strong></p>
+    <p>
+    This website serves as my <strong>portfolio and academic space</strong> where I share:
+    </p>
+    <ul>
+        <li><strong>Research highlights</strong> and <strong>journal publications</strong></li>
+        <li>Selected <strong>projects and tools</strong></li>
+        <li><strong>Technical blogs and notes</strong></li>
+        <li>Downloadable <strong>CV and contact info</strong></li>
+    </ul>
+    
+    <p>
+    I'm passionate about bringing <strong>scientific depth and technical fluency</strong> to real-world problems — across oceanography, climate science, and beyond.
+    </p>
+    
     </div>
     """, unsafe_allow_html=True)
 
