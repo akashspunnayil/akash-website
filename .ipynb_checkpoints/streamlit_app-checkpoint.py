@@ -336,7 +336,9 @@ elif menu == "Research":
     - Feature engineering from ocean circulation, productivity, and oxygen gradients  
 
     ---
+    <p style="color: inherit;">
     My research aims to bridge traditional physical oceanography with modern data science to better understand <strong>marine oxygen variability<strong>, its drivers, and broader implications for ecosystem functioning and fisheries.
+    </p>
 
     </div>
     """, unsafe_allow_html=True)
