@@ -281,7 +281,7 @@ elif menu == "Research":
     My research aims to bridge traditional physical oceanography with modern data science to better understand **marine oxygen variability**, its drivers, and broader implications for ecosystem functioning and fisheries.
     """)
         # --- Publications Section ---
-    st.markdown("### 📚 Selected Publications")
+    st.markdown("### 📚 Recent 5 Publications")
 
     # Most recent 5 publications as tiles
     publication_tiles = [
@@ -322,14 +322,11 @@ elif menu == "Research":
         }
     ]
 
-    for pub in publication_tiles:
+        for pub in publication_tiles:
         st.markdown(f"""
         <div style='
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 10px;
-            background-color: #f9f9f9;
+            padding: 10px 0px;
+            margin-bottom: 15px;
         '>
             <b>{pub['title']}</b><br>
             <i>{pub['authors']}</i><br>
@@ -337,6 +334,7 @@ elif menu == "Research":
             <a href="{pub['doi']}" target="_blank">🔗 Read Online</a>
         </div>
         """, unsafe_allow_html=True)
+
 
     # Remaining publications as list
     st.markdown("### 🗂️ Earlier Publications")
