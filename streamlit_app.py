@@ -39,7 +39,7 @@ div[role="radiogroup"] > label[data-testid="stRadioOption"]:has(input:checked) {
 }
 </style>
 """, unsafe_allow_html=True)
-st.sidebar.markdown("## 🧭 Navigation")
+menu = st.sidebar.markdown("## 🧭 Navigation")
 
 
 nav_options = ["Home", "Research", "Projects", "Blog", "CV"]
