@@ -198,7 +198,28 @@ def render_blog_tile(title, url, excerpt, image_url=None):
     </div>
     """
 
-
+# Publication tile
+def render_publication_tile(title, url, authors, journal, year):
+    return f"""
+    <div style="
+        border: 1px solid #e6e6e6;
+        border-radius: 12px;
+        padding: 16px;
+        margin: 6px;
+        background-color: #fafafa;
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.06);
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    ">
+        <h4 style='margin-bottom: 6px; font-size: 16px; line-height: 1.3;'>
+            <a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a>
+        </h4>
+        <p style='font-size: 13px; margin: 4px 0 0 0;'><i>{authors}</i></p>
+        <p style='font-size: 13px; margin: 2px 0 0 0;'><i>{journal}, {year}</i></p>
+    </div>
+    """
 
 
 # --- Home Page ---
@@ -322,18 +343,15 @@ elif menu == "Research":
         }
     ]
 
-        for pub in publication_tiles:
-        st.markdown(f"""
-        <div style='
-            padding: 10px 0px;
-            margin-bottom: 15px;
-        '>
-            <b>{pub['title']}</b><br>
-            <i>{pub['authors']}</i><br>
-            <i>{pub['journal']}, {pub['year']}</i><br>
-            <a href="{pub['doi']}" target="_blank">🔗 Read Online</a>
-        </div>
-        """, unsafe_allow_html=True)
+    for pub in publication_tiles:
+        st.markdown(render_publication_tile(
+            title=pub["title"],
+            url=pub["doi"],
+            authors=pub["authors"],
+            journal=pub["journal"],
+            year=pub["year"]
+        ), unsafe_allow_html=True)
+
 
 
     # Remaining publications as list
