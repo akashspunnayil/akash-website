@@ -244,9 +244,7 @@ if menu == "Home":
 	<b>biogeochemical modeling</b>, and <b>data science consulting</b>. My work bridges academic research and 
 	applied analytics, focusing on climate–ocean dynamics, dissolved oxygen variability, and actionable 
 	insights from complex datasets.
-	</div>
-	""", unsafe_allow_html=True)
-
+	
 
     ### 🔬 Academic & Research Focus
     - Ocean-climate interactions: **OMZ dynamics**, **upwelling**, **circulation**, **ENSO/IOD impacts**
@@ -282,7 +280,8 @@ if menu == "Home":
     - Downloadable **CV and contact info**
 
     I'm passionate about bringing **scientific depth and technical fluency** to real-world problems — across oceanography, climate science, and beyond.
-    """)
+    </div>
+	""", unsafe_allow_html=True)
 
 
 # --- Research Page ---
