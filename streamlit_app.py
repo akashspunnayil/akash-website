@@ -10,27 +10,32 @@ st.set_page_config(page_title="AKASH.S", layout="wide")
 # --- Custom Sidebar Navigation ---
 st.markdown("""
 <style>
-/* Fix sidebar label and radio button text color across themes */
+/* Ensure sidebar content is always visible in both themes */
+
+/* Target the entire sidebar */
 section[data-testid="stSidebar"] {
-    color: #1a1a1a !important; /* dark gray works in both themes */
+    background-color: transparent;
 }
 
-section[data-testid="stSidebar"] .css-1cypcdb,
-section[data-testid="stSidebar"] .css-1n76uvr {
-    color: #1a1a1a !important;
-    font-weight: 500;
+/* Sidebar headings and radio text */
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] h4,
+section[data-testid="stSidebar"] h5,
+section[data-testid="stSidebar"] h6,
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] span {
+    color: inherit !important;  /* ✨ ADAPTS TO THEME */
     font-size: 16px;
+    font-weight: 500;
 }
 
-/* Fix header or text above sidebar (like "Navigation") */
-section[data-testid="stSidebar"] h1, 
-section[data-testid="stSidebar"] h2, 
-section[data-testid="stSidebar"] h3, 
-section[data-testid="stSidebar"] h4, 
-section[data-testid="stSidebar"] h5, 
-section[data-testid="stSidebar"] h6, 
-section[data-testid="stSidebar"] p {
-    color: #1a1a1a !important;
+/* Optional: Make selected radio option bold and colored */
+div[role="radiogroup"] > label[data-testid="stRadioOption"]:has(input:checked) {
+    font-weight: bold;
+    color: #0066cc !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -38,7 +43,7 @@ st.sidebar.markdown("## 🧭 Navigation")
 
 
 nav_options = ["Home", "Research", "Projects", "Blog", "CV"]
-menu = st.sidebar.radio("Navigation", nav_options, index=0)
+#menu = st.sidebar.radio("Navigation", nav_options, index=0)
 
 
 # --- Cover Image ---
