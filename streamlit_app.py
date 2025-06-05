@@ -238,8 +238,8 @@ if menu == "Home":
     #applied analytics, focusing on climate–ocean dynamics, dissolved oxygen variability, and actionable 
     #insights from complex datasets.
 
-	st.markdown("""
-	<div style='font-size:16px; line-height:1.6; color: inherit;'>
+    st.markdown("""
+    <div style='font-size:16px; line-height:1.6; color: inherit;'>
 	I am a multidisciplinary researcher with over 7 years of experience in <b>physical oceanography</b>, 
 	<b>biogeochemical modeling</b>, and <b>data science consulting</b>. My work bridges academic research and 
 	applied analytics, focusing on climate–ocean dynamics, dissolved oxygen variability, and actionable 
