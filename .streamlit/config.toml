@@ -1,2 +1,6 @@
 [theme]
 base="auto"
+primaryColor="#0066cc"
+textColor="#262730"
+backgroundColor="#ffffff"
+secondaryBackgroundColor="#f0f2f6"
