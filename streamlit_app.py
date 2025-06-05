@@ -241,7 +241,7 @@ if menu == "Home":
     st.markdown("""
     <div style='font-size: 16px; line-height: 1.7; color: inherit;'>
     
-    <p>
+    <p style="color: inherit;">
     I am a multidisciplinary researcher with over 7 years of experience in <strong>physical oceanography</strong>, 
     <strong>biogeochemical modeling</strong>, and <strong>data science consulting</strong>. My work bridges academic research and 
     applied analytics, focusing on climate–ocean dynamics, dissolved oxygen variability, and actionable 
