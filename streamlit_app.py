@@ -297,7 +297,7 @@ if menu == "Home":
         <li>Downloadable <strong>CV and contact info</strong></li>
     </ul>
     
-    <p>
+    <p style="color: inherit;">
     I'm passionate about bringing <strong>scientific depth and technical fluency</strong> to real-world problems — across oceanography, climate science, and beyond.
     </p>
     
