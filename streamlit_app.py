@@ -255,14 +255,14 @@ if menu == "Home":
         <li>High-resolution data analysis using <strong>in-situ</strong>, <strong>reanalysis</strong>, and <strong>remote sensing</strong> datasets</li>
     </ul>
     
-    <p><strong>🧠 Data Science & Programming</strong></p>
+    <h4 style='margin-top: 2em;'>🧠 Data Science & Programming</h4>
     <ul>
         <li>Machine learning (XGBoost, Random Forests, GAMs) for predictive modeling</li>
         <li>HPC, automation, and custom scripting in <strong>Python, R, FORTRAN</strong></li>
         <li>Interactive dashboards and visualization workflows</li>
     </ul>
     
-    <p><strong>💼 Freelance Consulting Services</strong></p>
+    <h4 style='margin-top: 2em;'>💼 Freelance Consulting Services</h4>
     <p>
     As a consultant, I’ve delivered custom <strong>data analytics solutions</strong> and <strong>scientific scripting support</strong> 
     to M.Sc., Ph.D. students, and researchers across domains such as:
@@ -274,7 +274,7 @@ if menu == "Home":
         <li><strong>Business and geospatial insights</strong></li>
     </ul>
     
-    <p><strong>Recent Projects</strong> include:</p>
+    <h4 style='margin-top: 2em;'>Recent Projects</h4>
     <ul>
         <li><em>Air Pollution Hotspot Tool</em>: Ranking cities using percentile-based exposure logic</li>
         <li><em>Catch Prediction Models</em>: AI-driven models for fishery productivity and effort optimization</li>
@@ -285,7 +285,7 @@ if menu == "Home":
     
     <hr>
     
-    <p><strong>📌 About This Website</strong></p>
+    <h4 style='margin-top: 2em;'>📌 About This Website</strong</h4>
     <p>
     This website serves as my <strong>portfolio and academic space</strong> where I share:
     </p>
