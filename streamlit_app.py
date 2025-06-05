@@ -6,7 +6,34 @@ from PIL import Image
 st.set_page_config(page_title="AKASH.S", layout="wide")
 
 # --- Sidebar Navigation ---
-menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "CV"])
+# menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "CV"])
+# --- Custom Sidebar Navigation ---
+st.sidebar.markdown("""
+<style>
+.nav-button {
+    background-color: transparent;
+    color: inherit;
+    padding: 8px 16px;
+    display: block;
+    text-align: left;
+    border: none;
+    font-size: 15px;
+    margin: 4px 0;
+    cursor: pointer;
+}
+.nav-button:hover {
+    background-color: rgba(100, 100, 100, 0.1);
+}
+.selected {
+    font-weight: bold;
+    color: #1f77b4;
+}
+</style>
+""", unsafe_allow_html=True)
+
+nav_options = ["Home", "Research", "Projects", "Blog", "CV"]
+nav_selection = st.sidebar.radio("Navigation", nav_options, index=0)
+
 
 # --- Cover Image ---
 from PIL import Image
