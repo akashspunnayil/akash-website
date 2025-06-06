@@ -280,10 +280,8 @@ link_color = "#00BFFF" if theme == "dark" else "#0056cc"
 
 
 # Blog tile
-def render_blog_tile(title, url, excerpt, image_url=None):
+def render_blog_tile(title, url, excerpt, image_url=None, text_color="#444444", link_color="#0056cc"):
     image_height = 150
-
-    # Image tag (optional)
     img_tag = f"""
     <img src="{image_url}" alt="{title} image" style="
         width: 100%;
@@ -294,18 +292,44 @@ def render_blog_tile(title, url, excerpt, image_url=None):
     " />""" if image_url else ""
 
     return f"""
-    <div class="blog-tile">
+    <div class="blog-tile" style="
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 16px;
+        margin: 6px;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        transition: transform 0.2s ease;
+    ">
         {img_tag}
-        <h4>
-            <a href="{url}" target="_blank" rel="noopener noreferrer">
-                {title}
-            </a>
+        <h4 style="margin-bottom: 8px; font-size: 16px; line-height: 1.3;">
+            <a href="{url}" target="_blank" rel="noopener noreferrer" style="
+                text-decoration: none;
+                color: {link_color};
+                font-weight: 600;
+            ">{title}</a>
         </h4>
-        <p>
+        <p style="
+            font-size: 13px;
+            line-height: 1.4;
+            margin: 0;
+            color: {text_color};
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 72px;
+        ">
             {excerpt}
         </p>
     </div>
     """
+
 
 
 
@@ -685,9 +709,10 @@ elif menu == "Blog":
             title, excerpt, img_url = get_wp_preview(link)
             with col:
                 st.markdown(
-                    render_blog_tile(title, link, excerpt, img_url, text_color, link_color),
-                    unsafe_allow_html=True
-                )
+		    render_blog_tile(title, link, excerpt, img_url, text_color, link_color),
+		    unsafe_allow_html=True
+		)
+
 
 
 
