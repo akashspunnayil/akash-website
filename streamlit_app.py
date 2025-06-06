@@ -135,11 +135,18 @@ def render_tile(title, url, description, img_base64=shared_img_base64):
         <h4 style="margin-bottom: 8px; font-size: 16px; line-height: 1.3; color: #00BFFF;">
             <a href="{url}" target="_blank" style="text-decoration: none; color: #00BFFF;">{title}</a>
         </h4>
-        <p style="color: inherit;"> style="color: #ffffffcc; font-size: 13px; line-height: 1.4; overflow: hidden;
-                  display: -webkit-box; -webkit-line-clamp: {line_clamp}; -webkit-box-orient: vertical;
-                  min-height: 60px;">
-            {description}
-        </p>
+        <p style="
+    color: inherit;
+    font-size: 13px;
+    line-height: 1.4;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: {line_clamp};
+    -webkit-box-orient: vertical;
+    min-height: 60px;">
+    {description}
+</p>
+
     </div>
     """
 
