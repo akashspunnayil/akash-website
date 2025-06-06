@@ -278,14 +278,14 @@ def render_blog_tile(title, url, excerpt, image_url=None):
         flex-direction: column;
         justify-content: flex-start;
         transition: transform 0.2s ease;
-        color: #111;  /* Light mode default */
+        color: #111;
     ">
         {img_tag}
         <h4 style="
             margin-bottom: 8px;
             font-size: 16px;
             line-height: 1.3;
-            color: #111;  /* Light theme */
+            color: #111;
         ">
             <a href="{url}" target="_blank" rel="noopener noreferrer" style="
                 text-decoration: none;
@@ -296,18 +296,17 @@ def render_blog_tile(title, url, excerpt, image_url=None):
             </a>
         </h4>
         <p style="
-    font-size: 13px;
-    line-height: 1.4;
-    margin: 0;
-    color: white;  /* ✅ FIX: Bright text for dark mode */
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-">
-    {excerpt}
-</p>
-
+            font-size: 13px;
+            line-height: 1.4;
+            margin: 0;
+            color: white;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        ">
+            {excerpt}
+        </p>
     </div>
     """
 
