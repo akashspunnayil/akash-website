@@ -507,11 +507,11 @@ elif menu == "Research":
     items = {
         "Article": 7,
         "Chapter": 1,
-        "Conference Paper": 0,
+        #"Conference Paper": 0,
         "Experiment Findings": 2,
         "Presentation": 4,
         "Poster": 16,
-        "Preprint": 0,
+        #"Preprint": 0,
         "Full-texts": 5,
         "All": 30
     }
