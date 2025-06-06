@@ -275,7 +275,7 @@ import streamlit as st
 
 # Detect Streamlit theme (available from config)
 theme = st.get_option("theme.base")
-text_color = "#ffffff" if theme == "dark" else "#444444"
+text_color = "#eeeeee" if theme == "dark" else "#444444"
 link_color = "#00BFFF" if theme == "dark" else "#0056cc"
 
 
@@ -318,8 +318,8 @@ def render_blog_tile(title, url, excerpt, image_url=None, text_color="#444444", 
             </a>
         </h4>
         <p style="
-            color: red;
-            font-size: 13px;
+            color: {text_color};
+    	    font-size: 13px;
             line-height: 1.4;
             margin: 0;
             display: -webkit-box;
