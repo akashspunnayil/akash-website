@@ -148,28 +148,34 @@ def render_tile(title, url, description, img_base64=shared_img_base64):
         -webkit-backdrop-filter: blur(8px);
         box-sizing: border-box;
     ">
-        <img src="data:image/png;base64,{img_base64}" style="
+        <img src="data:image/png;base64,{img_base64}" alt="{title} image" style="
             width: 100%;
             height: {image_height}px;
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 10px;
         " />
-        <h4 style="margin-bottom: 8px; font-size: 16px; line-height: 1.3; color: #00BFFF;">
-            <a href="{url}" target="_blank" style="text-decoration: none; color: #00BFFF;">{title}</a>
+        <h4 style="margin-bottom: 8px; font-size: 16px; line-height: 1.3;">
+            <a href="{url}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; font-weight:600;">{title}</a>
         </h4>
         <p style="
-    color: inherit;
-    font-size: 13px;
-    line-height: 1.4;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: {line_clamp};
-    -webkit-box-orient: vertical;
-    min-height: 60px;">
-    {description}
-</p>
+            color: inherit;
+            font-size: 13px;
+            line-height: 1.4;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: {line_clamp};
+            -webkit-box-orient: vertical;
+            min-height: 60px;
+        ">
+            {description}
+        </p>
+        <div style="margin-top: auto; text-align: right;">
+            <a href="{url}" target="_blank" rel="noopener noreferrer" style="font-size: 12px; text-decoration: none; color: #00BFFF;">→ Learn more</a>
+        </div>
+    </div>
     """
+
 
 
 
