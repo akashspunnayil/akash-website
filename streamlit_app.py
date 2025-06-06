@@ -643,27 +643,35 @@ elif menu == "Blog":
 
     # --- Intro Section ---
     st.markdown("""
-    <div style='font-size: 16px; line-height: 1.7; color: inherit;'>
+        <div style='font-size: 16px; line-height: 1.7; color: inherit;'>
 
-    <p style="color: inherit;">
-    I regularly share tutorials, research notes, and data science experiments through my blog under **[Aireen Project](https://aireenproject.wordpress.com/category/python-classes/)**.
+        <p style="color: inherit;">
+        I regularly share tutorials, research notes, and data science experiments through my blog under 
+        <strong><a href="https://aireenproject.wordpress.com/category/python-classes/" target="_blank">
+        Aireen Project</a></strong>.
 
-    ### 🔍 What I Write About:
-    - 🔬 Ocean science, OMZ dynamics, and data-driven marine research  
-    - 🤖 Machine learning workflows for scientific and real-world problems  
-    - 🛰️ Remote sensing, cruise-based survey experiences, and field insights  
-    - 🛠️ Python scripting, automation, and tool building  
-    - 😄 Occasionally... fun experiments with code and observations from the field
+        ### 🔍 What I Write About:
+        - 🔬 Ocean science, OMZ dynamics, and data-driven marine research  
+        - 🤖 Machine learning workflows for scientific and real-world problems  
+        - 🛰️ Remote sensing, cruise-based survey experiences, and field insights  
+        - 🛠️ Python scripting, automation, and tool building  
+        - 😄 Occasionally... fun experiments with code and observations from the field
 
-    📖 Visit: [aireenproject.wordpress.com/category/python-classes/](https://aireenproject.wordpress.com/category/python-classes/)
+        📖 Visit: 
+        <a href="https://aireenproject.wordpress.com/category/python-classes/" target="_blank">
+        aireenproject.wordpress.com/category/python-classes/</a>
+        </p>
 
-    </p>
-
-    </div>
-""", unsafe_allow_html=True)
+        </div>
+    """, unsafe_allow_html=True)
 
     st.markdown("### 📚 Blog Posts")
-    
+
+    # Detect theme and set adaptive colors
+    theme = st.get_option("theme.base")
+    text_color = "#ffffff" if theme == "dark" else "#444444"
+    link_color = "#00BFFF" if theme == "dark" else "#0056cc"
+
     blog_links = [
         "https://aireenproject.wordpress.com/2024/07/21/python-loading-multiple-netcdf-files-and-plotting-subplots/",
         "https://aireenproject.wordpress.com/2024/06/05/python-a-guide-to-customizing-themes-in-jupyter/",
@@ -676,15 +684,14 @@ elif menu == "Blog":
     ]
 
     for i in range(0, len(blog_links), 2):
-	    cols = st.columns(3)
-	    for col, link in zip(cols, blog_links[i:i+2]):
-		title, excerpt, img_url = get_wp_preview(link)
-		with col:
-		    st.markdown(
-		        render_blog_tile(title, link, excerpt, img_url, text_color, link_color),
-		        unsafe_allow_html=True
-		    )
-
+        cols = st.columns(3)
+        for col, link in zip(cols, blog_links[i:i+2]):
+            title, excerpt, img_url = get_wp_preview(link)
+            with col:
+                st.markdown(
+                    render_blog_tile(title, link, excerpt, img_url, text_color, link_color),
+                    unsafe_allow_html=True
+                )
 
 
 
