@@ -45,56 +45,65 @@ nav_options = ["Home", "Research", "Projects", "Blog", "CV"]
 #menu = st.sidebar.radio("Navigation", nav_options, index=0)
 menu = st.sidebar.radio(" ", nav_options, index=0)
 
+
+# Theme-aware CSS
 st.markdown("""
 <style>
-/* 🌞 Light theme defaults */
-.blog-tile {
-    background-color: #fafafa;
-    color: #1a1a1a;
-    border: 1px solid #ddd;
+/* Shared tile base styles */
+.blog-tile, .publication-tile, .transparent-tile {
     border-radius: 12px;
     padding: 16px;
     margin: 6px;
-    height: 380px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: transform 0.2s ease;
 }
 
-.blog-tile h4 {
-    margin-bottom: 8px;
-    font-size: 16px;
-    line-height: 1.3;
-    color: #1a1a1a;
+/* Text styles */
+.blog-title-link, .publication-tile a, .transparent-tile a {
+    text-decoration: none;
+    font-weight: 600;
 }
 
-.blog-tile p {
+.blog-excerpt, .publication-tile p, .transparent-tile p {
     font-size: 13px;
     line-height: 1.4;
-    color: #1a1a1a;
+    margin: 0;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-    min-height: 60px;
 }
 
-/* 🌚 Dark theme overrides */
+/* Light theme */
+@media (prefers-color-scheme: light) {
+    .blog-tile, .publication-tile, .transparent-tile {
+        background-color: rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        color: #111;
+    }
+    .blog-title-link, .publication-tile a, .transparent-tile a {
+        color: #0066cc;
+    }
+}
+
+/* Dark theme */
 @media (prefers-color-scheme: dark) {
-    .blog-tile {
-        background-color: #1e1e1e;
-        color: #eeeeee;
-        border: 1px solid #444;
+    .blog-tile, .publication-tile, .transparent-tile {
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #f0f0f0;
     }
+    .blog-title-link, .publication-tile a, .transparent-tile a {
+        color: #00BFFF;
+    }
+}
 
-    .blog-tile h4,
-    .blog-tile p {
-        color: #eeeeee;
-    }
-
-    .blog-tile a {
-        color: #66b3ff;
-    }
+/* Hover effect */
+.blog-tile:hover, .publication-tile:hover, .transparent-tile:hover {
+    transform: translateY(-3px);
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.2);
 }
 </style>
 """, unsafe_allow_html=True)
