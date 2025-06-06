@@ -217,7 +217,7 @@ st.markdown("""
     justify-content: flex-start;
 }
 
-/* === Light Theme === */
+/* Light Theme */
 @media (prefers-color-scheme: light) {
     .blog-tile {
         background: rgba(0, 0, 0, 0.03);
@@ -232,7 +232,7 @@ st.markdown("""
     }
 }
 
-/* === Dark Theme === */
+/* Dark Theme */
 @media (prefers-color-scheme: dark) {
     .blog-tile {
         background: rgba(255, 255, 255, 0.05);
@@ -240,7 +240,7 @@ st.markdown("""
         color: #fff;
     }
     .blog-tile a {
-        color: #fff;
+        color: #00BFFF;
     }
     .blog-tile p {
         color: #fff;
@@ -248,6 +248,7 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 
@@ -265,50 +266,15 @@ def render_blog_tile(title, url, excerpt, image_url=None):
     " />""" if image_url else ""
 
     return f"""
-    <div class="blog-tile" style="
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 16px;
-        margin: 6px;
-        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        transition: transform 0.2s ease;
-        color: #111;
-    ">
+    <div class="blog-tile">
         {img_tag}
-        <h4 style="
-            margin-bottom: 8px;
-            font-size: 16px;
-            line-height: 1.3;
-            color: #111;
-        ">
-            <a href="{url}" target="_blank" rel="noopener noreferrer" style="
-                text-decoration: none;
-                color: #0056cc;
-                font-weight: 600;
-            ">
-                {title}
-            </a>
+        <h4 style="margin-bottom: 8px; font-size: 16px; line-height: 1.3;">
+            <a href="{url}" target="_blank" rel="noopener noreferrer">{title}</a>
         </h4>
-        <p style="
-            font-size: 13px;
-            line-height: 1.4;
-            margin: 0;
-            color: white;
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        ">
-            {excerpt}
-        </p>
+        <p>{excerpt}</p>
     </div>
     """
+
 
 
 
