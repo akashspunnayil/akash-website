@@ -517,7 +517,7 @@ elif menu == "Research":
     
     for i, (label, count) in enumerate(items.items()):
         with cols[i % 3]:
-    	st.metric(label=label, value=str(count))
+        	st.metric(label=label, value=str(count))
 
 
     
