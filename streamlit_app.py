@@ -254,14 +254,9 @@ st.markdown("""
 import streamlit as st
 
 # Detect Streamlit theme (available from config)
-current_theme = st.get_option("theme.base")  # "dark" or "light"
-
-if current_theme == "dark":
-    text_color = "#ffffff"  # white for dark theme
-    link_color = "#00BFFF"
-else:
-    text_color = "#444444"  # dark gray for light theme
-    link_color = "#0056cc"
+theme = st.get_option("theme.base")
+text_color = "#ffffff" if theme == "dark" else "#444444"
+link_color = "#00BFFF" if theme == "dark" else "#0056cc"
 
 
 # Blog tile
@@ -291,7 +286,6 @@ def render_blog_tile(title, url, excerpt, image_url=None, text_color="#444", lin
         flex-direction: column;
         justify-content: flex-start;
         transition: transform 0.2s ease;
-        color: {text_color};
     ">
         {img_tag}
         <h4 style="margin-bottom: 8px; font-size: 16px; line-height: 1.3;">
@@ -299,7 +293,9 @@ def render_blog_tile(title, url, excerpt, image_url=None, text_color="#444", lin
                 text-decoration: none;
                 color: {link_color};
                 font-weight: 600;
-            ">{title}</a>
+            ">
+                {title}
+            </a>
         </h4>
         <p style="
             font-size: 13px;
@@ -315,7 +311,6 @@ def render_blog_tile(title, url, excerpt, image_url=None, text_color="#444", lin
         </p>
     </div>
     """
-
 
 
 # Publication tile
@@ -681,11 +676,15 @@ elif menu == "Blog":
     ]
 
     for i in range(0, len(blog_links), 2):
-        cols = st.columns(3)
-        for col, link in zip(cols, blog_links[i:i+2]):
-            title, excerpt, img_url = get_wp_preview(link)
-            with col:
-                st.markdown(render_blog_tile(title, link, excerpt, img_url), unsafe_allow_html=True)
+    cols = st.columns(3)
+    for col, link in zip(cols, blog_links[i:i+2]):
+        title, excerpt, img_url = get_wp_preview(link)
+        with col:
+            st.markdown(
+                render_blog_tile(title, link, excerpt, img_url, text_color, link_color),
+                unsafe_allow_html=True
+            )
+
 
 
 
