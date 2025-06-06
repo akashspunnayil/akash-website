@@ -212,41 +212,43 @@ st.markdown("""
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     transition: transform 0.2s ease;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #111; /* default (light theme) */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-.blog-tile a {
-    text-decoration: none;
-    font-weight: 600;
-    color: #0056cc;
-}
-
-.blog-tile p {
-    font-size: 13px;
-    line-height: 1.4;
-    margin: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    color: #444;
-}
-
-@media (prefers-color-scheme: dark) {
+/* === Light Theme === */
+@media (prefers-color-scheme: light) {
     .blog-tile {
-        color: white !important;
+        background: rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        color: #111;
     }
     .blog-tile a {
-        color: white !important;
+        color: #0056cc;
     }
     .blog-tile p {
-        color: white !important;
+        color: #444;
+    }
+}
+
+/* === Dark Theme === */
+@media (prefers-color-scheme: dark) {
+    .blog-tile {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #fff;
+    }
+    .blog-tile a {
+        color: #fff;
+    }
+    .blog-tile p {
+        color: #fff;
     }
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # Blog tile
@@ -271,7 +273,6 @@ def render_blog_tile(title, url, excerpt, image_url=None):
         <p>{excerpt}</p>
     </div>
     """
-
 
 
 
