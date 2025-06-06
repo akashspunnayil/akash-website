@@ -521,21 +521,21 @@ elif menu == "Research":
 
 
     def render_research_item_tile(name, count):
-    return f"""
-    <div style='
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.1);
-        padding: 10px 14px;
-        border-radius: 10px;
-        margin: 6px;
-        text-align: center;
-        font-size: 14px;
-        color: inherit;
-    '>
-        <strong>{name}</strong><br>
-        <span style='font-size: 22px;'>{count}</span>
-    </div>
-    """
+        return f"""
+        <div style='
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 10px 14px;
+            border-radius: 10px;
+            margin: 6px;
+            text-align: center;
+            font-size: 14px;
+            color: inherit;
+        '>
+            <strong>{name}</strong><br>
+            <span style='font-size: 22px;'>{count}</span>
+        </div>
+        """
 
     st.markdown("### 🧾 Research Items Breakdown")
     
