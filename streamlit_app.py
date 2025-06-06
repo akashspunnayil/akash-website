@@ -520,6 +520,7 @@ elif menu == "Research":
         	st.metric(label=label, value=str(count))
 
 
+    # Define the tile renderer function
     def render_research_item_tile(name, count):
         return f"""
         <div style='
@@ -531,20 +532,38 @@ elif menu == "Research":
             text-align: center;
             font-size: 14px;
             color: inherit;
+            min-width: 120px;
         '>
             <strong>{name}</strong><br>
             <span style='font-size: 22px;'>{count}</span>
         </div>
         """
-
+    
+    # Add heading
     st.markdown("### 🧾 Research Items Breakdown")
     
-    html = "<div style='display: flex; flex-wrap: wrap;'>"
+    # Data
+    items = {
+        "Article": 7,
+        "Chapter": 1,
+        "Conference Paper": 0,
+        "Experiment Findings": 2,
+        "Presentation": 4,
+        "Poster": 16,
+        "Preprint": 0,
+        "Full-texts": 5,
+        "All": 30
+    }
+    
+    # Combine tiles into an HTML flex container
+    html = "<div style='display: flex; flex-wrap: wrap; gap: 8px;'>"
     for name, count in items.items():
         html += render_research_item_tile(name, count)
     html += "</div>"
     
+    # Render in Streamlit
     st.markdown(html, unsafe_allow_html=True)
+
 
     
         # --- Publications Section ---
