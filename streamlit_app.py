@@ -183,24 +183,23 @@ def render_blog_tile(title, url, excerpt, image_url=None):
 
     return f"""
     <div style="
-        border: 1px solid #e6e6e6;
+        border: 1px solid rgba(100,100,100,0.2);
         border-radius: 12px;
         padding: 16px;
         margin: 6px;
-        background-color: #fafafa;
-        color: #262730;
-        box-shadow: 2px 2px 8px rgba(0,0,0,0.06);
+        background-color: transparent;
+        color: inherit;
         height: {tile_height}px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
     ">
         {img_tag}
-        <h4 style='margin-bottom: 8px; font-size: 16px; line-height: 1.3; color: #1a1a1a;'>
-            <a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a>
+        <h4 style='margin-bottom: 8px; font-size: 16px; line-height: 1.3; color: inherit;'>
+            <a href='{url}' target='_blank' style='text-decoration: none; color: #1f77b4;'>{title}</a>
         </h4>
         <p style="
-            color: #262730;
+            color: inherit;
             font-size: 13px;
             line-height: 1.4;
             overflow: hidden;
