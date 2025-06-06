@@ -541,8 +541,8 @@ elif menu == "Research":
         "Presentation": 4,
         "Poster": 16,
         "Full-texts": 5,
-        "":,
-        "":,
+        "",
+        "",
         "Total Research Items": 30
     }
 
