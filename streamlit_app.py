@@ -513,7 +513,7 @@ elif menu == "Research":
         "Poster": 16,
         #"Preprint": 0,
         "Full-texts": 5,
-        "All": 30
+        "Total Research Items": 30
     }
 
     cols = st.columns(3)  # 3 per row
