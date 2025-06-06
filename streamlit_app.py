@@ -710,11 +710,10 @@ elif menu == "Blog":
             title, excerpt, img_url = get_wp_preview(link)
             with col:
                 st.markdown(
-		    render_blog_tile(title, link, excerpt, img_url, text_color, link_color),
-		    unsafe_allow_html=True
-		)
-
+                    render_blog_tile(title, link, excerpt, img_url, text_color, link_color),
+                    unsafe_allow_html=True
                 )
+
 
 
 
