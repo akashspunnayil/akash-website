@@ -42,6 +42,57 @@ div[role="radiogroup"] > label[data-testid="stRadioOption"]:has(input:checked) {
 st.sidebar.markdown("## 🧭 Navigation")
 
 
+st.markdown("""
+<style>
+.blog-tile {
+    border: 1px solid rgba(100,100,100,0.2);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 6px;
+    background-color: #fafafa;
+    color: #1a1a1a;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.blog-tile h4 {
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+.blog-tile p {
+    font-size: 13px;
+    line-height: 1.4;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    min-height: 60px;
+    color: #1a1a1a;
+}
+
+/* Theme-aware fix */
+@media (prefers-color-scheme: dark) {
+    .blog-tile {
+        background-color: #1e1e1e;
+        color: #eeeeee;
+    }
+
+    .blog-tile p {
+        color: #eeeeee;
+    }
+
+    .blog-tile a {
+        color: #66b3ff;
+    }
+}
+</style>
+""", unsafe_allow_html=True)
+
+
 nav_options = ["Home", "Research", "Projects", "Blog", "CV"]
 #menu = st.sidebar.radio("Navigation", nav_options, index=0)
 menu = st.sidebar.radio(" ", nav_options, index=0)
@@ -168,9 +219,7 @@ def get_wp_preview(url):
         return "Blog Title", "Click to read more.", None
 
 def render_blog_tile(title, url, excerpt, image_url=None):
-    tile_height = 380
     image_height = 150
-    line_clamp = 4
 
     img_tag = f"""
     <img src='{image_url}' style='
@@ -182,35 +231,15 @@ def render_blog_tile(title, url, excerpt, image_url=None):
     '/>""" if image_url else ""
 
     return f"""
-    <div style="
-        border: 1px solid rgba(100,100,100,0.2);
-        border-radius: 12px;
-        padding: 16px;
-        margin: 6px;
-        background-color: transparent;
-        color: inherit;
-        height: {tile_height}px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    ">
+    <div class="blog-tile">
         {img_tag}
-        <h4 style='margin-bottom: 8px; font-size: 16px; line-height: 1.3; color: inherit;'>
-            <a href='{url}' target='_blank' style='text-decoration: none; color: #1f77b4;'>{title}</a>
+        <h4>
+            <a href='{url}' target='_blank' style='text-decoration: none;'>{title}</a>
         </h4>
-        <p style="
-            color: inherit;
-            font-size: 13px;
-            line-height: 1.4;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: {line_clamp};
-            -webkit-box-orient: vertical;
-            min-height: 60px;">
-            {excerpt}
-        </p>
+        <p>{excerpt}</p>
     </div>
     """
+
 
 
 # Publication tile
