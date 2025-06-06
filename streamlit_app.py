@@ -184,7 +184,6 @@ def render_tile(title, url, description, img_base64=shared_img_base64):
 
 
 
-
 # --- Blog Page ---
 import requests
 from bs4 import BeautifulSoup
@@ -319,18 +318,18 @@ def render_blog_tile(title, url, excerpt, image_url=None, text_color="#444", lin
             </a>
         </h4>
         <p style="
-	    font-size: 13px;
-	    line-height: 1.4;
-	    margin: 0;
-	    color: {text_color};
-	    display: -webkit-box;
-	    -webkit-line-clamp: 4;
-	    -webkit-box-orient: vertical;
-	    overflow: hidden;
-	    min-height: 72px;
-	">
-
-
+            font-size: 13px;
+            line-height: 1.4;
+            margin: 0;
+            color: {text_color};
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 72px;
+        ">
+            {excerpt}
+        </p>
     </div>
     """
 
@@ -710,7 +709,11 @@ elif menu == "Blog":
         for col, link in zip(cols, blog_links[i:i+2]):
             title, excerpt, img_url = get_wp_preview(link)
             with col:
-                st.markdown(render_blog_tile(title, link, excerpt, img_url, text_color, link_color), unsafe_allow_html=True)
+                st.markdown(
+		    render_blog_tile(title, link, excerpt, img_url, text_color, link_color),
+		    unsafe_allow_html=True
+		)
+
                 )
 
 
