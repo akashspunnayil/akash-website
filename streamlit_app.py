@@ -461,6 +461,23 @@ if menu == "Home":
 
 
 
+def render_research_item_tile(name, count):
+    return f"""
+    <div style='
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        padding: 10px 14px;
+        border-radius: 10px;
+        margin: 6px;
+        text-align: center;
+        font-size: 14px;
+        color: inherit;
+        min-width: 120px;
+    '>
+        <strong>{name}</strong><br>
+        <span style='font-size: 22px;'>{count}</span>
+    </div>
+    """
 # --- Research Page ---
 elif menu == "Research":
     st.title("🔬 Research")
@@ -498,23 +515,6 @@ elif menu == "Research":
     </div>
     """, unsafe_allow_html=True)
     
-    def render_research_item_tile(name, count):
-        return f"""
-        <div style='
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 10px 14px;
-            border-radius: 10px;
-            margin: 6px;
-            text-align: center;
-            font-size: 14px;
-            color: inherit;
-            min-width: 120px;
-        '>
-            <strong>{name}</strong><br>
-            <span style='font-size: 22px;'>{count}</span>
-        </div>
-        """
     
     items = {
         "Article": 7,
@@ -536,12 +536,12 @@ elif menu == "Research":
     
     # ✅ Absolutely required: this exact line
     st.markdown(html, unsafe_allow_html=True)
-
+    
 
 
 
     
-        # --- Publications Section ---
+    # --- Publications Section ---
     st.markdown("### 📚 Recent 5 Publications")
 
     # Most recent 5 publications as tiles
