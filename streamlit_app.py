@@ -95,6 +95,12 @@ st.markdown("""
     .blog-tile a {
         color: #66b3ff;
     }
+    
+    /* Hover effect */
+.blog-tile:hover, .publication-tile:hover, .transparent-tile:hover {
+    transform: translateY(-3px);
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.2);
+    
 }
 </style>
 """, unsafe_allow_html=True)
