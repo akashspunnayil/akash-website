@@ -123,37 +123,6 @@ def get_base64_image(path):
 
 shared_img_base64 = get_base64_image("static/preview/preview.jpeg")  # ✅ Your current shared image
 
-st.markdown("""
-<style>
-/* ✅ Fully remove Streamlit’s wrapper backgrounds */
-.element-container {
-    background: transparent !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    box-shadow: none !important;
-}
-
-.stMarkdown {
-    background: transparent !important;
-}
-
-/* ✅ Also override column background if used */
-.css-1kyxreq, .block-container {
-    background: transparent !important;
-}
-
-/* ✅ Page background dark */
-body {
-    background-color: #0e1117 !important;
-}
-
-/* Optional: soften text color globally */
-h4, p, a {
-    color: #ffffffcc;
-}
-</style>
-""", unsafe_allow_html=True)
-
 
 
 # --- Tile Renderer with Preview ---
