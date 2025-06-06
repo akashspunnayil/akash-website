@@ -41,16 +41,20 @@ div[role="radiogroup"] > label[data-testid="stRadioOption"]:has(input:checked) {
 """, unsafe_allow_html=True)
 st.sidebar.markdown("## 🧭 Navigation")
 
+nav_options = ["Home", "Research", "Projects", "Blog", "CV"]
+#menu = st.sidebar.radio("Navigation", nav_options, index=0)
+menu = st.sidebar.radio(" ", nav_options, index=0)
 
 st.markdown("""
 <style>
+/* ✅ Default for Light Theme */
 .blog-tile {
-    border: 1px solid rgba(100,100,100,0.2);
+    background-color: #fafafa;
+    color: #1a1a1a;
+    border: 1px solid #e6e6e6;
     border-radius: 12px;
     padding: 16px;
     margin: 6px;
-    background-color: #fafafa;
-    color: #1a1a1a;
     height: 380px;
     display: flex;
     flex-direction: column;
@@ -61,6 +65,7 @@ st.markdown("""
     margin-bottom: 8px;
     font-size: 16px;
     line-height: 1.3;
+    color: #1a1a1a;
 }
 
 .blog-tile p {
@@ -74,13 +79,15 @@ st.markdown("""
     color: #1a1a1a;
 }
 
-/* Theme-aware fix */
+/* ✅ Overrides ONLY in dark mode */
 @media (prefers-color-scheme: dark) {
     .blog-tile {
         background-color: #1e1e1e;
         color: #eeeeee;
+        border: 1px solid #444;
     }
 
+    .blog-tile h4,
     .blog-tile p {
         color: #eeeeee;
     }
@@ -91,11 +98,6 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
-
-
-nav_options = ["Home", "Research", "Projects", "Blog", "CV"]
-#menu = st.sidebar.radio("Navigation", nav_options, index=0)
-menu = st.sidebar.radio(" ", nav_options, index=0)
 
 
 # --- Cover Image ---
