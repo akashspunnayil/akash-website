@@ -202,6 +202,53 @@ def get_wp_preview(url):
     except Exception as e:
         return "Blog Title", "Click to read more.", None
 
+st.markdown("""
+<style>
+.blog-tile {
+    border-radius: 12px;
+    padding: 16px;
+    margin: 6px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: transform 0.2s ease;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #111; /* default (light theme) */
+}
+
+.blog-tile a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #0056cc;
+}
+
+.blog-tile p {
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: #444;
+}
+
+@media (prefers-color-scheme: dark) {
+    .blog-tile {
+        color: white !important;
+    }
+    .blog-tile a {
+        color: white !important;
+    }
+    .blog-tile p {
+        color: white !important;
+    }
+}
+</style>
+""", unsafe_allow_html=True)
+
+
 # Blog tile
 def render_blog_tile(title, url, excerpt, image_url=None):
     image_height = 150
@@ -216,41 +263,15 @@ def render_blog_tile(title, url, excerpt, image_url=None):
     " />""" if image_url else ""
 
     return f"""
-    <div class="blog-tile" style="
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 16px;
-        margin: 6px;
-        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        transition: transform 0.2s ease;
-        color: #111;  /* Works for light mode */
-    ">
+    <div class="blog-tile">
         {img_tag}
         <h4 style="margin-bottom: 8px; font-size: 16px; line-height: 1.3;">
-            <a href="{url}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: #0056cc; font-weight: 600;">
-                {title}
-            </a>
+            <a href="{url}" target="_blank" rel="noopener noreferrer">{title}</a>
         </h4>
-        <p style="
-            color: rgba(0, 0, 0, 0.65);  /* Light theme fallback */
-            font-size: 13px;
-            line-height: 1.4;
-            margin: 0;
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        " class="blog-desc">
-            {excerpt}
-        </p>
+        <p>{excerpt}</p>
     </div>
     """
+
 
 
 
