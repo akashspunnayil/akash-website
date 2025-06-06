@@ -411,8 +411,6 @@ elif menu == "Research":
 
 
 
-
-
 # --- Projects Section ---
 elif menu == "Projects":
 
@@ -532,6 +530,9 @@ elif menu == "Blog":
 
     # --- Intro Section ---
     st.markdown("""
+    <div style='font-size: 16px; line-height: 1.7; color: inherit;'>
+
+    <p style="color: inherit;">
     I regularly share tutorials, research notes, and data science experiments through my blog under **[Aireen Project](https://aireenproject.wordpress.com/category/python-classes/)**.
 
     ### 🔍 What I Write About:
@@ -542,7 +543,11 @@ elif menu == "Blog":
     - 😄 Occasionally... fun experiments with code and observations from the field
 
     📖 Visit: [aireenproject.wordpress.com/category/python-classes/](https://aireenproject.wordpress.com/category/python-classes/)
-    """)
+
+    </p>
+
+    </div>
+""", unsafe_allow_html=True)
 
     st.markdown("### 📚 Blog Posts")
     
