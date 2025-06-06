@@ -334,9 +334,6 @@ def render_blog_tile(title, url, excerpt, image_url=None, text_color="#444444", 
     """
 
 
-
-
-
 # Publication tile
 def render_publication_tile(title, url, authors, journal, year):
     return f"""
@@ -367,13 +364,29 @@ def render_publication_tile(title, url, authors, journal, year):
 
 
 # --- Home Page ---
-if menu == "Home":
-    #st.image("static/cover.jpg", use_column_width=True)
-    #st.image("static/cover.png", width=800, caption="Data meets AI – Akash S.")
+#if menu == "Home":
+    ##st.image("static/cover.jpg", use_column_width=True)
+    ##st.image("static/cover.png", width=800, caption="Data meets AI – Akash S.")
     
-    st.title("Hi, I'm AKASH. S (AKASH SOMASEKHARAN)")
-    st.subheader("Oceanography Researcher | Data Scientist | Scientific Consultant")
+    #st.title("Hi, I'm AKASH. S (AKASH SOMASEKHARAN)")
+    #st.subheader("Oceanography Researcher | Data Scientist | Scientific Consultant")
 
+if menu == "Home":
+    st.title("✴️ Welcome")
+
+    col1, col2 = st.columns([2, 1])  # Wider text on the left, image on the right
+
+    with col1:
+        st.markdown("""
+        <h2 style='margin-bottom: 0;'>Hi, I'm <span style="color:#007acc;">AKASH. S</span> <br><small>(AKASH SOMASEKHARAN)</small></h2>
+        <p style='font-size: 16px; margin-top: 4px;'>
+        Oceanography Researcher | Data Scientist | Scientific Consultant
+        </p>
+        """, unsafe_allow_html=True)
+
+    with col2:
+        st.image("static/akash_profile.jpg", width=150, caption=None)
+    
     #st.markdown("""
     #I am a multidisciplinary researcher with over 7 years of experience in **physical oceanography**, 
     #**biogeochemical modeling**, and **data science consulting**. My work bridges academic research and 
