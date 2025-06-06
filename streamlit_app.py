@@ -188,19 +188,40 @@ def render_tile(title, url, description, img_base64=shared_img_base64):
 # --- Blog Page ---
 import requests
 from bs4 import BeautifulSoup
+import re
 
 def get_wp_preview(url):
     try:
         response = requests.get(url, timeout=5)
         soup = BeautifulSoup(response.text, 'html.parser')
-        title = soup.title.string.strip()
+
+        title = soup.title.string.strip() if soup.title else "Untitled"
+        
+        # Image
         og_image = soup.find("meta", property="og:image")
         image_url = og_image["content"] if og_image else None
+
+        # Description logic
         description_tag = soup.find("meta", property="og:description")
-        excerpt = description_tag["content"] if description_tag else "Click to read more."
+        if description_tag and len(description_tag.get("content", "").strip()) > 50:
+            excerpt = description_tag["content"].strip()
+        else:
+            first_p = soup.find("p")
+            excerpt = first_p.get_text(strip=True) if first_p else "Click to read more."
+
+        # Clean up text
+        excerpt = re.sub(r'\s+', ' ', excerpt)
+        excerpt = excerpt.replace('…', '...').replace('\u00a0', ' ')
+
+        # Trim to 200 characters
+        if len(excerpt) > 200:
+            excerpt = excerpt[:197].rsplit(' ', 1)[0] + "..."
+
         return title, excerpt, image_url
+
     except Exception as e:
         return "Blog Title", "Click to read more.", None
+
 
 st.markdown("""
 <style>
