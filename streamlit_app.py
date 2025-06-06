@@ -461,7 +461,45 @@ if menu == "Home":
 
 
 
-def render_research_item_tile(name, count):
+
+# --- Research Page ---
+elif menu == "Research":
+    st.title("🔬 Research")
+    st.markdown("""
+        <div style='font-size: 16px; line-height: 1.7; color: inherit;'>
+        
+        <p style="color: inherit;">
+        My doctoral research focuses on the <strong>interplay between ocean physics and biogeochemistry</strong> in shaping the Oxygen Minimum Zone (OMZ) in the Arabian Sea. By combining <strong>numerical modeling</strong>, <strong>observational data</strong>, and <strong>machine learning</strong>, I aim to uncover key mechanisms behind OMZ variability and its ecological implications.
+        </p>
+    
+        ### 🧪 Core Research Themes
+        - <strong>Seasonal and interannual OMZ variability<strong> in the Arabian Sea  
+        - Influence of <strong>climate drivers<strong> such as ENSO and IOD on ocean oxygenation  
+        - <strong>Circulation and scalar transport diagnostics<strong> using HYCOM-ECOSMO outputs  
+        - Vertical and lateral export of <strong>oxygen, detritus, nitrate<strong> through undercurrents and offshore jets  
+        - Role of <strong>intermediate water masses and upwelling<strong> in biogeochemical redistribution  
+    
+        ### 📊 Modeling Tools & Approaches
+        - High-resolution simulations with <strong>HYCOM-ECOSMO<strong> for coupled physical-biogeochemical analysis  
+        - Development of a <strong>physics-informed OMZ Intensity Index<strong>  
+        - Scalar transport estimators for oxygen, detritus, nitrate, and phytoplankton  
+        - <strong>Hovmöller-style diagrams<strong>, seasonal climatologies, and transport cross-sections  
+    
+        ### 🤖 AI & Machine Learning in Ocean Science
+        - Application of <strong>XGBoost<strong>, <strong>Random Forests<strong>, and <strong>GAM models<strong> to predict:
+            - OMZ structure and seasonal shifts  
+            - Myctophid catch and biomass based on ecological predictors  
+        - Feature engineering from ocean circulation, productivity, and oxygen gradients  
+    
+        ---
+        <p style="color: inherit;">
+        My research aims to bridge traditional physical oceanography with modern data science to better understand <strong>marine oxygen variability<strong>, its drivers, and broader implications for ecosystem functioning and fisheries.
+        </p>
+    
+        </div>
+        """, unsafe_allow_html=True)
+
+    def render_research_item_tile(name, count):
     return f"""
     <div style='
         background: rgba(255,255,255,0.05);
@@ -478,43 +516,6 @@ def render_research_item_tile(name, count):
         <span style='font-size: 22px;'>{count}</span>
     </div>
     """
-# --- Research Page ---
-elif menu == "Research":
-    st.title("🔬 Research")
-    st.markdown("""
-    <div style='font-size: 16px; line-height: 1.7; color: inherit;'>
-    
-    <p style="color: inherit;">
-    My doctoral research focuses on the <strong>interplay between ocean physics and biogeochemistry</strong> in shaping the Oxygen Minimum Zone (OMZ) in the Arabian Sea. By combining <strong>numerical modeling</strong>, <strong>observational data</strong>, and <strong>machine learning</strong>, I aim to uncover key mechanisms behind OMZ variability and its ecological implications.
-    </p>
-
-    ### 🧪 Core Research Themes
-    - <strong>Seasonal and interannual OMZ variability<strong> in the Arabian Sea  
-    - Influence of <strong>climate drivers<strong> such as ENSO and IOD on ocean oxygenation  
-    - <strong>Circulation and scalar transport diagnostics<strong> using HYCOM-ECOSMO outputs  
-    - Vertical and lateral export of <strong>oxygen, detritus, nitrate<strong> through undercurrents and offshore jets  
-    - Role of <strong>intermediate water masses and upwelling<strong> in biogeochemical redistribution  
-
-    ### 📊 Modeling Tools & Approaches
-    - High-resolution simulations with <strong>HYCOM-ECOSMO<strong> for coupled physical-biogeochemical analysis  
-    - Development of a <strong>physics-informed OMZ Intensity Index<strong>  
-    - Scalar transport estimators for oxygen, detritus, nitrate, and phytoplankton  
-    - <strong>Hovmöller-style diagrams<strong>, seasonal climatologies, and transport cross-sections  
-
-    ### 🤖 AI & Machine Learning in Ocean Science
-    - Application of <strong>XGBoost<strong>, <strong>Random Forests<strong>, and <strong>GAM models<strong> to predict:
-        - OMZ structure and seasonal shifts  
-        - Myctophid catch and biomass based on ecological predictors  
-    - Feature engineering from ocean circulation, productivity, and oxygen gradients  
-
-    ---
-    <p style="color: inherit;">
-    My research aims to bridge traditional physical oceanography with modern data science to better understand <strong>marine oxygen variability<strong>, its drivers, and broader implications for ecosystem functioning and fisheries.
-    </p>
-
-    </div>
-    """, unsafe_allow_html=True)
-    
     
     items = {
         "Article": 7,
