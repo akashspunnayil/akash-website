@@ -466,13 +466,38 @@ if menu == "Home":
 elif menu == "Research":
     st.title("🔬 Research")
 
-    # ✅ Research summary description block
-    st.markdown("""
-    <div style='font-size: 16px; line-height: 1.7; color: inherit;'>
-    
-    <p style="color: inherit;">
-    My doctoral research focuses on the <strong>interplay between ocean physics and biogeochemistry</strong> in shaping the Oxygen Minimum Zone (OMZ) in the Arabian Sea. By combining <strong>numerical modeling</strong>, <strong>observational data</strong>, and <strong>machine learning</strong>, I aim to uncover key mechanisms behind OMZ variability and its ecological implications.
-    </p>
+    # Split layout: left (description) | right (citation metrics)
+    left, right = st.columns([3, 1])  # Wider left, narrower right
+
+    with left:
+        st.markdown("""
+        <div style='font-size: 16px; line-height: 1.7; color: inherit;'>
+        
+        <p style="color: inherit;">
+        My doctoral research focuses on the <strong>interplay between ocean physics and biogeochemistry</strong> in shaping the Oxygen Minimum Zone (OMZ) in the Arabian Sea. By combining <strong>numerical modeling</strong>, <strong>observational data</strong>, and <strong>machine learning</strong>, I aim to uncover key mechanisms behind OMZ variability and its ecological implications.
+        </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with right:
+        st.markdown("### 📊 Citation Metrics")
+        st.markdown("""
+        <table style='font-size: 14px; line-height: 1.6;'>
+            <tr>
+                <th></th><th>All</th><th>Since 2020</th>
+            </tr>
+            <tr>
+                <td><strong>Citations</strong></td><td>84</td><td>82</td>
+            </tr>
+            <tr>
+                <td><strong>h-index</strong></td><td>4</td><td>4</td>
+            </tr>
+            <tr>
+                <td><strong>i10-index</strong></td><td>2</td><td>2</td>
+            </tr>
+        </table>
+        """, unsafe_allow_html=True)
+
 
     ### 🧪 Core Research Themes
     - <strong>Seasonal and interannual OMZ variability</strong> in the Arabian Sea  
