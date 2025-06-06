@@ -522,6 +522,7 @@ elif menu == "Research":
             st.metric(label=label, value=str(count))
 
 
+
     
     # --- Publications Section ---
     st.markdown("### 📚 Recent 5 Publications")
