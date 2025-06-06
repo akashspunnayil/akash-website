@@ -378,7 +378,7 @@ if menu == "Home":
 
     with col1:
         st.markdown("""
-        <h2 style='margin-bottom: 0;'>Hi, I'm <span style="color:#007acc;">AKASH. S</span> <br><small>(AKASH SOMASEKHARAN)</small></h2>
+        <h2 style='margin-bottom: 0;'>I'm <span style="color:#007acc;">AKASH. S</span> <br><small>(AKASH SOMASEKHARAN)</small></h2>
         <p style='font-size: 16px; margin-top: 4px;'>
         Oceanography Researcher | Data Scientist | Scientific Consultant
         </p>
@@ -497,6 +497,28 @@ elif menu == "Research":
 
     </div>
     """, unsafe_allow_html=True)
+    
+    st.markdown("### 📑 Research Item Summary (via ResearchGate)")
+    st.markdown("### 📑 Research Items Overview")
+
+    items = {
+        "Article": 7,
+        "Chapter": 1,
+        "Conference Paper": 0,
+        "Experiment Findings": 2,
+        "Presentation": 4,
+        "Poster": 16,
+        "Preprint": 0,
+        "Full-texts": 5,
+        "All": 30
+    }
+    
+    cols = st.columns(3)  # 3 per row
+    
+    for i, (label, count) in enumerate(items.items()):
+        with cols[i % 3]:
+    	st.metric(label=label, value=str(count))
+
 
     
         # --- Publications Section ---

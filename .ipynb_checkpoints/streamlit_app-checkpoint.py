@@ -41,10 +41,70 @@ div[role="radiogroup"] > label[data-testid="stRadioOption"]:has(input:checked) {
 """, unsafe_allow_html=True)
 st.sidebar.markdown("## 🧭 Navigation")
 
-
 nav_options = ["Home", "Research", "Projects", "Blog", "CV"]
 #menu = st.sidebar.radio("Navigation", nav_options, index=0)
 menu = st.sidebar.radio(" ", nav_options, index=0)
+
+st.markdown("""
+<style>
+/* 🌞 Light theme defaults */
+.blog-tile {
+    background-color: #fafafa;
+    color: #1a1a1a;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 6px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.blog-tile h4 {
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.3;
+    color: #1a1a1a;
+}
+
+.blog-tile p {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #1a1a1a;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    min-height: 60px;
+}
+
+/* 🌚 Dark theme overrides */
+@media (prefers-color-scheme: dark) {
+    .blog-tile {
+        background-color: #1e1e1e;
+        color: #eeeeee;
+        border: 1px solid #444;
+    }
+
+    .blog-tile h4,
+    .blog-tile p {
+        color: #eeeeee;
+    }
+
+    .blog-tile a {
+        color: #66b3ff;
+    }
+    
+    /* Hover effect */
+.blog-tile:hover, .publication-tile:hover, .transparent-tile:hover {
+    transform: translateY(-3px);
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.2);
+    
+}
+</style>
+""", unsafe_allow_html=True)
+
 
 
 # --- Cover Image ---
@@ -68,37 +128,6 @@ def get_base64_image(path):
     return base64.b64encode(buffered.getvalue()).decode()
 
 shared_img_base64 = get_base64_image("static/preview/preview.jpeg")  # ✅ Your current shared image
-
-st.markdown("""
-<style>
-/* ✅ Fully remove Streamlit’s wrapper backgrounds */
-.element-container {
-    background: transparent !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    box-shadow: none !important;
-}
-
-.stMarkdown {
-    background: transparent !important;
-}
-
-/* ✅ Also override column background if used */
-.css-1kyxreq, .block-container {
-    background: transparent !important;
-}
-
-/* ✅ Page background dark */
-body {
-    background-color: #0e1117 !important;
-}
-
-/* Optional: soften text color globally */
-h4, p, a {
-    color: #ffffffcc;
-}
-</style>
-""", unsafe_allow_html=True)
 
 
 
@@ -125,21 +154,31 @@ def render_tile(title, url, description, img_base64=shared_img_base64):
         -webkit-backdrop-filter: blur(8px);
         box-sizing: border-box;
     ">
-        <img src="data:image/png;base64,{img_base64}" style="
+        <img src="data:image/png;base64,{img_base64}" alt="{title} image" style="
             width: 100%;
             height: {image_height}px;
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 10px;
         " />
-        <h4 style="margin-bottom: 8px; font-size: 16px; line-height: 1.3; color: #00BFFF;">
-            <a href="{url}" target="_blank" style="text-decoration: none; color: #00BFFF;">{title}</a>
+        <h4 style="margin-bottom: 8px; font-size: 16px; line-height: 1.3;">
+            <a href="{url}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; font-weight:600;">{title}</a>
         </h4>
-        <p style="color: #ffffffcc; font-size: 13px; line-height: 1.4; overflow: hidden;
-                  display: -webkit-box; -webkit-line-clamp: {line_clamp}; -webkit-box-orient: vertical;
-                  min-height: 60px;">
+        <p style="
+            color: inherit;
+            font-size: 13px;
+            line-height: 1.4;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: {line_clamp};
+            -webkit-box-orient: vertical;
+            min-height: 60px;
+        ">
             {description}
         </p>
+        <div style="margin-top: auto; text-align: right;">
+            <a href="{url}" target="_blank" rel="noopener noreferrer" style="font-size: 12px; text-decoration: none; color: #00BFFF;">→ Learn more</a>
+        </div>
     </div>
     """
 
@@ -148,90 +187,206 @@ def render_tile(title, url, description, img_base64=shared_img_base64):
 # --- Blog Page ---
 import requests
 from bs4 import BeautifulSoup
+import re
 
 def get_wp_preview(url):
     try:
         response = requests.get(url, timeout=5)
         soup = BeautifulSoup(response.text, 'html.parser')
-        title = soup.title.string.strip()
+
+        title = soup.title.string.strip() if soup.title else "Untitled"
+        
+        # Image
         og_image = soup.find("meta", property="og:image")
         image_url = og_image["content"] if og_image else None
+
+        # Description logic
         description_tag = soup.find("meta", property="og:description")
-        excerpt = description_tag["content"] if description_tag else "Click to read more."
+        if description_tag and len(description_tag.get("content", "").strip()) > 50:
+            excerpt = description_tag["content"].strip()
+        else:
+            first_p = soup.find("p")
+            excerpt = first_p.get_text(strip=True) if first_p else "Click to read more."
+
+        # Clean up text
+        excerpt = re.sub(r'\s+', ' ', excerpt)
+        excerpt = excerpt.replace('…', '...').replace('\u00a0', ' ')
+
+        # Trim to 200 characters
+        if len(excerpt) > 200:
+            excerpt = excerpt[:197].rsplit(' ', 1)[0] + "..."
+
         return title, excerpt, image_url
+
     except Exception as e:
         return "Blog Title", "Click to read more.", None
 
-def render_blog_tile(title, url, excerpt, image_url=None):
-    tile_height = 380
+
+st.markdown("""
+<style>
+.blog-tile {
+    border-radius: 12px;
+    padding: 16px;
+    margin: 6px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Light Theme */
+@media (prefers-color-scheme: light) {
+    .blog-tile {
+        background: rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        color: #111;
+    }
+    .blog-tile a {
+        color: #0056cc;
+    }
+    .blog-tile p {
+        color: #444;
+    }
+}
+
+/* Dark Theme */
+@media (prefers-color-scheme: dark) {
+    .blog-tile {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #fff;
+    }
+    .blog-tile a {
+        color: #00BFFF;
+    }
+    .blog-tile p {
+        color: #fff;
+    }
+}
+</style>
+""", unsafe_allow_html=True)
+
+
+
+import streamlit as st
+
+# Detect Streamlit theme (available from config)
+theme = st.get_option("theme.base")
+text_color = "#eeeeee" if theme == "dark" else "#444444"
+link_color = "#00BFFF" if theme == "dark" else "#0056cc"
+
+
+# Blog tile
+def render_blog_tile(title, url, excerpt, image_url=None, text_color="#444444", link_color="#0056cc"):
     image_height = 150
-    line_clamp = 4
 
     img_tag = f"""
-    <img src='{image_url}' style='
-        width:100%;
-        height:{image_height}px;
-        object-fit:cover;
-        border-radius:6px;
-        margin-bottom:10px;
-    '/>""" if image_url else ""
+    <img src="{image_url}" alt="{title} image" style="
+        width: 100%;
+        height: {image_height}px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    " />""" if image_url else ""
 
     return f"""
-    <div style="
-        border: 1px solid #e6e6e6;
+    <div class="blog-tile" style="
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 12px;
         padding: 16px;
-        margin: 6px;  /* ✅ adds spacing between tiles */
-        background-color: #fafafa;
-        box-shadow: 2px 2px 8px rgba(0,0,0,0.06);
-        height: {tile_height}px;
+        margin: 6px;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        transition: transform 0.2s ease;
     ">
         {img_tag}
-        <h4 style='margin-bottom: 8px; font-size: 16px; line-height: 1.3;'>
-            <a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a>
+        <h4 style="margin-bottom: 8px; font-size: 16px; line-height: 1.3;">
+            <a href="{url}" target="_blank" rel="noopener noreferrer" style="
+                text-decoration: none;
+                color: {link_color};
+                font-weight: 600;
+            ">
+                {title}
+            </a>
         </h4>
-        <p style='font-size: 13px; line-height: 1.4; overflow: hidden; display: -webkit-box;
-                  -webkit-line-clamp: {line_clamp}; -webkit-box-orient: vertical;'>
+        <p style="
+            color: {text_color};
+    	    font-size: 13px;
+            line-height: 1.4;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 72px;
+        ">
             {excerpt}
         </p>
     </div>
     """
 
+
 # Publication tile
 def render_publication_tile(title, url, authors, journal, year):
     return f"""
-    <div style="
-        border: 1px solid #e6e6e6;
+    <div class="publication-tile" style="
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 12px;
         padding: 16px;
         margin: 6px;
-        background-color: #fafafa;
-        box-shadow: 2px 2px 8px rgba(0,0,0,0.06);
-        height: auto;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        transition: transform 0.2s ease;
     ">
-        <h4 style='margin-bottom: 6px; font-size: 16px; line-height: 1.3; color: #1a1a1a;'>
-            <a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a>
+        <h4 style="margin-bottom: 6px; font-size: 16px; line-height: 1.3;">
+            <a href="{url}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; font-weight: 600;">
+                {title}
+            </a>
         </h4>
-        <p style='font-size: 13px; margin: 4px 0 0 0; color: #1a1a1a;'><i>{authors}</i></p>
-        <p style='font-size: 13px; margin: 2px 0 0 0; color: #1a1a1a;'><i>{journal}, {year}</i></p>
+        <p style="font-size: 13px; margin: 4px 0 0 0; color: inherit;"><i>{authors}</i></p>
+        <p style="font-size: 13px; margin: 2px 0 0 0; color: inherit;"><i>{journal}, {year}</i></p>
     </div>
     """
 
 
-# --- Home Page ---
-if menu == "Home":
-    #st.image("static/cover.jpg", use_column_width=True)
-    #st.image("static/cover.png", width=800, caption="Data meets AI – Akash S.")
-    
-    st.title("Hi, I'm AKASH. S (AKASH SOMASEKHARAN)")
-    st.subheader("Oceanography Researcher | Data Scientist | Scientific Consultant")
 
+# --- Home Page ---
+#if menu == "Home":
+    ##st.image("static/cover.jpg", use_column_width=True)
+    ##st.image("static/cover.png", width=800, caption="Data meets AI – Akash S.")
+    
+    #st.title("Hi, I'm AKASH. S (AKASH SOMASEKHARAN)")
+    #st.subheader("Oceanography Researcher | Data Scientist | Scientific Consultant")
+
+if menu == "Home":
+    st.title("✴️ Welcome")
+
+    col1, col2 = st.columns([2, 1])  # Wider text on the left, image on the right
+
+    with col1:
+        st.markdown("""
+        <h2 style='margin-bottom: 0;'>I'm <span style="color:#007acc;">AKASH. S</span> <br><small>(AKASH SOMASEKHARAN)</small></h2>
+        <p style='font-size: 16px; margin-top: 4px;'>
+        Oceanography Researcher | Data Scientist | Scientific Consultant
+        </p>
+        """, unsafe_allow_html=True)
+
+    with col2:
+        st.image("static/akash_profile.jpg", width=150, caption=None)
+    
     #st.markdown("""
     #I am a multidisciplinary researcher with over 7 years of experience in **physical oceanography**, 
     #**biogeochemical modeling**, and **data science consulting**. My work bridges academic research and 
@@ -342,6 +497,28 @@ elif menu == "Research":
 
     </div>
     """, unsafe_allow_html=True)
+    
+    st.markdown("### 📑 Research Item Summary (via ResearchGate)")
+    st.markdown("### 📑 Research Items Overview")
+
+    items = {
+        "Article": 7,
+        "Chapter": 1,
+        "Conference Paper": 0,
+        "Experiment Findings": 2,
+        "Presentation": 4,
+        "Poster": 16,
+        "Preprint": 0,
+        "Full-texts": 5,
+        "All": 30
+    }
+    
+    cols = st.columns(3)  # 3 per row
+    
+    for i, (label, count) in enumerate(items.items()):
+        with cols[i % 3]:
+    	st.metric(label=label, value=str(count))
+
 
     
         # --- Publications Section ---
@@ -403,8 +580,6 @@ elif menu == "Research":
 - Sajna V.H. et al., incl. Akash S., 2021. *Impact of climate change on the fishery of Indian mackerel.* [DOI: 10.1016/j.rsma.2021.101773](https://doi.org/10.1016/j.rsma.2021.101773)
 - Shah, P. et al., incl. Akash S., 2019. *A holistic approach to upwelling and downwelling along the SW coast of India.* [DOI: 10.1080/01490419.2018.1553805](https://doi.org/10.1080/01490419.2018.1553805)
     """)
-
-
 
 
 
@@ -527,20 +702,35 @@ elif menu == "Blog":
 
     # --- Intro Section ---
     st.markdown("""
-    I regularly share tutorials, research notes, and data science experiments through my blog under **[Aireen Project](https://aireenproject.wordpress.com/category/python-classes/)**.
+        <div style='font-size: 16px; line-height: 1.7; color: inherit;'>
 
-    ### 🔍 What I Write About:
-    - 🔬 Ocean science, OMZ dynamics, and data-driven marine research  
-    - 🤖 Machine learning workflows for scientific and real-world problems  
-    - 🛰️ Remote sensing, cruise-based survey experiences, and field insights  
-    - 🛠️ Python scripting, automation, and tool building  
-    - 😄 Occasionally... fun experiments with code and observations from the field
+        <p style="color: inherit;">
+        I regularly share tutorials, research notes, and data science experiments through my blog under 
+        <strong><a href="https://aireenproject.wordpress.com/category/python-classes/" target="_blank">
+        Aireen Project</a></strong>.
 
-    📖 Visit: [aireenproject.wordpress.com/category/python-classes/](https://aireenproject.wordpress.com/category/python-classes/)
-    """)
+        ### 🔍 What I Write About:
+        - 🔬 Ocean science, OMZ dynamics, and data-driven marine research  
+        - 🤖 Machine learning workflows for scientific and real-world problems  
+        - 🛰️ Remote sensing, cruise-based survey experiences, and field insights  
+        - 🛠️ Python scripting, automation, and tool building  
+        - 😄 Occasionally... fun experiments with code and observations from the field
+
+        📖 Visit: 
+        <a href="https://aireenproject.wordpress.com/category/python-classes/" target="_blank">
+        aireenproject.wordpress.com/category/python-classes/</a>
+        </p>
+
+        </div>
+    """, unsafe_allow_html=True)
 
     st.markdown("### 📚 Blog Posts")
-    
+
+    # Detect theme and set adaptive colors
+    theme = st.get_option("theme.base")
+    text_color = "#ffffff" if theme == "dark" else "#444444"
+    link_color = "#00BFFF" if theme == "dark" else "#0056cc"
+
     blog_links = [
         "https://aireenproject.wordpress.com/2024/07/21/python-loading-multiple-netcdf-files-and-plotting-subplots/",
         "https://aireenproject.wordpress.com/2024/06/05/python-a-guide-to-customizing-themes-in-jupyter/",
@@ -557,7 +747,10 @@ elif menu == "Blog":
         for col, link in zip(cols, blog_links[i:i+2]):
             title, excerpt, img_url = get_wp_preview(link)
             with col:
-                st.markdown(render_blog_tile(title, link, excerpt, img_url), unsafe_allow_html=True)
+                st.markdown(
+		    render_blog_tile(title, link, excerpt, img_url, text_color, link_color),
+		    unsafe_allow_html=True
+		)
 
 
 
