@@ -501,44 +501,26 @@ elif menu == "Research":
     </div>
     """, unsafe_allow_html=True)
 
-    # ✅ Back to Python logic – define tile renderer
-    def render_research_item_tile(name, count):
-        return f"""
-        <div style='
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 10px 14px;
-            border-radius: 10px;
-            margin: 6px;
-            text-align: center;
-            font-size: 14px;
-            color: inherit;
-            min-width: 120px;
-        '>
-            <strong>{name}</strong><br>
-            <span style='font-size: 22px;'>{count}</span>
-        </div>
-        """
+    st.markdown("### 📑 Research Items Overview")
 
-    # ✅ ResearchGate-style metrics
     items = {
         "Article": 7,
         "Chapter": 1,
+        "Conference Paper": 0,
         "Experiment Findings": 2,
         "Presentation": 4,
         "Poster": 16,
+        "Preprint": 0,
         "Full-texts": 5,
         "All": 30
     }
+    
+    cols = st.columns(3)  # 3 per row
+    
+    for i, (label, count) in enumerate(items.items()):
+        with cols[i % 3]:
+            st.metric(label=label, value=str(count))
 
-    st.markdown("### 🧾 Research Item Summary")
-
-    html = "<div style='display: flex; flex-wrap: wrap; gap: 8px;'>"
-    for name, count in items.items():
-        html += render_research_item_tile(name, count)
-    html += "</div>"
-
-    st.markdown(html, unsafe_allow_html=True)
 
     
     # --- Publications Section ---
