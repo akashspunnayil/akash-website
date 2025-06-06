@@ -513,7 +513,7 @@ elif menu == "Research":
         """, unsafe_allow_html=True)
 
     with right:
-        st.markdown("### 📊 Citation Metrics")
+        st.markdown("### 📊 Cited by")
         st.markdown("""
         <table style='font-size: 14px; line-height: 1.6;'>
             <tr>
@@ -541,6 +541,8 @@ elif menu == "Research":
         "Presentation": 4,
         "Poster": 16,
         "Full-texts": 5,
+        "":,
+        "":,
         "Total Research Items": 30
     }
 
