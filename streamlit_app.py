@@ -225,25 +225,30 @@ def render_blog_tile(title, url, excerpt, image_url=None):
 # Publication tile
 def render_publication_tile(title, url, authors, journal, year):
     return f"""
-    <div style="
-        border: 1px solid #e6e6e6;
+    <div class="publication-tile" style="
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 12px;
         padding: 16px;
         margin: 6px;
-        background-color: #fafafa;
-        box-shadow: 2px 2px 8px rgba(0,0,0,0.06);
-        height: auto;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        transition: transform 0.2s ease;
     ">
-        <h4 style='margin-bottom: 6px; font-size: 16px; line-height: 1.3; color: #1a1a1a;'>
-            <a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a>
+        <h4 style="margin-bottom: 6px; font-size: 16px; line-height: 1.3;">
+            <a href="{url}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; font-weight: 600;">
+                {title}
+            </a>
         </h4>
-        <p style='font-size: 13px; margin: 4px 0 0 0; color: #1a1a1a;'><i>{authors}</i></p>
-        <p style='font-size: 13px; margin: 2px 0 0 0; color: #1a1a1a;'><i>{journal}, {year}</i></p>
+        <p style="font-size: 13px; margin: 4px 0 0 0; color: inherit;"><i>{authors}</i></p>
+        <p style="font-size: 13px; margin: 2px 0 0 0; color: inherit;"><i>{journal}, {year}</i></p>
     </div>
     """
+
 
 
 # --- Home Page ---
