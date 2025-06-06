@@ -466,7 +466,7 @@ if menu == "Home":
 elif menu == "Research":
     st.title("🔬 Research")
 
-    # ✅ Research summary description
+    # ✅ Research summary description block
     st.markdown("""
     <div style='font-size: 16px; line-height: 1.7; color: inherit;'>
     
@@ -501,6 +501,7 @@ elif menu == "Research":
     </div>
     """, unsafe_allow_html=True)
 
+    # ✅ ResearchGate-style counters using metrics
     st.markdown("### 📑 Research Items Overview")
 
     items = {
@@ -514,9 +515,9 @@ elif menu == "Research":
         "Full-texts": 5,
         "All": 30
     }
-    
+
     cols = st.columns(3)  # 3 per row
-    
+
     for i, (label, count) in enumerate(items.items()):
         with cols[i % 3]:
             st.metric(label=label, value=str(count))
