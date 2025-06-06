@@ -676,14 +676,14 @@ elif menu == "Blog":
     ]
 
     for i in range(0, len(blog_links), 2):
-    cols = st.columns(3)
-    for col, link in zip(cols, blog_links[i:i+2]):
-        title, excerpt, img_url = get_wp_preview(link)
-        with col:
-            st.markdown(
-                render_blog_tile(title, link, excerpt, img_url, text_color, link_color),
-                unsafe_allow_html=True
-            )
+	    cols = st.columns(3)
+	    for col, link in zip(cols, blog_links[i:i+2]):
+		title, excerpt, img_url = get_wp_preview(link)
+		with col:
+		    st.markdown(
+		        render_blog_tile(title, link, excerpt, img_url, text_color, link_color),
+		        unsafe_allow_html=True
+		    )
 
 
 
