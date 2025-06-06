@@ -49,7 +49,7 @@ menu = st.sidebar.radio(" ", nav_options, index=0)
 # Theme-aware CSS
 st.markdown("""
 <style>
-/* Shared tile base styles */
+/* Apply shared tile background and font smoothing */
 .blog-tile, .publication-tile, .transparent-tile {
     border-radius: 12px;
     padding: 16px;
@@ -58,15 +58,17 @@ st.markdown("""
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     transition: transform 0.2s ease;
+    font-family: "Segoe UI", sans-serif;
 }
 
-/* Text styles */
-.blog-title-link, .publication-tile a, .transparent-tile a {
+/* Tile title link */
+.blog-tile a, .publication-tile a, .transparent-tile a {
     text-decoration: none;
     font-weight: 600;
 }
 
-.blog-excerpt, .publication-tile p, .transparent-tile p {
+/* Blog excerpt */
+.blog-tile p, .publication-tile p, .transparent-tile p {
     font-size: 13px;
     line-height: 1.4;
     margin: 0;
@@ -76,26 +78,26 @@ st.markdown("""
     -webkit-box-orient: vertical;
 }
 
-/* Light theme */
+/* Light Theme */
 @media (prefers-color-scheme: light) {
     .blog-tile, .publication-tile, .transparent-tile {
         background-color: rgba(0, 0, 0, 0.03);
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        color: #111;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        color: #222;
     }
-    .blog-title-link, .publication-tile a, .transparent-tile a {
-        color: #0066cc;
+    .blog-tile a, .publication-tile a, .transparent-tile a {
+        color: #0056cc;
     }
 }
 
-/* Dark theme */
+/* Dark Theme */
 @media (prefers-color-scheme: dark) {
     .blog-tile, .publication-tile, .transparent-tile {
         background-color: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.1);
         color: #f0f0f0;
     }
-    .blog-title-link, .publication-tile a, .transparent-tile a {
+    .blog-tile a, .publication-tile a, .transparent-tile a {
         color: #00BFFF;
     }
 }
@@ -107,6 +109,7 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 
