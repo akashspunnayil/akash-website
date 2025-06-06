@@ -282,6 +282,7 @@ link_color = "#00BFFF" if theme == "dark" else "#0056cc"
 # Blog tile
 def render_blog_tile(title, url, excerpt, image_url=None, text_color="#444444", link_color="#0056cc"):
     image_height = 150
+
     img_tag = f"""
     <img src="{image_url}" alt="{title} image" style="
         width: 100%;
@@ -312,24 +313,26 @@ def render_blog_tile(title, url, excerpt, image_url=None, text_color="#444444", 
                 text-decoration: none;
                 color: {link_color};
                 font-weight: 600;
-            ">{title}</a>
+            ">
+                {title}
+            </a>
         </h4>
         <p style="
-	    color: red;
-	    font-size: 13px;
-	    line-height: 1.4;
-	    margin: 0;
-	    display: -webkit-box;
-	    -webkit-line-clamp: 4;
-	    -webkit-box-orient: vertical;
-	    overflow: hidden;
-	    min-height: 72px;
-	">
-	    DEBUG TESTING EXCERPT — RED TEXT SHOULD SHOW IN DARK THEME
-	</p>
-
+            color: red;
+            font-size: 13px;
+            line-height: 1.4;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 72px;
+        ">
+            DEBUG TESTING EXCERPT — RED TEXT SHOULD SHOW IN DARK THEME
+        </p>
     </div>
     """
+
 
 
 
