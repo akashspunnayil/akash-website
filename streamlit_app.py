@@ -251,9 +251,21 @@ st.markdown("""
 
 
 
+import streamlit as st
+
+# Detect Streamlit theme (available from config)
+current_theme = st.get_option("theme.base")  # "dark" or "light"
+
+if current_theme == "dark":
+    text_color = "#ffffff"  # white for dark theme
+    link_color = "#00BFFF"
+else:
+    text_color = "#444444"  # dark gray for light theme
+    link_color = "#0056cc"
+
 
 # Blog tile
-def render_blog_tile(title, url, excerpt, image_url=None):
+def render_blog_tile(title, url, excerpt, image_url=None, text_color="#444", link_color="#0056cc"):
     image_height = 150
 
     img_tag = f"""
@@ -266,15 +278,43 @@ def render_blog_tile(title, url, excerpt, image_url=None):
     " />""" if image_url else ""
 
     return f"""
-    <div class="blog-tile">
+    <div style="
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 16px;
+        margin: 6px;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        transition: transform 0.2s ease;
+        color: {text_color};
+    ">
         {img_tag}
         <h4 style="margin-bottom: 8px; font-size: 16px; line-height: 1.3;">
-            <a href="{url}" target="_blank" rel="noopener noreferrer">{title}</a>
+            <a href="{url}" target="_blank" rel="noopener noreferrer" style="
+                text-decoration: none;
+                color: {link_color};
+                font-weight: 600;
+            ">{title}</a>
         </h4>
-        <p>{excerpt}</p>
+        <p style="
+            font-size: 13px;
+            line-height: 1.4;
+            margin: 0;
+            color: {text_color};
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        ">
+            {excerpt}
+        </p>
     </div>
     """
-
 
 
 
