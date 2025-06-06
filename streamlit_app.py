@@ -198,7 +198,6 @@ def render_blog_tile(title, url, excerpt, image_url=None):
         <h4 style='margin-bottom: 8px; font-size: 16px; line-height: 1.3;'>
             <a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a>
         </h4>
-        
         <p style="
     color: inherit;
     font-size: 13px;
@@ -209,8 +208,7 @@ def render_blog_tile(title, url, excerpt, image_url=None):
     -webkit-box-orient: vertical;
     min-height: 60px;">
     {excerpt}
-    </p>
-    </div>
+</p>
     """
 
 # Publication tile
