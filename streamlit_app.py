@@ -146,8 +146,6 @@ def render_tile(title, url, description, img_base64=shared_img_base64):
     min-height: 60px;">
     {description}
 </p>
-
-    </div>
     """
 
 
