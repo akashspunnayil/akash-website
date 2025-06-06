@@ -315,18 +315,19 @@ def render_blog_tile(title, url, excerpt, image_url=None, text_color="#444444", 
             ">{title}</a>
         </h4>
         <p style="
-            font-size: 13px;
-            line-height: 1.4;
-            margin: 0;
-            color: {text_color};
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            min-height: 72px;
-        ">
-            {excerpt}
-        </p>
+	    color: red;
+	    font-size: 13px;
+	    line-height: 1.4;
+	    margin: 0;
+	    display: -webkit-box;
+	    -webkit-line-clamp: 4;
+	    -webkit-box-orient: vertical;
+	    overflow: hidden;
+	    min-height: 72px;
+	">
+	    DEBUG TESTING EXCERPT — RED TEXT SHOULD SHOW IN DARK THEME
+	</p>
+
     </div>
     """
 
@@ -712,8 +713,6 @@ elif menu == "Blog":
 		    render_blog_tile(title, link, excerpt, img_url, text_color, link_color),
 		    unsafe_allow_html=True
 		)
-
-
 
 
 
