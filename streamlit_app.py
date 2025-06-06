@@ -229,7 +229,7 @@ def render_blog_tile(title, url, excerpt, image_url=None):
         flex-direction: column;
         justify-content: flex-start;
         transition: transform 0.2s ease;
-        color: #222;  /* ✅ Make text visible always */
+        color: #111;  /* Works for light mode */
     ">
         {img_tag}
         <h4 style="margin-bottom: 8px; font-size: 16px; line-height: 1.3;">
@@ -238,7 +238,7 @@ def render_blog_tile(title, url, excerpt, image_url=None):
             </a>
         </h4>
         <p style="
-            color: #444;
+            color: rgba(0, 0, 0, 0.65);  /* Light theme fallback */
             font-size: 13px;
             line-height: 1.4;
             margin: 0;
@@ -246,7 +246,9 @@ def render_blog_tile(title, url, excerpt, image_url=None):
             -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
             overflow: hidden;
-        ">{excerpt}</p>
+        " class="blog-desc">
+            {excerpt}
+        </p>
     </div>
     """
 
