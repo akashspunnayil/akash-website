@@ -82,7 +82,6 @@ st.markdown("""
 menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "CV"])
 
 # --- Home Page ---
-
 if menu == "Home":
     st.title("Hi, I'm AKASH. S (AKASH SOMASEKHARAN)")
     st.subheader("Oceanography Researcher | Data Scientist | Scientific Consultant")
@@ -163,8 +162,6 @@ elif menu == "Projects":
             url="https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/argohycom_toolbox",
             excerpt="Colocation and filtering of BGC-Argo profiles with HYCOM outputs."
         ), unsafe_allow_html=True)
-
-    # Add more tools here similarly...
 
 # --- Blog Page ---
 elif menu == "Blog":
