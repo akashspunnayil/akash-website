@@ -534,23 +534,25 @@ elif menu == "Research":
     # ✅ ResearchGate-style counters using metrics
     st.markdown("### 📑 Research Items Overview")
 
-    items = {
-        "Article": 7,
-        "Chapter": 1,
-        "Experiment Findings": 2,
-        "Presentation": 4,
-        "Poster": 16,
-        "Full-texts": 5,
-        " ",
-        " ",
-        "Total Research Items": 30
-    }
-
-    cols = st.columns(3)  # 3 per row
-
-    for i, (label, count) in enumerate(items.items()):
+    items = [
+    ("Article", 7),
+    ("Chapter", 1),
+    ("Experiment Findings", 2),
+    ("Presentation", 4),
+    ("Poster", 16),
+    ("Full-texts", 5),
+    ("", ""),  # Empty row
+    ("", ""),  # Another empty row
+    ("Total Research Items", 30)
+    ]
+    
+    cols = st.columns(3)
+    for i, (label, count) in enumerate(items):
         with cols[i % 3]:
-            st.metric(label=label, value=str(count))
+            if label.strip():  # if not empty
+                st.metric(label=label, value=str(count))
+            else:
+                st.markdown(" ")  # spacer
 
     # --- Publications Section ---
     st.markdown("### 📚 Recent 5 Publications")
