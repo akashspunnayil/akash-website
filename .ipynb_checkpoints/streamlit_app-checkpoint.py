@@ -498,29 +498,6 @@ elif menu == "Research":
     </div>
     """, unsafe_allow_html=True)
     
-    st.markdown("### 📑 Research Item Summary (via ResearchGate)")
-    st.markdown("### 📑 Research Items Overview")
-
-    items = {
-        "Article": 7,
-        "Chapter": 1,
-        "Conference Paper": 0,
-        "Experiment Findings": 2,
-        "Presentation": 4,
-        "Poster": 16,
-        "Preprint": 0,
-        "Full-texts": 5,
-        "All": 30
-    }
-    
-    cols = st.columns(3)  # 3 per row
-    
-    for i, (label, count) in enumerate(items.items()):
-        with cols[i % 3]:
-        	st.metric(label=label, value=str(count))
-
-
-    # Define the tile renderer function
     def render_research_item_tile(name, count):
         return f"""
         <div style='
@@ -539,30 +516,27 @@ elif menu == "Research":
         </div>
         """
     
-    # Add heading
-    st.markdown("### 🧾 Research Items Breakdown")
-    
-    # Data
     items = {
         "Article": 7,
         "Chapter": 1,
-        "Conference Paper": 0,
         "Experiment Findings": 2,
         "Presentation": 4,
         "Poster": 16,
-        "Preprint": 0,
         "Full-texts": 5,
         "All": 30
     }
     
-    # Final HTML rendering
+    st.markdown("### 📚 Research Item Summary")
+    
+    # ✅ This must work as long as it's used directly
     html = "<div style='display: flex; flex-wrap: wrap; gap: 8px;'>"
     for name, count in items.items():
         html += render_research_item_tile(name, count)
     html += "</div>"
     
-    # ✅ Correct rendering
+    # ✅ Absolutely required: this exact line
     st.markdown(html, unsafe_allow_html=True)
+
 
 
 
