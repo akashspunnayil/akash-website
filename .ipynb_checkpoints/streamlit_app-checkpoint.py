@@ -555,14 +555,15 @@ elif menu == "Research":
         "All": 30
     }
     
-    # Combine tiles into an HTML flex container
+    # Final HTML rendering
     html = "<div style='display: flex; flex-wrap: wrap; gap: 8px;'>"
     for name, count in items.items():
         html += render_research_item_tile(name, count)
     html += "</div>"
     
-    # Render in Streamlit
+    # ✅ Correct rendering
     st.markdown(html, unsafe_allow_html=True)
+
 
 
     
