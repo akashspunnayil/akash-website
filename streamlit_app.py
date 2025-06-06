@@ -244,6 +244,7 @@ def render_blog_tile(title, url, excerpt, image_url=None):
 
 
 
+
 # Publication tile
 def render_publication_tile(title, url, authors, journal, year):
     return f"""
