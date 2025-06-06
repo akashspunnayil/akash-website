@@ -182,36 +182,35 @@ def render_blog_tile(title, url, excerpt, image_url=None):
     '/>""" if image_url else ""
 
     return f"""
-    <div style="
-        border: 1px solid #e6e6e6;
-        border-radius: 12px;
-        padding: 16px;
-        margin: 6px;
-        background-color: #fafafa;
-        box-shadow: 2px 2px 8px rgba(0,0,0,0.06);
-        height: {tile_height}px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
+<div style="
+    border-radius: 12px;
+    padding: 16px;
+    margin: 6px;
+    background-color: transparent;
+    color: inherit;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.06);
+    height: {tile_height}px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+">
+    {img_tag}
+    <h4 style='margin-bottom: 8px; font-size: 16px; line-height: 1.3; color: inherit;'>
+        <a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a>
+    </h4>
+    <p style="
         color: inherit;
-    ">
-        {img_tag}
-        <h4 style='margin-bottom: 8px; font-size: 16px; line-height: 1.3;'>
-            <a href='{url}' target='_blank' style='text-decoration: none; color: #0066cc;'>{title}</a>
-        </h4>
-        <p style="
-            color: inherit;
-            font-size: 13px;
-            line-height: 1.4;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: {line_clamp};
-            -webkit-box-orient: vertical;
-            min-height: 60px;">
-            {excerpt}
-        </p>
-    </div>
-    """
+        font-size: 13px;
+        line-height: 1.4;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: {line_clamp};
+        -webkit-box-orient: vertical;
+        min-height: 60px;">
+        {excerpt}
+    </p>
+</div>
+"""
 
 
 # Publication tile
