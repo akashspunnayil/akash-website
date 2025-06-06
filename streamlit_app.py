@@ -47,11 +47,11 @@ menu = st.sidebar.radio(" ", nav_options, index=0)
 
 st.markdown("""
 <style>
-/* ✅ Default for Light Theme */
+/* 🌞 Light theme defaults */
 .blog-tile {
     background-color: #fafafa;
     color: #1a1a1a;
-    border: 1px solid #e6e6e6;
+    border: 1px solid #ddd;
     border-radius: 12px;
     padding: 16px;
     margin: 6px;
@@ -71,15 +71,15 @@ st.markdown("""
 .blog-tile p {
     font-size: 13px;
     line-height: 1.4;
+    color: #1a1a1a;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     min-height: 60px;
-    color: #1a1a1a;
 }
 
-/* ✅ Overrides ONLY in dark mode */
+/* 🌚 Dark theme overrides */
 @media (prefers-color-scheme: dark) {
     .blog-tile {
         background-color: #1e1e1e;
@@ -98,6 +98,7 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # --- Cover Image ---
@@ -241,6 +242,7 @@ def render_blog_tile(title, url, excerpt, image_url=None):
         <p>{excerpt}</p>
     </div>
     """
+
 
 
 
