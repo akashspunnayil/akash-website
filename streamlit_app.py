@@ -296,17 +296,18 @@ def render_blog_tile(title, url, excerpt, image_url=None):
             </a>
         </h4>
         <p style="
-            font-size: 13px;
-            line-height: 1.4;
-            margin: 0;
-            color: #444;
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        ">
-            {excerpt}
-        </p>
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0;
+    color: white;  /* ✅ FIX: Bright text for dark mode */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+">
+    {excerpt}
+</p>
+
     </div>
     """
 
