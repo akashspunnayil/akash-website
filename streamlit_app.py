@@ -328,7 +328,7 @@ def render_blog_tile(title, url, excerpt, image_url=None, text_color="#444444", 
             overflow: hidden;
             min-height: 72px;
         ">
-            DEBUG TESTING EXCERPT — RED TEXT SHOULD SHOW IN DARK THEME
+            {excerpt}
         </p>
     </div>
     """
