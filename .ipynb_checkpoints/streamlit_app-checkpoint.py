@@ -699,6 +699,12 @@ elif menu == "Projects":
             description="Sliding window detection of long-term trends in sea level. *(link coming soon)*"
         ), unsafe_allow_html=True)
 
+    # from apps.face_recognition_app import run_face_recognition
+    
+    # # Inside your Projects > Computer Vision tile
+    # if st.button("🎥 Launch Face Detection App"):
+    #     run_face_recognition()
+    
     # 🧠 Computer Vision Projects
     st.subheader("🧠 Computer Vision Projects")
     col1, col2, col3 = st.columns(3)
@@ -713,9 +719,9 @@ elif menu == "Projects":
             </p>
             </div>
             """, unsafe_allow_html=True)
-    
+            
+            from apps.face_recognition_app import run_face_recognition
             if st.button("👉 Launch App", key="launch_face_app"):
-                from apps.face_recognition_app import run_face_recognition
                 run_face_recognition()
 
         
