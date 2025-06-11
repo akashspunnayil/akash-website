@@ -1,6 +1,6 @@
 numpy
 streamlit
-opencv-python-headless==4.9.0.80
+cv2
 pillow
 requests
 beautifulsoup4
