@@ -1,57 +1,41 @@
 # apps/face_recognition_app.py
-
 import streamlit as st
 import cv2
 import numpy as np
-import sys
+from PIL import Image
 
 def run_face_recognition():
-    st.title("📷 Face App Debug")
-    st.write("✅ Python version:", sys.version)
-    st.write("✅ NumPy version:", np.__version__)
-    st.write("✅ OpenCV version:", cv2.__version__)
+    st.title("📷 Face Detection App using Haar Cascades")
 
+    # Load cascades
+    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+    eye_cascade  = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye_tree_eyeglasses.xml')
+    smile_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_smile.xml')
 
-# def run_face_recognition():
-#     st.title("🛠️ Debug: Face Detection App")
+    img_data = st.camera_input("Capture a photo") or st.file_uploader("Or upload an image", type=["jpg", "jpeg", "png"])
 
-#     # 🧠 DEBUG: Print system info
-#     st.write("### 🔍 Python Info")
-#     st.write(sys.version)
+    if img_data:
+        img = Image.open(img_data)
+        frame = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-#     st.write("### ✅ Package Versions")
-#     st.write("cv2 version:", cv2.__version__)
-#     st.write("numpy version:", np.__version__)
+        faces = face_cascade.detectMultiScale(gray, 1.1, 5)
+        for (x, y, w, h) in faces:
+            roi_gray = gray[y:y+h, x:x+w]
+            roi_color = frame[y:y+h, x:x+w]
 
-#     try:
-#         st.write("### 🧪 Testing Haar Cascade Load...")
-#         face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-#         if face_cascade.empty():
-#             st.error("❌ Failed to load face cascade.")
-#             return
-#         else:
-#             st.success("✅ Haar cascade loaded successfully.")
-#     except Exception as e:
-#         st.error(f"❌ Error loading Haar cascade: {e}")
-#         return
+            cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
+            cv2.putText(frame, "Face", (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255,255,255), 2)
 
-#     # UI: Image input
-#     img_data = st.camera_input("📸 Capture a photo") or st.file_uploader("Or upload an image", type=["jpg", "jpeg", "png"])
+            eyes = eye_cascade.detectMultiScale(roi_gray)
+            for (ex, ey, ew, eh) in eyes:
+                center = (x + ex + ew//2, y + ey + eh//2)
+                radius = int(round((ew + eh) * 0.25))
+                cv2.circle(frame, center, radius, (0, 255, 0), 2)
 
-#     if img_data:
-#         try:
-#             img = Image.open(img_data)
-#             frame = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
-#             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            smiles = smile_cascade.detectMultiScale(roi_gray, 1.7, 22)
+            for (sx, sy, sw, sh) in smiles:
+                cv2.rectangle(roi_color, (sx, sy), (sx+sw, sy+sh), (0, 0, 255), 2)
+                cv2.putText(frame, "Smile", (x + sx, y + sy - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
 
-#             faces = face_cascade.detectMultiScale(gray, 1.1, 5)
-#             st.write(f"Detected {len(faces)} face(s)")
-
-#             for (x, y, w, h) in faces:
-#                 cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
-#                 cv2.putText(frame, "Face", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
-
-#             st.image(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), caption="Detection Result", use_column_width=True)
-
-#         except Exception as e:
-#             st.error(f"❌ Error processing image: {e}")
+        st.image(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), caption="Detected Faces", use_column_width=True)

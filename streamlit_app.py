@@ -709,25 +709,18 @@ elif menu == "Projects":
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        with st.container():
-            st.markdown("""
-            <div style='background-color:#f0f2f6; padding:15px; border-radius:12px; box-shadow:0 2px 5px rgba(0,0,0,0.1);'>
-            <h4 style='margin-bottom:10px;'>🎥 Face Detection App</h4>
-            <p style='font-size:14px; color:#555;'>
-                Streamlit webcam face detection with Haar cascades.
-            </p>
-            </div>
-            """, unsafe_allow_html=True)
-            
-            # from apps.face_recognition_app import run_face_recognition
-            # if st.button("👉 Launch App", key="launch_face_app"):
-            #     run_face_recognition()
-                
-            from apps.face_recognition_app import run_face_recognition
+        st.markdown(render_tile(
+            title="Face Detection App",
+            url="/?app=face-recognition",
+            description="Streamlit webcam face detection with Haar cascades."
+        ), unsafe_allow_html=True)
+    
+    # Use query param to launch
+    query_params = st.experimental_get_query_params()
+    if query_params.get("app", [None])[0] == "face-recognition":
+        from apps.face_recognition_app import run_face_recognition
+        run_face_recognition()
 
-            # Inside your "Projects" menu
-            if st.button("🧪 Debug Face App"):
-                run_face_recognition()
 
 
         
