@@ -698,15 +698,17 @@ elif menu == "Projects":
             description="Sliding window detection of long-term trends in sea level. *(link coming soon)*"
         ), unsafe_allow_html=True)
 
+
+    # 🧠 Computer Vision Projects
     st.subheader("🧠 Computer Vision Projects")
     col1, col2, col3 = st.columns(3)
     
     with col1:
-    st.markdown(render_tile(
-        title="Face Detection App",
-        url="https://testfacerecog.streamlit.app/",  # actual external URL
-        description="Streamlit webcam face detection with Haar cascades."
-    ), unsafe_allow_html=True)
+        st.markdown(render_tile(
+            title="Face Detection App",
+            url="https://testfacerecog.streamlit.app/",  # actual external URL
+            description="Streamlit webcam face detection with Haar cascades."
+        ), unsafe_allow_html=True)
 
 
         
