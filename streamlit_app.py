@@ -715,11 +715,12 @@ elif menu == "Projects":
             description="Streamlit webcam face detection with Haar cascades."
         ), unsafe_allow_html=True)
     
-    # Use query param to launch
-    query_params = st.experimental_get_query_params()
+    # ✅ Updated query param logic
+    query_params = st.query_params
     if query_params.get("app", [None])[0] == "face-recognition":
         from apps.face_recognition_app import run_face_recognition
         run_face_recognition()
+
 
 
 
