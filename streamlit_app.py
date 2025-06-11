@@ -705,9 +705,9 @@ elif menu == "Projects":
     
         
     with col1:
-    if st.button("🎥 Face Recognition App"):
-        from apps.face_recognition_app import run_face_recognition
-        run_face_recognition()
+        if st.button("🎥 Face Recognition App"):
+            from apps.face_recognition_app import run_face_recognition
+            run_face_recognition()
         
     # 🧠 AI/ML Practice Notebooks
     st.subheader("🧠 AI/ML Practice Notebooks")
