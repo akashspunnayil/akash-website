@@ -701,8 +701,11 @@ elif menu == "Projects":
 
     # 🧠 Computer Vision Projects
     st.subheader("🧠 Computer Vision Projects")
+    col1, col2 = st.columns(2)
     
-    if st.button("🎥 Launch Face Recognition App"):
+        
+    with col1:
+    if st.button("🎥 Face Recognition App"):
         from apps.face_recognition_app import run_face_recognition
         run_face_recognition()
         
