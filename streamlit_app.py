@@ -704,22 +704,22 @@ elif menu == "Projects":
     # if st.button("🎥 Launch Face Detection App"):
     #     run_face_recognition()
     
-    # 🧠 Computer Vision Projects
-    st.subheader("🧠 Computer Vision Projects")
-    col1, col2, col3 = st.columns(3)
+    # # 🧠 Computer Vision Projects
+    # st.subheader("🧠 Computer Vision Projects")
+    # col1, col2, col3 = st.columns(3)
     
-    with col1:
-        st.markdown(render_tile(
-            title="Face Detection App",
-            url="/?app=face-recognition",
-            description="Streamlit webcam face detection with Haar cascades."
-        ), unsafe_allow_html=True)
+    # with col1:
+    #     st.markdown(render_tile(
+    #         title="Face Detection App",
+    #         url="/?app=face-recognition",
+    #         description="Streamlit webcam face detection with Haar cascades."
+    #     ), unsafe_allow_html=True)
     
-    # ✅ Updated query param logic
-    query_params = st.query_params
-    if query_params.get("app", [None])[0] == "face-recognition":
-        from apps.face_recognition_app import run_face_recognition
-        run_face_recognition()
+    # # ✅ Updated query param logic
+    # query_params = st.query_params
+    # if query_params.get("app", [None])[0] == "face-recognition":
+    #     from apps.face_recognition_app import run_face_recognition
+    #     run_face_recognition()
 
 
 
