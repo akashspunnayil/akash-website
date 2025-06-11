@@ -797,6 +797,7 @@ elif menu == "CV":
             file_name="Akash_Somasekharan_CV.pdf",
             mime="application/pdf"
         )
+        
 
     st.markdown("---")
     st.subheader("📬 Connect with Me")
