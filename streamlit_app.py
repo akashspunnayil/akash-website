@@ -719,9 +719,16 @@ elif menu == "Projects":
             </div>
             """, unsafe_allow_html=True)
             
+            # from apps.face_recognition_app import run_face_recognition
+            # if st.button("👉 Launch App", key="launch_face_app"):
+            #     run_face_recognition()
+                
             from apps.face_recognition_app import run_face_recognition
-            if st.button("👉 Launch App", key="launch_face_app"):
+
+            # Inside your "Projects" menu
+            if st.button("🧪 Debug Face App"):
                 run_face_recognition()
+
 
         
     # 🧠 AI/ML Practice Notebooks
