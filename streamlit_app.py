@@ -701,13 +701,18 @@ elif menu == "Projects":
 
     # 🧠 Computer Vision Projects
     st.subheader("🧠 Computer Vision Projects")
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     
-        
     with col1:
-        if st.button("🎥 Face Recognition App"):
-            from apps.face_recognition_app import run_face_recognition
-            run_face_recognition()
+        st.markdown(render_tile(
+            title="Face Detection App",
+            url="/?app=face-recognition",
+            description="Streamlit webcam face detection with Haar cascades."
+        ), unsafe_allow_html=True)
+
+        #if st.button("🎥 Face Recognition App"):
+        #    from apps.face_recognition_app import run_face_recognition
+        #    run_face_recognition()
         
     # 🧠 AI/ML Practice Notebooks
     st.subheader("🧠 AI/ML Practice Notebooks")
