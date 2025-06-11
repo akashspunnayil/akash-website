@@ -1,9 +1,10 @@
 # apps/face_recognition_app.py
 
-import streamlit as st
-import cv2
-import numpy as np
-from PIL import Image
+# import streamlit as st
+# # import cv2
+# import opencv-python-headless==4.9.0.80
+# import numpy as np
+# from PIL import Image
 
 def run_face_recognition():
     st.title("📷 Face Detection App using Haar Cascades")
