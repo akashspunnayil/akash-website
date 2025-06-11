@@ -1,4 +1,10 @@
 streamlit
+opencv-python
+pillow
+requests
+beautifulsoup4
+numpy
+streamlit
 pillow
 requests
 beautifulsoup4

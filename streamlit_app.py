@@ -1,6 +1,8 @@
 # streamlit_app.py
 import streamlit as st
 from PIL import Image
+from apps.face_recognition_app import run_face_recognition
+
 
 # --- Configuration ---
 st.set_page_config(page_title="AKASH.S", layout="wide")
@@ -697,6 +699,13 @@ elif menu == "Projects":
             description="Sliding window detection of long-term trends in sea level. *(link coming soon)*"
         ), unsafe_allow_html=True)
 
+    # 🧠 Computer Vision Projects
+    st.subheader("🧠 Computer Vision Projects")
+    
+    if st.button("🎥 Launch Face Recognition App"):
+        from apps.face_recognition_app import run_face_recognition
+        run_face_recognition()
+        
     # 🧠 AI/ML Practice Notebooks
     st.subheader("🧠 AI/ML Practice Notebooks")
     notebooks = [
