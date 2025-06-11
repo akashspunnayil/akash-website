@@ -1,7 +1,6 @@
 # streamlit_app.py
-# import streamlit as st
-# from PIL import Image
-#from apps.face_recognition_app import run_face_recognition
+import streamlit as st
+from PIL import Image
 
 
 # --- Configuration ---
