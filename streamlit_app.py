@@ -698,31 +698,23 @@ elif menu == "Projects":
             description="Sliding window detection of long-term trends in sea level. *(link coming soon)*"
         ), unsafe_allow_html=True)
 
-    # from apps.face_recognition_app import run_face_recognition
+    st.subheader("🧠 Computer Vision Projects")
+    col1, col2, col3 = st.columns(3)
     
-    # # Inside your Projects > Computer Vision tile
-    # if st.button("🎥 Launch Face Detection App"):
-    #     run_face_recognition()
+    with col1:
+        st.markdown(render_tile(
+            title="Face Detection App",
+            url="/?app=face-recognition",
+            description="Streamlit webcam face detection with Haar cascades."
+        ), unsafe_allow_html=True)
     
-    # # 🧠 Computer Vision Projects
-    # st.subheader("🧠 Computer Vision Projects")
-    # col1, col2, col3 = st.columns(3)
-    
-    # with col1:
-    #     st.markdown(render_tile(
-    #         title="Face Detection App",
-    #         url="/?app=face-recognition",
-    #         description="Streamlit webcam face detection with Haar cascades."
-    #     ), unsafe_allow_html=True)
-    
-    # # ✅ Updated query param logic
-    # query_params = st.query_params
-    # if query_params.get("app", [None])[0] == "face-recognition":
-    #     from apps.face_recognition_app import run_face_recognition
-    #     run_face_recognition()
+    # ✅ Updated query param logic
+    #query_params = st.query_params
+    query_params = st.experimental_get_query_params()
 
-
-
+    if query_params.get("app", [None])[0] == "face-recognition":
+        from apps.face_recognition_app import run_face_recognition
+        run_face_recognition()
 
         
     # 🧠 AI/ML Practice Notebooks
