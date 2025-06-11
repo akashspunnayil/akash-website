@@ -735,7 +735,7 @@ elif menu == "Blog":
 
         <p style="color: inherit;">
         I regularly share tutorials, research notes, and data science experiments through my blog under 
-        <strong><a href="https://aireenproject.wordpress.com/category/python-classes/" target="_blank">
+        <strong><a href="https://aireenproject.wordpress.com/author/akashspunnayil/" target="_blank">
         Aireen Project</a></strong>.
 
         ### 🔍 What I Write About:
@@ -746,8 +746,8 @@ elif menu == "Blog":
         - 😄 Occasionally... fun experiments with code and observations from the field
 
         📖 Visit: 
-        <a href="https://aireenproject.wordpress.com/category/python-classes/" target="_blank">
-        aireenproject.wordpress.com/category/python-classes/</a>
+        <a href="https://aireenproject.wordpress.com/author/akashspunnayil/" target="_blank">
+        aireenproject.wordpress.com/author/akashspunnayil/</a>
         </p>
 
         </div>
