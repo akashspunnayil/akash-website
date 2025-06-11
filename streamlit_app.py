@@ -761,6 +761,9 @@ elif menu == "Blog":
     link_color = "#00BFFF" if theme == "dark" else "#0056cc"
 
     blog_links = [
+    	"https://aireenproject.wordpress.com/2025/03/06/machine-learning-workflows-for-ocean-and-climate-science/",
+    	"https://aireenproject.wordpress.com/2025/01/11/into-the-twilight-how-omzs-are-squeezing-life-and-fisheries/",
+    	"https://aireenproject.wordpress.com/2024/12/12/ocean-models-and-in-situ-data-a-powerful-partnership/",
         "https://aireenproject.wordpress.com/2024/07/21/python-loading-multiple-netcdf-files-and-plotting-subplots/",
         "https://aireenproject.wordpress.com/2024/06/05/python-a-guide-to-customizing-themes-in-jupyter/",
         "https://aireenproject.wordpress.com/2023/12/26/python-clipping-netcdf-data-using-shapefile/",
