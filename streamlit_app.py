@@ -706,7 +706,7 @@ elif menu == "Projects":
     with col1:
         st.markdown(render_tile(
             title="Face Detection App",
-            url="https://testfacerecog.streamlit.app/?app=face-detection", #"https://testfacerecog.streamlit.app/",  # actual external URL
+            url="https://a-face-detection-app.streamlit.app/?app=face-detection", #"https://testfacerecog.streamlit.app/",  # actual external URL
             description="Streamlit webcam face detection with Haar cascades."
         ), unsafe_allow_html=True)
 
