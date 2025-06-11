@@ -1,6 +1,8 @@
 # streamlit_app.py
 import streamlit as st
 from PIL import Image
+#from apps.face_recognition_app import run_face_recognition
+
 
 # --- Configuration ---
 st.set_page_config(page_title="AKASH.S", layout="wide")
@@ -697,6 +699,26 @@ elif menu == "Projects":
             description="Sliding window detection of long-term trends in sea level. *(link coming soon)*"
         ), unsafe_allow_html=True)
 
+    # 🧠 Computer Vision Projects
+    st.subheader("🧠 Computer Vision Projects")
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        with st.container():
+            st.markdown("""
+            <div style='background-color:#f0f2f6; padding:15px; border-radius:12px; box-shadow:0 2px 5px rgba(0,0,0,0.1);'>
+            <h4 style='margin-bottom:10px;'>🎥 Face Detection App</h4>
+            <p style='font-size:14px; color:#555;'>
+                Streamlit webcam face detection with Haar cascades.
+            </p>
+            </div>
+            """, unsafe_allow_html=True)
+    
+            if st.button("👉 Launch App", key="launch_face_app"):
+                from apps.face_recognition_app import run_face_recognition
+                run_face_recognition()
+
+        
     # 🧠 AI/ML Practice Notebooks
     st.subheader("🧠 AI/ML Practice Notebooks")
     notebooks = [
@@ -723,8 +745,6 @@ elif menu == "Projects":
                 ), unsafe_allow_html=True)
 
 
-
-
 # --- Blog Page ---
 elif menu == "Blog":
     st.title("✍️ Blog")
@@ -735,7 +755,7 @@ elif menu == "Blog":
 
         <p style="color: inherit;">
         I regularly share tutorials, research notes, and data science experiments through my blog under 
-        <strong><a href="https://aireenproject.wordpress.com/category/python-classes/" target="_blank">
+        <strong><a href="https://aireenproject.wordpress.com/author/akashspunnayil/" target="_blank">
         Aireen Project</a></strong>.
 
         ### 🔍 What I Write About:
@@ -746,8 +766,8 @@ elif menu == "Blog":
         - 😄 Occasionally... fun experiments with code and observations from the field
 
         📖 Visit: 
-        <a href="https://aireenproject.wordpress.com/category/python-classes/" target="_blank">
-        aireenproject.wordpress.com/category/python-classes/</a>
+        <a href="https://aireenproject.wordpress.com/author/akashspunnayil/" target="_blank">
+        aireenproject.wordpress.com/author/akashspunnayil/</a>
         </p>
 
         </div>
@@ -761,6 +781,9 @@ elif menu == "Blog":
     link_color = "#00BFFF" if theme == "dark" else "#0056cc"
 
     blog_links = [
+    	"https://aireenproject.wordpress.com/2025/03/06/machine-learning-workflows-for-ocean-and-climate-science/",
+    	"https://aireenproject.wordpress.com/2025/01/11/into-the-twilight-how-omzs-are-squeezing-life-and-fisheries/",
+    	"https://aireenproject.wordpress.com/2024/12/12/ocean-models-and-in-situ-data-a-powerful-partnership/",
         "https://aireenproject.wordpress.com/2024/07/21/python-loading-multiple-netcdf-files-and-plotting-subplots/",
         "https://aireenproject.wordpress.com/2024/06/05/python-a-guide-to-customizing-themes-in-jupyter/",
         "https://aireenproject.wordpress.com/2023/12/26/python-clipping-netcdf-data-using-shapefile/",
@@ -794,6 +817,7 @@ elif menu == "CV":
             file_name="Akash_Somasekharan_CV.pdf",
             mime="application/pdf"
         )
+        
 
     st.markdown("---")
     st.subheader("📬 Connect with Me")

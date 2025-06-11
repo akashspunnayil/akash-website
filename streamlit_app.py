@@ -704,15 +704,20 @@ elif menu == "Projects":
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.markdown(render_tile(
-            title="Face Detection App",
-            url="/?app=face-recognition",
-            description="Streamlit webcam face detection with Haar cascades."
-        ), unsafe_allow_html=True)
+        with st.container():
+            st.markdown("""
+            <div style='background-color:#f0f2f6; padding:15px; border-radius:12px; box-shadow:0 2px 5px rgba(0,0,0,0.1);'>
+            <h4 style='margin-bottom:10px;'>🎥 Face Detection App</h4>
+            <p style='font-size:14px; color:#555;'>
+                Streamlit webcam face detection with Haar cascades.
+            </p>
+            </div>
+            """, unsafe_allow_html=True)
+    
+            if st.button("👉 Launch App", key="launch_face_app"):
+                from apps.face_recognition_app import run_face_recognition
+                run_face_recognition()
 
-        #if st.button("🎥 Face Recognition App"):
-        #    from apps.face_recognition_app import run_face_recognition
-        #    run_face_recognition()
         
     # 🧠 AI/ML Practice Notebooks
     st.subheader("🧠 AI/ML Practice Notebooks")
@@ -738,8 +743,6 @@ elif menu == "Projects":
                     description="Click to view notebook."
                     # In future: img_base64=get_base64_image("static/preview/your_custom.png")
                 ), unsafe_allow_html=True)
-
-
 
 
 # --- Blog Page ---
