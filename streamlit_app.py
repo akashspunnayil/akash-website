@@ -702,19 +702,12 @@ elif menu == "Projects":
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.markdown(render_tile(
-            title="Face Detection App",
-            url="/?app=face-recognition",
-            description="Streamlit webcam face detection with Haar cascades."
-        ), unsafe_allow_html=True)
-    
-    # ✅ Updated query param logic
-    #query_params = st.query_params
-    query_params = st.experimental_get_query_params()
+    st.markdown(render_tile(
+        title="Face Detection App",
+        url="https://testfacerecog.streamlit.app/",  # actual external URL
+        description="Streamlit webcam face detection with Haar cascades."
+    ), unsafe_allow_html=True)
 
-    if query_params.get("app", [None])[0] == "face-recognition":
-        from apps.face_recognition_app import run_face_recognition
-        run_face_recognition()
 
         
     # 🧠 AI/ML Practice Notebooks
