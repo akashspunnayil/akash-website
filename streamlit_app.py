@@ -714,17 +714,41 @@ elif menu == "Projects":
         
     # 🧠 AI/ML Practice Notebooks
     st.subheader("🧠 AI/ML Practice Notebooks")
+    #notebooks = [
+    #    ("Automobiles EDA + ML", "1_Automobiles_EDA_ML.ipynb"),
+    #    ("Diabetes EDA + ML", "2_Diabetes_EDA_ML.ipynb"),
+    #    ("Housing Price Prediction", "3_Housing_EDA_ML.ipynb"),
+    #    ("Insurance Risk Analysis", "4_Insurance_EDA_ML.ipynb"),
+    #    ("MNIST ANN", "5_MNIST_hyperparameter_ANN.ipynb"),
+    #    ("Fashion MNIST with ANN", "6_FASHION_MNIST_ANN.ipynb"),
+    #    ("CIFAR-10 with ANN", "7_CIFAR_ANN.ipynb"),
+    #    ("Fashion MNIST with CNN", "8_FASHION_MNIST_CNN.ipynb"),
+    #   ("CIFAR-10 with CNN", "9_CIFAR_CNN.ipynb"),
+    #    ("CIFAR-10 with CNN", "9_CIFAR_CNN.ipynb"),
+    #    
+    #]
+    
     notebooks = [
-        ("Automobiles EDA + ML", "1_Automobiles_EDA_ML.ipynb"),
-        ("Diabetes EDA + ML", "2_Diabetes_EDA_ML.ipynb"),
-        ("Housing Price Prediction", "3_Housing_EDA_ML.ipynb"),
-        ("Insurance Risk Analysis", "4_Insurance_EDA_ML.ipynb"),
-        ("MNIST ANN", "5_MNIST_hyperparameter_ANN.ipynb"),
-        ("Fashion MNIST with ANN", "6_FASHION_MNIST_ANN.ipynb"),
-        ("CIFAR-10 with ANN", "7_CIFAR_ANN.ipynb"),
-        ("Fashion MNIST with CNN", "8_FASHION_MNIST_CNN.ipynb"),
-        ("CIFAR-10 with CNN", "9_CIFAR_CNN.ipynb"),
+    ("Automobiles EDA + ML", "1_Automobiles_EDA_ML.ipynb"),
+    ("Diabetes EDA + ML", "2_Diabetes_EDA_ML.ipynb"),
+    ("Housing Price Prediction", "3_Housing_EDA_ML.ipynb"),
+    ("Insurance Risk Analysis", "4_Insurance_EDA_ML.ipynb"),
+    ("MNIST ANN", "5_MNIST_hyperparameter_ANN.ipynb"),
+    ("Fashion MNIST with ANN", "6_FASHION_MNIST_ANN.ipynb"),
+    ("CIFAR-10 with ANN", "7_CIFAR_ANN.ipynb"),
+    ("Fashion MNIST with CNN", "8_FASHION_MNIST_CNN.ipynb"),
+    ("CIFAR-10 with CNN", "9_CIFAR_CNN.ipynb"),
+    ("Image Augmentation - Horse (ImageDataGenerator)", "10_Image_augmentation_imagedatagen_horse.ipynb"),
+    ("Image Augmentation - Helicopter (OpenCV)", "11_Image_augmentation_opencv_helicopter.ipynb"),
+    ("Image Augmentation - Sailboat (Keras)", "12_Image_augmentation_keras_sailboat.ipynb"),
+    ("Image Augmentation - VGG16 Cats vs Dogs", "13_VGG16_image_augment_CATS_DOGS(Competition).ipynb"),
+    ("Object Detection - YOLO on Ship Image", "14_Object_detection_YOLO_ship.ipynb"),
+    ("Object Detection - YOLO in Classroom", "15_Object_detection_YOLO_classroom.ipynb"),
+    ("Object Detection - YOLO on Traffic Footage", "16_Object_detection_YOLO_traffic2.ipynb"),
+    ("Real-time Face Detection - YOLO", "17_Real-time-face-detection-YOLO.ipynb"),
+    ("Object Detection - YOLO on Traffic Video Input", "18_Object_detection_input_traffic_video.ipynb"),
     ]
+
 
     for i in range(0, len(notebooks), 3):
         cols = st.columns(3)
