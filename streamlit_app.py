@@ -825,7 +825,7 @@ elif menu == "🛠️ Projects":
             description="Streamlit webcam face detection with Haar cascades."
         ), unsafe_allow_html=True)
         
-    with col1:
+    with col2:
         st.markdown(render_tile(
             title="House Intrusion Detection App",
             url="https://a-house-intrusion-detection-app.streamlit.app/", #"https://testfacerecog.streamlit.app/",  # actual external URL
