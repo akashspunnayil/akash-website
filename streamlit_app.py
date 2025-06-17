@@ -10,13 +10,14 @@ st.set_page_config(page_title="AKASH.S", layout="wide")
 
 st.markdown("""
     <style>
-    body {
+    [data-testid="stAppViewContainer"] {
         background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
         background-repeat: repeat;
         background-size: auto;
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 
 
