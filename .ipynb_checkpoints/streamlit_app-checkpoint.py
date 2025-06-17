@@ -7,46 +7,92 @@ from PIL import Image
 # --- Configuration ---
 st.set_page_config(page_title="AKASH.S", layout="wide")
 
-# --- Sidebar Navigation ---
-# menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "CV"])
-# --- Custom Sidebar Navigation ---
-st.markdown("""
-<style>
-/* Ensure sidebar content is always visible in both themes */
+# # --- Sidebar Navigation ---
+# # menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "CV"])
+# # --- Custom Sidebar Navigation ---
+# st.markdown("""
+# <style>
+# /* Ensure sidebar content is always visible in both themes */
 
-/* Target the entire sidebar */
-section[data-testid="stSidebar"] {
-    background-color: transparent;
-}
+# /* Target the entire sidebar */
+# section[data-testid="stSidebar"] {
+#     background-color: transparent;
+# }
 
-/* Sidebar headings and radio text */
-section[data-testid="stSidebar"] h1,
-section[data-testid="stSidebar"] h2,
-section[data-testid="stSidebar"] h3,
-section[data-testid="stSidebar"] h4,
-section[data-testid="stSidebar"] h5,
-section[data-testid="stSidebar"] h6,
-section[data-testid="stSidebar"] p,
-section[data-testid="stSidebar"] label,
-section[data-testid="stSidebar"] span {
-    color: inherit !important;  /* ✨ ADAPTS TO THEME */
-    font-size: 16px;
-    font-weight: 500;
-}
+# /* Sidebar headings and radio text */
+# section[data-testid="stSidebar"] h1,
+# section[data-testid="stSidebar"] h2,
+# section[data-testid="stSidebar"] h3,
+# section[data-testid="stSidebar"] h4,
+# section[data-testid="stSidebar"] h5,
+# section[data-testid="stSidebar"] h6,
+# section[data-testid="stSidebar"] p,
+# section[data-testid="stSidebar"] label,
+# section[data-testid="stSidebar"] span {
+#     color: inherit !important;  /* ✨ ADAPTS TO THEME */
+#     font-size: 16px;
+#     font-weight: 500;
+# }
 
-/* Optional: Make selected radio option bold and colored */
-div[role="radiogroup"] > label[data-testid="stRadioOption"]:has(input:checked) {
-    font-weight: bold;
-    color: #0066cc !important;
-}
-</style>
-""", unsafe_allow_html=True)
-st.sidebar.markdown("## 🧭 Navigation")
+# /* Optional: Make selected radio option bold and colored */
+# div[role="radiogroup"] > label[data-testid="stRadioOption"]:has(input:checked) {
+#     font-weight: bold;
+#     color: #0066cc !important;
+# }
+# </style>
+# """, unsafe_allow_html=True)
+# st.sidebar.markdown("## 🧭 Navigation")
 
-nav_options = ["🏠 Home", "🧪 Research", "🛠️ Projects", "✍️ Blog", "📄 CV"]
+# # nav_options = ["🏠 Home", "🧪 Research", "🛠️ Projects", "✍️ Blog", "📄 CV"]
 # nav_options = ["Home", "Research", "Projects", "Blog", "CV"]
-#menu = st.sidebar.radio("Navigation", nav_options, index=0)
-menu = st.sidebar.radio(" ", nav_options, index=0)
+# #menu = st.sidebar.radio("Navigation", nav_options, index=0)
+# menu = st.sidebar.radio(" ", nav_options, index=0)
+
+# --- Simulated Top Nav Bar ---
+st.markdown("""
+    <style>
+        .topnav {
+            background-color: #f0f2f6;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .topnav a {
+            display: block;
+            color: #333;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background 0.3s;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #0a58ca;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+
+    <div class="topnav">
+        <a href="/?nav=Home" class="active">🏠 Home</a>
+        <a href="/?nav=Research">🧪 Research</a>
+        <a href="/?nav=Projects">🛠️ Projects</a>
+        <a href="/?nav=Blog">✍️ Blog</a>
+        <a href="/?nav=CV">📄 CV</a>
+    </div>
+""", unsafe_allow_html=True)
+
+# --- Simulate URL query string parsing ---
+query_params = st.experimental_get_query_params()
+nav = query_params.get("nav", ["Home"])[0]
 
 st.markdown("""
 <style>
