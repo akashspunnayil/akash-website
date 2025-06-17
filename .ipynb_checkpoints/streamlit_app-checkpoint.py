@@ -13,8 +13,10 @@ st.markdown("""
     [data-testid="stAppViewContainer"] {
         background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
         background-repeat: repeat;
-        background-size: auto;
+        # background-size: auto;
         # background-color: rgba(255,255,255,0.95);
+        background-size: 60px 60px;
+
 
     }
     </style>
