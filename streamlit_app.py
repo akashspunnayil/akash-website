@@ -192,7 +192,8 @@ st.markdown("""
 
 # --- Cover Image ---
 from PIL import Image
-cover = Image.open("static/cover2.png")
+# cover = Image.open("static/cover2.png")
+cover = Image.open("static/cover2_1200x300.png")
 #st.image(cover, use_container_width=True)
 resized_cover = cover.resize((1200, 300))  # (width, height)
 st.image(resized_cover)
