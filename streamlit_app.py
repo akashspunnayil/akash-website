@@ -22,23 +22,26 @@ st.set_page_config(page_title="AKASH.S", layout="wide")
 #     </style>
 # """, unsafe_allow_html=True)
 
-st.markdown("""
-    <style>
-    html[data-theme="dark"] body {
-        background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-        background-repeat: repeat;
-        background-size: 60px 60px;
-        background-color: rgba(10, 10, 10, 0.8);
-    }
+theme_choice = st.radio("Choose background", ["Dark", "Light"])
 
-    html[data-theme="light"] body {
-        background-image: url('https://www.transparenttextures.com/patterns/white-wall-3.png');
+if theme_choice == "Dark":
+    bg_image = "https://www.transparenttextures.com/patterns/cubes.png"
+    bg_color = "rgba(10, 10, 10, 0.8)"
+else:
+    bg_image = "https://www.transparenttextures.com/patterns/white-wall-3.png"
+    bg_color = "rgba(255, 255, 255, 0.9)"
+
+st.markdown(f"""
+    <style>
+    [data-testid="stAppViewContainer"] > .main {{
+        background-image: url('{bg_image}');
         background-repeat: repeat;
         background-size: 60px 60px;
-        background-color: rgba(255, 255, 255, 0.9);
-    }
+        background-color: {bg_color};
+    }}
     </style>
 """, unsafe_allow_html=True)
+
 
 
 
