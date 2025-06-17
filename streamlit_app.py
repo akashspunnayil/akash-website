@@ -51,18 +51,18 @@ st.set_page_config(page_title="AKASH.S", layout="wide")
 # --- Define nav options with emojis ---
 nav_options = ["🏠 Home", "🧪 Research", "🛠️ Projects", "✍️ Blog", "📄 CV"]
 
-# --- Get current query params from the URL ---
+# --- Get query param ---
 params = st.query_params
 nav = params.get("nav", "🏠 Home")
 
-# --- Force menu selection from query param ---
+# Ensure value is valid
 if nav not in nav_options:
     nav = "🏠 Home"
 
-# This line stays exactly as you asked
+# This is your working `menu` variable
 menu = nav
 
-# --- Simulated Top Nav Bar ---
+# --- Navigation links ---
 nav_links = {
     "🏠 Home": "/?nav=🏠 Home",
     "🧪 Research": "/?nav=🧪 Research",
@@ -71,36 +71,51 @@ nav_links = {
     "📄 CV": "/?nav=📄 CV"
 }
 
-# --- Highlight current tab ---
+# --- Active styling ---
 def nav_link(name, href):
     active = "active" if name == menu else ""
     return f'<a href="{href}" class="{active}">{name}</a>'
 
+# --- Top nav CSS with theme-aware colors and smaller height ---
 st.markdown(f"""
 <style>
+/* Use theme background and font settings */
+:root {{
+    --primary-bg: var(--background-color);
+    --primary-fg: var(--text-color);
+}}
+
 .topnav {{
-    background-color: #f0f2f6;
-    overflow: hidden;
+    background-color: var(--primary-bg);
+    color: var(--primary-fg);
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #e0e0e0;
+    height: 44px;
+    align-items: center;
+    font-size: 15px;
+    padding: 0px;
+    margin-bottom: 10px;
 }}
+
 .topnav a {{
-    display: block;
-    color: #333;
-    text-align: center;
-    padding: 14px 16px;
+    display: inline-block;
+    padding: 8px 14px;
+    color: var(--primary-fg);
     text-decoration: none;
-    font-size: 18px;
+    transition: background 0.2s ease-in-out;
+    border-radius: 6px;
+    font-weight: 500;
 }}
+
 .topnav a:hover {{
-    background-color: #ddd;
-    color: black;
+    background-color: rgba(128, 128, 128, 0.1);
 }}
+
 .topnav a.active {{
     background-color: #0a58ca;
-    color: white;
-    font-weight: bold;
+    color: white !important;
+    font-weight: 600;
 }}
 </style>
 
