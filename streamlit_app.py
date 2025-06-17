@@ -3,6 +3,17 @@ import streamlit as st
 # from streamlit_scroll_navigation import scroll_navbar
 from PIL import Image
 
+st.markdown("""
+    <style>
+    body {
+        background-image: url('https://www.transparenttextures.com/patterns/connected.png');
+        background-repeat: repeat;
+        background-size: auto;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+
 
 # --- Configuration ---
 st.set_page_config(page_title="AKASH.S", layout="wide")
@@ -197,16 +208,6 @@ cover = Image.open("static/cover2_1200x300.png")
 #st.image(cover, use_container_width=True)
 resized_cover = cover.resize((1200, 300))  # (width, height)
 st.image(resized_cover)
-
-st.markdown("""
-    <style>
-    body {
-        background-image: url('https://www.transparenttextures.com/patterns/connected.png');
-        background-repeat: repeat;
-        background-size: auto;
-    }
-    </style>
-""", unsafe_allow_html=True)
 
 
 
