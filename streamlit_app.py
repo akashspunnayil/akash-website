@@ -1,6 +1,6 @@
 # streamlit_app.py
 import streamlit as st
-from streamlit_scroll_navigation import scroll_navbar
+# from streamlit_scroll_navigation import scroll_navbar
 from PIL import Image
 
 
