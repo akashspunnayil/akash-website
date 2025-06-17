@@ -98,9 +98,11 @@ st.markdown(f"""
     border-bottom: 1px solid #e0e0e0;
     font-size: 15px;
     font-family: "Segoe UI", sans-serif;
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 999;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }}
 
 .topnav a {{
@@ -120,6 +122,11 @@ st.markdown(f"""
     background-color: #0a58ca;
     color: white !important;
     font-weight: bold;
+}}
+
+/* Push the page content down to make space for fixed nav */
+body > div:first-child {{
+    padding-top: 54px;
 }}
 </style>
 
