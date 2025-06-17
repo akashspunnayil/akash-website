@@ -48,51 +48,68 @@ st.set_page_config(page_title="AKASH.S", layout="wide")
 # #menu = st.sidebar.radio("Navigation", nav_options, index=0)
 # menu = st.sidebar.radio(" ", nav_options, index=0)
 
+# --- Define nav options with emojis ---
+nav_options = ["🏠 Home", "🧪 Research", "🛠️ Projects", "✍️ Blog", "📄 CV"]
+
+# --- Get current query params from the URL ---
+params = st.query_params
+nav = params.get("nav", "🏠 Home")
+
+# --- Force menu selection from query param ---
+if nav not in nav_options:
+    nav = "🏠 Home"
+
+# This line stays exactly as you asked
+menu = nav
+
 # --- Simulated Top Nav Bar ---
-st.markdown("""
-    <style>
-        .topnav {
-            background-color: #f0f2f6;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            border-bottom: 1px solid #ccc;
-        }
+nav_links = {
+    "🏠 Home": "/?nav=🏠 Home",
+    "🧪 Research": "/?nav=🧪 Research",
+    "🛠️ Projects": "/?nav=🛠️ Projects",
+    "✍️ Blog": "/?nav=✍️ Blog",
+    "📄 CV": "/?nav=📄 CV"
+}
 
-        .topnav a {
-            display: block;
-            color: #333;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 18px;
-            transition: background 0.3s;
-        }
+# --- Highlight current tab ---
+def nav_link(name, href):
+    active = "active" if name == menu else ""
+    return f'<a href="{href}" class="{active}">{name}</a>'
 
-        .topnav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
+st.markdown(f"""
+<style>
+.topnav {{
+    background-color: #f0f2f6;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #ccc;
+}}
+.topnav a {{
+    display: block;
+    color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+}}
+.topnav a:hover {{
+    background-color: #ddd;
+    color: black;
+}}
+.topnav a.active {{
+    background-color: #0a58ca;
+    color: white;
+    font-weight: bold;
+}}
+</style>
 
-        .topnav a.active {
-            background-color: #0a58ca;
-            color: white;
-            font-weight: bold;
-        }
-    </style>
-
-    <div class="topnav">
-        <a href="/?nav=Home" class="active">🏠 Home</a>
-        <a href="/?nav=Research">🧪 Research</a>
-        <a href="/?nav=Projects">🛠️ Projects</a>
-        <a href="/?nav=Blog">✍️ Blog</a>
-        <a href="/?nav=CV">📄 CV</a>
-    </div>
+<div class="topnav">
+    {''.join([nav_link(name, href) for name, href in nav_links.items()])}
+</div>
 """, unsafe_allow_html=True)
 
-# --- Simulate URL query string parsing ---
-query_params = st.experimental_get_query_params()
-nav = query_params.get("nav", ["Home"])[0]
+
 
 st.markdown("""
 <style>
