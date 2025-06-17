@@ -198,7 +198,6 @@ cover = Image.open("static/cover2_1200x300.png")
 resized_cover = cover.resize((1200, 300))  # (width, height)
 st.image(resized_cover)
 
-
 # --- Projects Page ---
 from PIL import Image
 from io import BytesIO
