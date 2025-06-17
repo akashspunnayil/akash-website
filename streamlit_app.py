@@ -622,12 +622,23 @@ elif menu == "🔬 Research":
         <li><strong>Hovmöller-style diagrams</strong>, seasonal climatologies, and transport cross-sections</li>
         </ul>
 
+        # <h4>🤖 AI & Machine Learning in Ocean Science</h4>
+        # <ul>
+        # <li>Application of <strong>XGBoost</strong>, <strong>Random Forests</strong>, and <strong>GAM models</strong> to predict:</li>
+        # <ul>
+        #     <li>OMZ structure and seasonal shifts</li>
+        #     <li>Myctophid catch and biomass based on ecological predictors</li>
         <h4>🤖 AI & Machine Learning in Ocean Science</h4>
         <ul>
-        <li>Application of <strong>XGBoost</strong>, <strong>Random Forests</strong>, and <strong>GAM models</strong> to predict:</li>
-        <ul>
-            <li>OMZ structure and seasonal shifts</li>
-            <li>Myctophid catch and biomass based on ecological predictors</li>
+            <li>
+                Application of <strong>XGBoost</strong>, <strong>Random Forests</strong>, and <strong>GAM models</strong> to predict:
+                <ul>
+                    <li>OMZ structure and seasonal shifts</li>
+                    <li>Myctophid catch and biomass based on ecological predictors</li>
+                </ul>
+            </li>
+        # </ul>
+
         </ul>
         <li>Feature engineering from ocean circulation, productivity, and oxygen gradients</li>
         </ul>
