@@ -48,81 +48,115 @@ st.set_page_config(page_title="AKASH.S", layout="wide")
 # #menu = st.sidebar.radio("Navigation", nav_options, index=0)
 # menu = st.sidebar.radio(" ", nav_options, index=0)
 
-# --- Define nav options with emojis ---
+# # --- Define nav options with emojis ---
+# nav_options = ["🏠 Home", "🔬 Research", "🛠️ Projects", "✍️ Blog", "📄 CV"]
+
+# # --- Get query param ---
+# params = st.query_params
+# nav = params.get("nav", "🏠 Home")
+
+# # Ensure value is valid
+# if nav not in nav_options:
+#     nav = "🏠 Home"
+
+# # This is your working `menu` variable
+# menu = nav
+
+# # --- Navigation links ---
+# nav_links = {
+#     "🏠 Home": "/?nav=🏠 Home",
+#     "🔬 Research": "/?nav=🔬 Research",
+#     "🛠️ Projects": "/?nav=🛠️ Projects",
+#     "✍️ Blog": "/?nav=✍️ Blog",
+#     "📄 CV": "/?nav=📄 CV"
+# }
+
+# # --- Active styling ---
+# def nav_link(name, href):
+#     active = "active" if name == menu else ""
+#     return f'<a href="{href}" class="{active}">{name}</a>'
+
+# # --- Top nav CSS with theme-aware colors and smaller height ---
+# st.markdown(f"""
+# <style>
+# /* Use theme background and font settings */
+# :root {{
+#     --primary-bg: var(--background-color);
+#     --primary-fg: var(--text-color);
+# }}
+
+# .topnav {{
+#     background-color: var(--primary-bg);
+#     color: var(--primary-fg);
+#     display: flex;
+#     justify-content: center;
+#     border-bottom: 1px solid #e0e0e0;
+#     height: 44px;
+#     align-items: center;
+#     font-size: 15px;
+#     padding: 0px;
+#     margin-bottom: 10px;
+# }}
+
+# .topnav a {{
+#     display: inline-block;
+#     padding: 8px 14px;
+#     color: var(--primary-fg);
+#     text-decoration: none;
+#     transition: background 0.2s ease-in-out;
+#     border-radius: 6px;
+#     font-weight: 500;
+# }}
+
+# .topnav a:hover {{
+#     background-color: rgba(128, 128, 128, 0.1);
+# }}
+
+# .topnav a.active {{
+#     background-color: #0a58ca;
+#     color: white !important;
+#     font-weight: 600;
+# }}
+# </style>
+
+# <div class="topnav">
+#     {''.join([nav_link(name, href) for name, href in nav_links.items()])}
+# </div>
+# """, unsafe_allow_html=True)
+
+# --- Define nav options ---
 nav_options = ["🏠 Home", "🔬 Research", "🛠️ Projects", "✍️ Blog", "📄 CV"]
+labels = ["Home", "Research", "Projects", "Blog", "CV"]
 
-# --- Get query param ---
+# --- Get current selection from query param ---
 params = st.query_params
-nav = params.get("nav", "🏠 Home")
+nav = params.get("nav", "Home")  # no emojis in query param for simplicity
 
-# Ensure value is valid
-if nav not in nav_options:
-    nav = "🏠 Home"
-
-# This is your working `menu` variable
-menu = nav
-
-# --- Navigation links ---
-nav_links = {
-    "🏠 Home": "/?nav=🏠 Home",
-    "🔬 Research": "/?nav=🔬 Research",
-    "🛠️ Projects": "/?nav=🛠️ Projects",
-    "✍️ Blog": "/?nav=✍️ Blog",
-    "📄 CV": "/?nav=📄 CV"
-}
-
-# --- Active styling ---
-def nav_link(name, href):
-    active = "active" if name == menu else ""
-    return f'<a href="{href}" class="{active}">{name}</a>'
-
-# --- Top nav CSS with theme-aware colors and smaller height ---
-st.markdown(f"""
+# --- Custom Top Nav Bar using Columns + Buttons ---
+st.markdown("""
 <style>
-/* Use theme background and font settings */
-:root {{
-    --primary-bg: var(--background-color);
-    --primary-fg: var(--text-color);
-}}
-
-.topnav {{
-    background-color: var(--primary-bg);
-    color: var(--primary-fg);
-    display: flex;
-    justify-content: center;
-    border-bottom: 1px solid #e0e0e0;
-    height: 44px;
-    align-items: center;
-    font-size: 15px;
-    padding: 0px;
-    margin-bottom: 10px;
-}}
-
-.topnav a {{
-    display: inline-block;
-    padding: 8px 14px;
-    color: var(--primary-fg);
-    text-decoration: none;
-    transition: background 0.2s ease-in-out;
+.top-menu button {
+    margin-right: 6px;
     border-radius: 6px;
+    padding: 6px 12px;
     font-weight: 500;
-}}
-
-.topnav a:hover {{
-    background-color: rgba(128, 128, 128, 0.1);
-}}
-
-.topnav a.active {{
-    background-color: #0a58ca;
-    color: white !important;
-    font-weight: 600;
-}}
+    font-size: 14px;
+}
 </style>
-
-<div class="topnav">
-    {''.join([nav_link(name, href) for name, href in nav_links.items()])}
-</div>
 """, unsafe_allow_html=True)
+
+# Create a horizontal menu with Streamlit columns
+st.container().markdown("###", unsafe_allow_html=True)  # for spacing
+cols = st.columns(len(nav_options), gap="small")
+
+for i, col in enumerate(cols):
+    btn_label = nav_options[i]
+    with col:
+        if st.button(btn_label, key=f"btn_{i}"):
+            st.query_params.update(nav=labels[i])  # update URL w/o new tab
+
+# This sets `menu` consistently
+menu = nav
 
 
 
