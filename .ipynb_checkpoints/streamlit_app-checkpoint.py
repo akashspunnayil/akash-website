@@ -22,26 +22,24 @@ st.set_page_config(page_title="AKASH.S", layout="wide")
 #     </style>
 # """, unsafe_allow_html=True)
 
-# Streamlit exposes theme setting via session state (experimental API)
-theme = st.get_option("theme.base")
-
-if theme == "dark":
-    bg_image = "https://www.transparenttextures.com/patterns/cubes.png"
-    bg_color = "rgba(10, 10, 10, 0.8)"
-else:
-    bg_image = "https://www.transparenttextures.com/patterns/white-wall-3.png"
-    bg_color = "rgba(255, 255, 255, 0.9)"
-
-st.markdown(f"""
+st.markdown("""
     <style>
-    [data-testid="stAppViewContainer"] {{
-        background-image: url('{bg_image}');
+    html[data-theme="dark"] [data-testid="stAppViewContainer"] {
+        background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
         background-repeat: repeat;
         background-size: 60px 60px;
-        background-color: {bg_color};
-    }}
+        background-color: rgba(10, 10, 10, 0.8);
+    }
+
+    html[data-theme="light"] [data-testid="stAppViewContainer"] {
+        background-image: url('https://www.transparenttextures.com/patterns/white-wall-3.png');
+        background-repeat: repeat;
+        background-size: 60px 60px;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
     </style>
 """, unsafe_allow_html=True)
+
 
 
 
