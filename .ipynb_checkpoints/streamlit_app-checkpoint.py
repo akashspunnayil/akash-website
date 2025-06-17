@@ -28,25 +28,22 @@ st.markdown("""
         [data-testid="stAppViewContainer"] {
             background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
             background-repeat: repeat;
-            # background-size: auto;
             background-size: 60px 60px;
-            background-color: rgba(10,10,10,0.8);  /* subtle dark overlay */
-            # background-color: var(--background-color);
+            background-color: rgba(10, 10, 10, 0.8);  /* dark semi-transparent overlay */
         }
     }
 
     @media (prefers-color-scheme: light) {
         [data-testid="stAppViewContainer"] {
-            background-image: url('https://www.transparenttextures.com/patterns/escheresque-dark.png');
+            background-image: url('https://www.transparenttextures.com/patterns/white-wall-3.png');
             background-repeat: repeat;
-            # background-size: auto;
             background-size: 60px 60px;
-            background-color: rgba(255, 255, 255, 0.8);  /* subtle dark overlay */
-            # background-color: var(--background-color);
+            background-color: rgba(255, 255, 255, 0.9);  /* light background with bright overlay */
         }
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 
 
