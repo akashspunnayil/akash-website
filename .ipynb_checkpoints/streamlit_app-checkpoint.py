@@ -81,55 +81,50 @@ nav_links = {
 }
 
 # --- Inject HTML + CSS ---
-st.markdown("""
-    <style>
-    .topnav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 50px;
-        background-color: #0E1117;  /* Match Streamlit dark theme */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 100001;  /* very high to go above Streamlit header */
-        border-bottom: 1px solid #30363d;
-    }
-
-    .topnav a {
-        padding: 8px 15px;
-        color: white;
-        text-decoration: none;
-        font-weight: 500;
-        border-radius: 5px;
-        margin: 0 4px;
-    }
-
-    .topnav a.active {
-        background-color: #1f6feb;
-        color: white;
-    }
-
-    .topnav a:hover {
-        background-color: #30363d;
-    }
-
-    /* Prevent hiding behind fixed topnav */
-    .main > div:first-child {
-        margin-top: 70px;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-
-# Render the fixed top nav bar
 st.markdown(f"""
+<style>
+:root {{
+    --bg-color: var(--background-color);
+    --text-color: var(--text-color);
+}}
+
+.topnav {{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 12px;
+    font-size: 15px;
+    font-family: "Segoe UI", sans-serif;
+}}
+
+.topnav a {{
+    display: inline-block;
+    padding: 6px 14px;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.2s;
+}}
+
+.topnav a:hover {{
+    background-color: rgba(128, 128, 128, 0.1);
+}}
+
+.topnav a.active {{
+    background-color: #0a58ca;
+    color: white !important;
+    font-weight: bold;
+}}
+</style>
+
 <div class="topnav">
     {''.join([nav_link(name, href) for name, href in nav_links.items()])}
 </div>
 """, unsafe_allow_html=True)
-
 
 
 
