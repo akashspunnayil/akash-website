@@ -8,20 +8,30 @@ from PIL import Image
 st.set_page_config(page_title="AKASH.S", layout="wide")
 
 
+# st.markdown("""
+#     <style>
+#     [data-testid="stAppViewContainer"] {
+#         background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+#         background-repeat: repeat;
+#         # background-size: auto;
+#         # background-color: rgba(255,255,255,0.95);
+#         background-size: 60px 60px;
+
+
+#     }
+#     </style>
+# """, unsafe_allow_html=True)
+
 st.markdown("""
     <style>
     [data-testid="stAppViewContainer"] {
         background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
         background-repeat: repeat;
-        # background-size: auto;
-        # background-color: rgba(255,255,255,0.95);
-        background-size: 60px 60px;
-
-
+        background-size: auto;
+        background-color: var(--background-color);
     }
     </style>
 """, unsafe_allow_html=True)
-
 
 
 
