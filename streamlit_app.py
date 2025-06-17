@@ -420,7 +420,7 @@ def render_publication_tile(title, url, authors, journal, year):
     #st.title("Hi, I'm AKASH. S (AKASH SOMASEKHARAN)")
     #st.subheader("Oceanography Researcher | Data Scientist | Scientific Consultant")
 
-if menu == "Home":
+if menu == "🏠 Home":
     st.title("✴️ Welcome")
 
     col1, col2 = st.columns([2, 1])  # Wider text on the left, image on the right
@@ -512,7 +512,7 @@ if menu == "Home":
 
 
 # --- Research Page ---
-elif menu == "Research":
+elif menu == "🧪 Research":
     st.title("🔬 Research")
 
     # Split layout: left (description) | right (citation metrics)
