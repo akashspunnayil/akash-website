@@ -37,7 +37,7 @@ st.markdown("""
 
     @media (prefers-color-scheme: light) {
         [data-testid="stAppViewContainer"] {
-            background-image: url('https://www.transparenttextures.com/patterns/gplay.png');
+            background-image: url('https://www.transparenttextures.com/patterns/escheresque-dark.png');
             background-repeat: repeat;
             background-size: auto;
             background-color: var(--background-color);
