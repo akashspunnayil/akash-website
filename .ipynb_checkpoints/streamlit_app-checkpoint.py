@@ -98,11 +98,9 @@ st.markdown(f"""
     border-bottom: 1px solid #e0e0e0;
     font-size: 15px;
     font-family: "Segoe UI", sans-serif;
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
+    z-index: 999;
 }}
 
 .topnav a {{
@@ -129,10 +127,6 @@ st.markdown(f"""
     {''.join([nav_link(name, href) for name, href in nav_links.items()])}
 </div>
 """, unsafe_allow_html=True)
-
-# Add space below sticky bar
-st.markdown("<div style='height:60px;'></div>", unsafe_allow_html=True)
-
 
 
 
