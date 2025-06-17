@@ -11,7 +11,7 @@ st.set_page_config(page_title="AKASH.S", layout="wide")
 st.markdown("""
     <style>
     body {
-        background-image: url('https://www.transparenttextures.com/patterns/connected.png');
+        background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
         background-repeat: repeat;
         background-size: auto;
     }
