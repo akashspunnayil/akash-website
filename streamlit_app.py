@@ -625,8 +625,8 @@ elif menu == "🔬 Research":
         <h4>🤖 AI & Machine Learning in Ocean Science</h4>
         <ul>
         <li>Application of <strong>XGBoost</strong>, <strong>Random Forests</strong>, and <strong>GAM models</strong> to predict:</li>
-        # <ul>
-        <ul style="margin-left: 1.5em;">
+        <ul>
+        # <ul style="margin-left: 1.5em;">
             <li>OMZ structure and seasonal shifts</li>
             <li>Myctophid catch and biomass based on ecological predictors</li>
 
