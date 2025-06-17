@@ -3,6 +3,11 @@ import streamlit as st
 # from streamlit_scroll_navigation import scroll_navbar
 from PIL import Image
 
+
+# --- Configuration ---
+st.set_page_config(page_title="AKASH.S", layout="wide")
+
+
 st.markdown("""
     <style>
     body {
@@ -15,8 +20,6 @@ st.markdown("""
 
 
 
-# --- Configuration ---
-st.set_page_config(page_title="AKASH.S", layout="wide")
 
 # # --- Sidebar Navigation ---
 # # menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "CV"])
