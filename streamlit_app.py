@@ -198,6 +198,18 @@ cover = Image.open("static/cover2_1200x300.png")
 resized_cover = cover.resize((1200, 300))  # (width, height)
 st.image(resized_cover)
 
+st.markdown("""
+    <style>
+    body {
+        background-image: url('https://www.transparenttextures.com/patterns/connected.png');
+        background-repeat: repeat;
+        background-size: auto;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+
+
 # --- Projects Page ---
 from PIL import Image
 from io import BytesIO
