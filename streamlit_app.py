@@ -43,13 +43,13 @@ st.set_page_config(page_title="AKASH.S", layout="wide")
 # """, unsafe_allow_html=True)
 # st.sidebar.markdown("## 🧭 Navigation")
 
-# # nav_options = ["🏠 Home", "🧪 Research", "🛠️ Projects", "✍️ Blog", "📄 CV"]
+# # nav_options = ["🏠 Home", "🔬 Research", "🛠️ Projects", "✍️ Blog", "📄 CV"]
 # nav_options = ["Home", "Research", "Projects", "Blog", "CV"]
 # #menu = st.sidebar.radio("Navigation", nav_options, index=0)
 # menu = st.sidebar.radio(" ", nav_options, index=0)
 
 # --- Define nav options with emojis ---
-nav_options = ["🏠 Home", "🧪 Research", "🛠️ Projects", "✍️ Blog", "📄 CV"]
+nav_options = ["🏠 Home", "🔬 Research", "🛠️ Projects", "✍️ Blog", "📄 CV"]
 
 # --- Get query param ---
 params = st.query_params
@@ -65,7 +65,7 @@ menu = nav
 # --- Navigation links ---
 nav_links = {
     "🏠 Home": "/?nav=🏠 Home",
-    "🧪 Research": "/?nav=🧪 Research",
+    "🔬 Research": "/?nav=🔬 Research",
     "🛠️ Projects": "/?nav=🛠️ Projects",
     "✍️ Blog": "/?nav=✍️ Blog",
     "📄 CV": "/?nav=📄 CV"
@@ -544,7 +544,7 @@ if menu == "🏠 Home":
 
 
 # --- Research Page ---
-elif menu == "🧪 Research":
+elif menu == "🔬 Research":
     st.title("🔬 Research")
 
     # Split layout: left (description) | right (citation metrics)
@@ -694,9 +694,9 @@ elif menu == "🧪 Research":
 
 
 # --- Projects Section ---
-elif menu == "Projects":
+elif menu == "🛠️ Projects":
 
-    st.title("📁 Projects")
+    st.title("🛠️ Projects")
 
     st.markdown("""
 <div style='font-size: 16px; line-height: 1.7; color: inherit;'>
@@ -843,7 +843,7 @@ elif menu == "Projects":
 
 
 # --- Blog Page ---
-elif menu == "Blog":
+elif menu == "✍️ Blog":
     st.title("✍️ Blog")
 
     # --- Intro Section ---
@@ -904,7 +904,7 @@ elif menu == "Blog":
 
 
 # --- CV Page ---
-elif menu == "CV":
+elif menu == "📄 CV":
     st.title("📄 Curriculum Vitae")
 
     with open("resume.pdf", "rb") as file:
