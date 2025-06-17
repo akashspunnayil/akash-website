@@ -1,5 +1,6 @@
 # streamlit_app.py
 import streamlit as st
+from streamlit_scroll_navigation import scroll_navbar
 from PIL import Image
 
 
@@ -42,9 +43,10 @@ div[role="radiogroup"] > label[data-testid="stRadioOption"]:has(input:checked) {
 """, unsafe_allow_html=True)
 st.sidebar.markdown("## 🧭 Navigation")
 
-nav_options = ["Home", "Research", "Projects", "Blog", "CV"]
+nav_options = ["🏠 Home", "🧪 Research", "🛠️ Projects", "✍️ Blog", "📄 CV"]
 #menu = st.sidebar.radio("Navigation", nav_options, index=0)
 menu = st.sidebar.radio(" ", nav_options, index=0)
+
 
 st.markdown("""
 <style>
