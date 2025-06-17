@@ -39,8 +39,10 @@ st.markdown("""
         [data-testid="stAppViewContainer"] {
             background-image: url('https://www.transparenttextures.com/patterns/escheresque-dark.png');
             background-repeat: repeat;
-            background-size: auto;
-            background-color: var(--background-color);
+            # background-size: auto;
+            background-size: 60px 60px;
+            background-color: rgba(10,10,10,0.8);  /* subtle dark overlay */
+            # background-color: var(--background-color);
         }
     }
     </style>
