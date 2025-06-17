@@ -95,12 +95,12 @@ st.markdown(f"""
     justify-content: center;
     align-items: center;
     height: 44px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
     border-bottom: 1px solid #e0e0e0;
+    font-size: 15px;
+    font-family: "Segoe UI", sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }}
 
 .topnav a {{
@@ -109,8 +109,7 @@ st.markdown(f"""
     color: var(--text-color);
     text-decoration: none;
     border-radius: 5px;
-    font-weight: 500;
-    font-size: 14px;
+    transition: background 0.2s;
 }}
 
 .topnav a:hover {{
@@ -122,18 +121,12 @@ st.markdown(f"""
     color: white !important;
     font-weight: bold;
 }}
-
-/* Push main container down */
-[data-testid="stAppViewContainer"] > .main {{
-    padding-top: 60px;
-}}
 </style>
 
 <div class="topnav">
     {''.join([nav_link(name, href) for name, href in nav_links.items()])}
 </div>
 """, unsafe_allow_html=True)
-
 
 
 
