@@ -14,7 +14,7 @@ st.markdown("""
         background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
         background-repeat: repeat;
         background-size: auto;
-        background-color: rgba(255,255,255,0.95);
+        # background-color: rgba(255,255,255,0.95);
 
     }
     </style>
