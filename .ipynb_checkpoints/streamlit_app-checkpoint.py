@@ -30,7 +30,7 @@ st.markdown("""
             background-repeat: repeat;
             # background-size: auto;
             background-size: 60px 60px;
-            background-color: rgba(10,10,10,0.9);  /* subtle dark overlay */
+            background-color: rgba(10,10,10,0.7);  /* subtle dark overlay */
             # background-color: var(--background-color);
         }
     }
@@ -636,7 +636,6 @@ elif menu == "🔬 Research":
         </ul>
 
         
-
         <hr>
         <p style="color: inherit;">
         My research aims to bridge traditional physical oceanography with modern data science to better understand <strong>marine oxygen variability</strong>, its drivers, and broader implications for ecosystem functioning and fisheries.
