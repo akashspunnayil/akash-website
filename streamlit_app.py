@@ -48,82 +48,7 @@ st.set_page_config(page_title="AKASH.S", layout="wide")
 # #menu = st.sidebar.radio("Navigation", nav_options, index=0)
 # menu = st.sidebar.radio(" ", nav_options, index=0)
 
-# # --- Define nav options with emojis ---
-# nav_options = ["🏠 Home", "🔬 Research", "🛠️ Projects", "✍️ Blog", "📄 CV"]
-
-# # --- Get query param ---
-# params = st.query_params
-# nav = params.get("nav", "🏠 Home")
-
-# # Ensure value is valid
-# if nav not in nav_options:
-#     nav = "🏠 Home"
-
-# # This is your working `menu` variable
-# menu = nav
-
-# # --- Navigation links ---
-# nav_links = {
-#     "🏠 Home": "/?nav=🏠 Home",
-#     "🔬 Research": "/?nav=🔬 Research",
-#     "🛠️ Projects": "/?nav=🛠️ Projects",
-#     "✍️ Blog": "/?nav=✍️ Blog",
-#     "📄 CV": "/?nav=📄 CV"
-# }
-
-# # --- Active styling ---
-# def nav_link(name, href):
-#     active = "active" if name == menu else ""
-#     return f'<a href="{href}" class="{active}">{name}</a>'
-
-# # --- Top nav CSS with theme-aware colors and smaller height ---
-# st.markdown(f"""
-# <style>
-# /* Use theme background and font settings */
-# :root {{
-#     --primary-bg: var(--background-color);
-#     --primary-fg: var(--text-color);
-# }}
-
-# .topnav {{
-#     background-color: var(--primary-bg);
-#     color: var(--primary-fg);
-#     display: flex;
-#     justify-content: center;
-#     border-bottom: 1px solid #e0e0e0;
-#     height: 44px;
-#     align-items: center;
-#     font-size: 15px;
-#     padding: 0px;
-#     margin-bottom: 10px;
-# }}
-
-# .topnav a {{
-#     display: inline-block;
-#     padding: 8px 14px;
-#     color: var(--primary-fg);
-#     text-decoration: none;
-#     transition: background 0.2s ease-in-out;
-#     border-radius: 6px;
-#     font-weight: 500;
-# }}
-
-# .topnav a:hover {{
-#     background-color: rgba(128, 128, 128, 0.1);
-# }}
-
-# .topnav a.active {{
-#     background-color: #0a58ca;
-#     color: white !important;
-#     font-weight: 600;
-# }}
-# </style>
-
-# <div class="topnav">
-#     {''.join([nav_link(name, href) for name, href in nav_links.items()])}
-# </div>
-# """, unsafe_allow_html=True)
-
+# --- Top bar Navigation ---
 # --- Define nav options with emojis ---
 nav_options = ["🏠 Home", "🔬 Research", "🛠️ Projects", "✍️ Blog", "📄 CV"]
 labels = {
@@ -171,9 +96,11 @@ st.markdown(f"""
     align-items: center;
     height: 44px;
     border-bottom: 1px solid #e0e0e0;
-    margin-bottom: 12px;
     font-size: 15px;
     font-family: "Segoe UI", sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }}
 
 .topnav a {{
