@@ -22,30 +22,13 @@ st.set_page_config(page_title="AKASH.S", layout="wide")
 #     </style>
 # """, unsafe_allow_html=True)
 
-theme_choice = st.radio("Choose background", ["Dark", "Light"])
-
-if theme_choice == "Dark":
-    bg_image = "https://www.transparenttextures.com/patterns/cubes.png"
-    bg_color = "rgba(10, 10, 10, 0.8)"
-else:
-    bg_image = "https://www.transparenttextures.com/patterns/white-wall-3.png"
-    bg_color = "rgba(255, 255, 255, 0.9)"
-
-st.markdown(f"""
+st.markdown("""
     <style>
-    [data-testid="stAppViewContainer"] > .main {{
-        background-image: url('{bg_image}');
-        background-repeat: repeat;
-        background-size: 60px 60px;
-        background-color: {bg_color};
-    }}
+    [data-testid="stAppViewContainer"] > .main {
+        background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
+    }
     </style>
 """, unsafe_allow_html=True)
-
-
-
-
-
 
 
 
