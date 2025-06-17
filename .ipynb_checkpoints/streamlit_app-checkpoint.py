@@ -41,7 +41,7 @@ st.markdown("""
             background-repeat: repeat;
             # background-size: auto;
             background-size: 60px 60px;
-            background-color: rgba(10,10,10,0.8);  /* subtle dark overlay */
+            background-color: rgba(255, 255, 255, 0.8);  /* subtle dark overlay */
             # background-color: var(--background-color);
         }
     }
