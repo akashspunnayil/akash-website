@@ -8,37 +8,37 @@ from PIL import Image
 st.set_page_config(page_title="AKASH.S", layout="wide")
 
 
-# st.markdown("""
-#     <style>
-#     [data-testid="stAppViewContainer"] {
-#         background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-#         background-repeat: repeat;
-#         # background-size: auto;
-#         # background-color: rgba(255,255,255,0.95);
-#         background-size: 60px 60px;
-
-
-#     }
-#     </style>
-# """, unsafe_allow_html=True)
-
 st.markdown("""
     <style>
-    html[data-theme="dark"] [data-testid="stAppViewContainer"] > .main {
-        background-image: url('https://www.transparenttextures.com/patterns/cubes.png') !important;
-        background-repeat: repeat !important;
-        background-size: 60px 60px !important;
-        background-color: rgba(10, 10, 10, 0.8) !important;
-    }
+    [data-testid="stAppViewContainer"] {
+        background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+        background-repeat: repeat;
+        # background-size: auto;
+        # background-color: rgba(255,255,255,0.95);
+        background-size: 60px 60px;
 
-    html[data-theme="light"] [data-testid="stAppViewContainer"] > .main {
-        background-image: url('https://www.transparenttextures.com/patterns/white-wall-3.png') !important;
-        background-repeat: repeat !important;
-        background-size: 60px 60px !important;
-        background-color: rgba(255, 255, 255, 0.9) !important;
+
     }
     </style>
 """, unsafe_allow_html=True)
+
+# st.markdown("""
+#     <style>
+#     html[data-theme="dark"] [data-testid="stAppViewContainer"] > .main {
+#         background-image: url('https://www.transparenttextures.com/patterns/cubes.png') !important;
+#         background-repeat: repeat !important;
+#         background-size: 60px 60px !important;
+#         background-color: rgba(10, 10, 10, 0.8) !important;
+#     }
+
+#     html[data-theme="light"] [data-testid="stAppViewContainer"] > .main {
+#         background-image: url('https://www.transparenttextures.com/patterns/white-wall-3.png') !important;
+#         background-repeat: repeat !important;
+#         background-size: 60px 60px !important;
+#         background-color: rgba(255, 255, 255, 0.9) !important;
+#     }
+#     </style>
+# """, unsafe_allow_html=True)
 
 
 
