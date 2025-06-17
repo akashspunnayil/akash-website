@@ -24,21 +24,22 @@ st.set_page_config(page_title="AKASH.S", layout="wide")
 
 st.markdown("""
     <style>
-    html[data-theme="dark"] [data-testid="stAppViewContainer"] {
-        background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-        background-repeat: repeat;
-        background-size: 60px 60px;
-        background-color: rgba(10, 10, 10, 0.8);
+    html[data-theme="dark"] [data-testid="stAppViewContainer"] > .main {
+        background-image: url('https://www.transparenttextures.com/patterns/cubes.png') !important;
+        background-repeat: repeat !important;
+        background-size: 60px 60px !important;
+        background-color: rgba(10, 10, 10, 0.8) !important;
     }
 
-    html[data-theme="light"] [data-testid="stAppViewContainer"] {
-        background-image: url('https://www.transparenttextures.com/patterns/white-wall-3.png');
-        background-repeat: repeat;
-        background-size: 60px 60px;
-        background-color: rgba(255, 255, 255, 0.9);
+    html[data-theme="light"] [data-testid="stAppViewContainer"] > .main {
+        background-image: url('https://www.transparenttextures.com/patterns/white-wall-3.png') !important;
+        background-repeat: repeat !important;
+        background-size: 60px 60px !important;
+        background-color: rgba(255, 255, 255, 0.9) !important;
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 
 
