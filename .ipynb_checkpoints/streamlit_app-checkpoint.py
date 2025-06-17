@@ -45,7 +45,7 @@ st.sidebar.markdown("## 🧭 Navigation")
 
 nav_options = ["🏠 Home", "🧪 Research", "🛠️ Projects", "✍️ Blog", "📄 CV"]
 #menu = st.sidebar.radio("Navigation", nav_options, index=0)
-menu = st.sidebar.radio(" ", nav_options, index=0)
+menu = st.sidebar.radio(" ", nav_options)#, index=0)
 
 
 st.markdown("""
