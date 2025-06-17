@@ -22,25 +22,24 @@ st.set_page_config(page_title="AKASH.S", layout="wide")
 #     </style>
 # """, unsafe_allow_html=True)
 
-st.markdown("""
-    <style>
-    @media (prefers-color-scheme: dark) {
-        [data-testid="stAppViewContainer"] {
-            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-            background-repeat: repeat;
-            background-size: 60px 60px;
-            background-color: rgba(10, 10, 10, 0.8);  /* dark semi-transparent overlay */
-        }
-    }
+# Streamlit exposes theme setting via session state (experimental API)
+theme = st.get_option("theme.base")
 
-    @media (prefers-color-scheme: light) {
-        [data-testid="stAppViewContainer"] {
-            background-image: url('https://www.transparenttextures.com/patterns/white-wall-3.png');
-            background-repeat: repeat;
-            background-size: 60px 60px;
-            background-color: rgba(255, 255, 255, 0.9);  /* light background with bright overlay */
-        }
-    }
+if theme == "dark":
+    bg_image = "https://www.transparenttextures.com/patterns/cubes.png"
+    bg_color = "rgba(10, 10, 10, 0.8)"
+else:
+    bg_image = "https://www.transparenttextures.com/patterns/white-wall-3.png"
+    bg_color = "rgba(255, 255, 255, 0.9)"
+
+st.markdown(f"""
+    <style>
+    [data-testid="stAppViewContainer"] {{
+        background-image: url('{bg_image}');
+        background-repeat: repeat;
+        background-size: 60px 60px;
+        background-color: {bg_color};
+    }}
     </style>
 """, unsafe_allow_html=True)
 
