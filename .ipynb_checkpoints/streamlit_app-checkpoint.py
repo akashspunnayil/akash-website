@@ -123,6 +123,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
+# Render the fixed top nav bar
+st.markdown(f"""
+<div class="topnav">
+    {''.join([nav_link(name, href) for name, href in nav_links.items()])}
+</div>
+""", unsafe_allow_html=True)
+
+
 
 
 st.markdown("""
