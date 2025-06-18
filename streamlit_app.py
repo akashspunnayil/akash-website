@@ -797,7 +797,7 @@ elif menu == "🛠️ Projects":
 
     # 🚗 ML Models & Predictive Analytics
     st.subheader("🚗 ML Models & Predictive Analytics")
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
 
     with col1:
         st.markdown(render_tile(

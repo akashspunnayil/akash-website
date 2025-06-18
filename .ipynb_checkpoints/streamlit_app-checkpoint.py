@@ -797,7 +797,7 @@ elif menu == "🛠️ Projects":
 
     # 🚗 ML Models & Predictive Analytics
     st.subheader("🚗 ML Models & Predictive Analytics")
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
 
     with col1:
         st.markdown(render_tile(
@@ -822,7 +822,14 @@ elif menu == "🛠️ Projects":
         st.markdown(render_tile(
             title="Face Detection App",
             url="https://a-face-detection-app.streamlit.app/?app=face-detection", #"https://testfacerecog.streamlit.app/",  # actual external URL
-            description="Streamlit webcam face detection with Haar cascades."
+            description="Streamlit demo of live webcam face detection with Haar cascades."
+        ), unsafe_allow_html=True)
+        
+    with col2:
+        st.markdown(render_tile(
+            title="House Intrusion Detection App",
+            url="https://a-house-intrusion-detection-app.streamlit.app/", #"https://testfacerecog.streamlit.app/",  # actual external URL
+            description="Streamlit demo of live house intrusion detection system with YOLO."
         ), unsafe_allow_html=True)
 
 
