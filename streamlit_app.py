@@ -7,6 +7,14 @@ from PIL import Image
 # --- Configuration ---
 st.set_page_config(page_title="AKASH.S", layout="wide")
 
+st.markdown("""
+    <style>
+    header [data-testid="stToolbar"] a[href*="github"] {
+        display: none !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 
 # st.markdown("""
 #     <style>
