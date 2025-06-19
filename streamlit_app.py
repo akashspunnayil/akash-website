@@ -227,23 +227,23 @@ from PIL import Image
 #resized_cover = cover.resize((1200, 300))  # (width, height)
 #st.image(resized_cover)
 
+cover = Image.open("static/croped.png")
+st.image(cover, use_container_width=True)
+
+
+#import base64
+#from io import BytesIO
 #cover = Image.open("static/cover2_1200x300.png")
-#st.image(cover, use_container_width=True)
+#buffered = BytesIO()
+#cover.save(buffered, format="PNG")
+#img_b64 = base64.b64encode(buffered.getvalue()).decode()
 
-
-import base64
-from io import BytesIO
-cover = Image.open("static/cover2_1200x300.png")
-buffered = BytesIO()
-cover.save(buffered, format="PNG")
-img_b64 = base64.b64encode(buffered.getvalue()).decode()
-
-st.markdown(f"""
-    <div style="width: 100%; overflow: hidden;">
-        <img src="data:image/png;base64,{img_b64}" 
-             style="width: 100%; height: 330px; object-fit: cover; border-radius: 6px;" />
-    </div>
-""", unsafe_allow_html=True)
+#st.markdown(f"""
+#    <div style="width: 100%; overflow: hidden;">
+#        <img src="data:image/png;base64,{img_b64}" 
+#             style="width: 100%; height: 330px; object-fit: cover; border-radius: 6px;" />
+#    </div>
+#""", unsafe_allow_html=True)
 
 
 
