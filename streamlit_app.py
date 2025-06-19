@@ -234,7 +234,7 @@ from PIL import Image
 
 st.markdown("""
     <div style="width: 100%; overflow: hidden;">
-        <img src="static/cover2_1200x300.png" style="width: 100%; height: 220px; object-fit: cover; border-radius: 6px;" />
+        <img src="static/cover2_1200x300.png" style="width: 100%; height: 200px; object-fit: cover; border-radius: 6px;" />
     </div>
 """, unsafe_allow_html=True)
 
