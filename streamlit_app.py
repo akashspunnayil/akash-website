@@ -231,6 +231,7 @@ from PIL import Image
 #st.image(cover, use_container_width=True)
 
 
+import base64
 from io import BytesIO
 cover = Image.open("static/cover2_1200x300.png")
 buffered = BytesIO()
