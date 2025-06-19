@@ -232,9 +232,15 @@ from PIL import Image
 
 
 
-st.markdown("""
+cover = Image.open("static/cover2_1200x300.png")
+buffered = BytesIO()
+cover.save(buffered, format="PNG")
+img_b64 = base64.b64encode(buffered.getvalue()).decode()
+
+st.markdown(f"""
     <div style="width: 100%; overflow: hidden;">
-        <img src="static/cover2_1200x300.png" style="width: 100%; height: 200px; object-fit: cover; border-radius: 6px;" />
+        <img src="data:image/png;base64,{img_b64}" 
+             style="width: 100%; height: 220px; object-fit: cover; border-radius: 6px;" />
     </div>
 """, unsafe_allow_html=True)
 
