@@ -5,6 +5,11 @@ from PIL import Image
 
 
 # --- Configuration ---
+st.set_page_config(page_title="AKASH.S", layout="wide")
+
+
+
+
 st.markdown("""
     <style>
     /* Try hiding Streamlit's top right toolbar GitHub link */
