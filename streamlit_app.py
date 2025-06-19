@@ -227,7 +227,7 @@ cover = Image.open("static/cover2_1200x300.png")
 #resized_cover = cover.resize((1200, 300))  # (width, height)
 
 cover = Image.open("static/cover2_1200x300.png")
-st.image(cover, use_column_width=True)
+st.image(cover, use_container_width=True)
 
 #st.image(resized_cover)
 
