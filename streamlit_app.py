@@ -231,7 +231,7 @@ from PIL import Image
 #st.image(cover, use_container_width=True)
 
 
-
+from io import BytesIO
 cover = Image.open("static/cover2_1200x300.png")
 buffered = BytesIO()
 cover.save(buffered, format="PNG")
