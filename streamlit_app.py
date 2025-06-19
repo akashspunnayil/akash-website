@@ -5,7 +5,7 @@ from PIL import Image
 
 
 # --- Configuration ---
-st.set_page_config(page_title="AKASH.S", layout="centered") # centered # wide
+st.set_page_config(page_title="AKASH.S", layout="wide") # centered # wide
 
 
 
@@ -224,8 +224,12 @@ from PIL import Image
 # cover = Image.open("static/cover2.png")
 cover = Image.open("static/cover2_1200x300.png")
 #st.image(cover, use_container_width=True)
-resized_cover = cover.resize((1200, 300))  # (width, height)
-st.image(resized_cover)
+#resized_cover = cover.resize((1200, 300))  # (width, height)
+
+cover = Image.open("static/cover2_1200x300.png")
+st.image(cover, use_column_width=True)
+
+#st.image(resized_cover)
 
 
 
