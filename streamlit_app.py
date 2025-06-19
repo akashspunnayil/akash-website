@@ -241,7 +241,7 @@ img_b64 = base64.b64encode(buffered.getvalue()).decode()
 st.markdown(f"""
     <div style="width: 100%; overflow: hidden;">
         <img src="data:image/png;base64,{img_b64}" 
-             style="width: 100%; height: 250px; object-fit: cover; border-radius: 6px;" />
+             style="width: 100%; height: 290px; object-fit: cover; border-radius: 6px;" />
     </div>
 """, unsafe_allow_html=True)
 
