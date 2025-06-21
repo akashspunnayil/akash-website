@@ -354,11 +354,10 @@ def render_tile_highlight(title, url, description, img_base64=shared_img_base64)
             text-shadow: 0 0 6px rgba(255, 255, 200, 0.6);
             overflow: hidden;
             display: -webkit-box;
-            -webkit-line-clamp: 4;
+            -webkit-line-clamp: {line_clamp};
             -webkit-box-orient: vertical;
             min-height: 60px;
         ">
-
             {description}
         </p>
         <div style="margin-top: auto; text-align: right;">
