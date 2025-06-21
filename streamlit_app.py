@@ -766,29 +766,66 @@ elif menu == "🛠️ Projects":
 
     # 🌊 Oceanography & Climate Tools
     st.subheader("🌊 Oceanography & Climate Tools")
-    col1, col2, col3 = st.columns(3)
+    tile_data = [
+        {
+            "title": "argohycom: toolbox",
+            "url": "https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/argohycom_toolbox",
+            "description": "Colocation and filtering of BGC Argo profiles with HYCOM outputs."
+        },
+        {
+            "title": "Ocean Transport Estimator",
+            "url": "",
+            "description": "Compute zonal & meridional transports. *(link coming soon)*"
+        },
+        {
+            "title": "DSL Depth Estimator",
+            "url": "",
+            "description": "Estimate OMZ/DSL depths. *(link coming soon)*"
+        },
+        {
+            "title": "DSL Depth Estimator (Alt)",
+            "url": "",
+            "description": "Another version for DSL estimation. *(link coming soon)*"
+        }
+    ]
+    
+    for i in range(0, len(tile_data), 3):  # 3 tiles per row
+        cols = st.columns(3)
+        for j in range(3):
+            if i + j < len(tile_data):
+                with cols[j]:
+                    st.markdown(render_tile(**tile_data[i + j]), unsafe_allow_html=True)
 
-    with col1:
-        st.markdown(render_tile(
-            title="argohycom-toolbox",
-            url="https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/argohycom_toolbox",
-            description="Colocation and filtering of BGC-Argo profiles with HYCOM outputs.",
-            img_base64=shared_img_base64  # ✅ Required fourth argument
-        ), unsafe_allow_html=True)
+    # col1, col2, col3 = st.columns(3)
 
-    with col2:
-        st.markdown(render_tile(
-            title="Ocean Transport Estimator",
-            url="#",
-            description="Compute zonal & meridional transport of scalar variables. *(link coming soon)*"
-        ), unsafe_allow_html=True)
+    # with col1:
+    #     st.markdown(render_tile(
+    #         title="argohycom-toolbox",
+    #         url="https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/argohycom_toolbox",
+    #         description="Colocation and filtering of BGC-Argo profiles with HYCOM outputs.",
+    #         img_base64=shared_img_base64  # ✅ Required fourth argument
+    #     ), unsafe_allow_html=True)
 
-    with col3:
-        st.markdown(render_tile(
-            title="DSL Depth Estimator",
-            url="#",
-            description="Estimate OMZ/DSL depths from cruise observations. *(link coming soon)*"
-        ), unsafe_allow_html=True)
+    # with col2:
+    #     st.markdown(render_tile(
+    #         title="Ocean Transport Estimator",
+    #         url="#",
+    #         description="Compute zonal & meridional transport of scalar variables. *(link coming soon)*"
+    #     ), unsafe_allow_html=True)
+
+    # with col3:
+    #     st.markdown(render_tile(
+    #         title="DSL Depth Estimator",
+    #         url="#",
+    #         description="Estimate OMZ/DSL depths from cruise observations. *(link coming soon)*"
+    #     ), unsafe_allow_html=True)
+
+    # with col4:
+    #     st.markdown(render_tile(
+    #         title="DSL Depth Estimator",
+    #         url="#",
+    #         description="Estimate OMZ/DSL depths from cruise observations. *(link coming soon)*"
+    #     ), unsafe_allow_html=True)
 
     # 🏥 Health, Water, and Urban Analytics
     st.subheader("🏥 Health, Water, and Urban Analytics")

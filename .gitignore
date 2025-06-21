@@ -1,4 +1,5 @@
 __pycache__/
+.ipynb_checkpoints/
 static2/
 folder_structure.txt
 streamlit_app (copy).py
