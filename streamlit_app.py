@@ -838,7 +838,8 @@ elif menu == "🛠️ Projects":
         {
             "title": "🌊🌟 Ocean View App",
             "url": "https://oceanview.streamlit.app/",
-            "description": "App for view and plot ocean data (currently only NetCDF format compatible)"
+            "description": "App for view and plot ocean data (currently only NetCDF format compatible)",
+            "highlight": True
         }
     ]
     
@@ -850,10 +851,11 @@ elif menu == "🛠️ Projects":
             if i + j < len(tile_data):
                 tile = tile_data[i + j]
                 with cols[j]:
-                    if tile["title"] == "🌊🌟 Ocean View App":
+                    if tile.get("highlight"):
                         st.markdown(render_tile_highlight(**tile), unsafe_allow_html=True)
                     else:
                         st.markdown(render_tile(**tile), unsafe_allow_html=True)
+
 
     # for i in range(0, len(tile_data), n_cols):
     #     cols = st.columns(n_cols)  # always create 3 columns
