@@ -320,7 +320,7 @@ def render_tile_highlight(title, url, description, img_base64=shared_img_base64)
     line_clamp = 4
 
     return f"""
-    <div class="highlighted-tile" style="
+    <div style="
         background: rgba(255, 245, 200, 0.12);
         border: 2px solid #ffd700;
         border-radius: 12px;
@@ -334,11 +334,7 @@ def render_tile_highlight(title, url, description, img_base64=shared_img_base64)
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         box-sizing: border-box;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    "
-    onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 6px 16px rgba(255, 215, 0, 0.6)';"
-    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 14px rgba(255, 215, 0, 0.4)';"
-    >
+    ">
         <img src="data:image/png;base64,{img_base64}" alt="{title} image" style="
             width: 100%;
             height: {image_height}px;
@@ -348,7 +344,8 @@ def render_tile_highlight(title, url, description, img_base64=shared_img_base64)
             border: 2px solid #ffd700;
         " />
         <h4 style="margin-bottom: 8px; font-size: 16px; line-height: 1.3; color: #e69a00;">
-            🌟 {title} <span style='font-size:12px; background:#e69a00; color:white; padding:2px 6px; border-radius:6px;'>NEW</span>
+            🌟 {title}
+            <span style='font-size:12px; background:#e69a00; color:white; padding:2px 6px; border-radius:6px; margin-left:8px;'>NEW</span>
         </h4>
         <p style="
             color: #333;
@@ -367,6 +364,7 @@ def render_tile_highlight(title, url, description, img_base64=shared_img_base64)
         </div>
     </div>
     """
+
 
 
 
