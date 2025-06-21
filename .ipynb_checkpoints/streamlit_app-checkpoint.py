@@ -348,7 +348,7 @@ def render_tile_highlight(title, url, description, img_base64=shared_img_base64)
             <span style='font-size:12px; background:#e69a00; color:white; padding:2px 6px; border-radius:6px; margin-left:8px;'>NEW</span>
         </h4>
         <p style="
-            color: #aaa;
+            color: #5c5c5c;
             font-size: 13px;
             line-height: 1.4;
             overflow: hidden;
