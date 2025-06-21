@@ -843,18 +843,29 @@ elif menu == "🛠️ Projects":
         }
     ]
     
-    n_cols = 3  # 3 tiles per row
+    # n_cols = 3  # 3 tiles per row
 
     for i in range(0, len(tile_data), 3):
-        cols = st.columns(3)
-        for j in range(3):
-            if i + j < len(tile_data):
-                tile = tile_data[i + j]
-                with cols[j]:
-                    if tile.get("highlight"):
-                        st.markdown(render_tile_highlight(**tile), unsafe_allow_html=True)
-                    else:
-                        st.markdown(render_tile(**tile), unsafe_allow_html=True)
+    cols = st.columns(3)
+    for j in range(3):
+        if i + j < len(tile_data):
+            tile = tile_data[i + j]
+            highlight = tile.get("highlight", False)  # ✅ Optional helper line
+
+            with cols[j]:
+                if highlight:
+                    st.markdown(render_tile_highlight(
+                        title=tile["title"],
+                        url=tile["url"],
+                        description=tile["description"]
+                    ), unsafe_allow_html=True)
+                else:
+                    st.markdown(render_tile(
+                        title=tile["title"],
+                        url=tile["url"],
+                        description=tile["description"]
+                    ), unsafe_allow_html=True)
+
 
 
     # for i in range(0, len(tile_data), n_cols):
