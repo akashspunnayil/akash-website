@@ -789,12 +789,15 @@ elif menu == "🛠️ Projects":
         }
     ]
     
-    for i in range(0, len(tile_data), 3):  # 3 tiles per row
-        cols = st.columns(3)
-        for j in range(3):
-            if i + j < len(tile_data):
-                with cols[j]:
-                    st.markdown(render_tile(**tile_data[i + j]), unsafe_allow_html=True)
+    n_cols = 3  # Number of tiles per row
+
+    for i in range(0, len(tile_data), n_cols):
+        row_data = tile_data[i:i + n_cols]
+        cols = st.columns(len(row_data))  # Only create as many columns as needed
+        for col, data in zip(cols, row_data):
+            with col:
+                st.markdown(render_tile(**data), unsafe_allow_html=True)
+
 
     # col1, col2, col3 = st.columns(3)
 
