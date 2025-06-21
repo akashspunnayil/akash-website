@@ -313,7 +313,7 @@ def render_tile(title, url, description, img_base64=shared_img_base64):
         </div>
     </div>
     """
-
+import html
 def render_tile_highlight(title, url, description, img_base64=shared_img_base64):
     tile_height = 380
     image_height = 150
