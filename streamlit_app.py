@@ -358,8 +358,7 @@ def render_tile_highlight(title, url, description, img_base64=shared_img_base64)
             -webkit-box-orient: vertical;
             min-height: 60px;
         ">
-
-            {description}
+            {html.escape(description)}
         </p>
         <div style="margin-top: auto; text-align: right;">
             <a href="{url}" target="_blank" rel="noopener noreferrer" style="font-size: 12px; text-decoration: none; color: #e69a00;">→ Launch App</a>
