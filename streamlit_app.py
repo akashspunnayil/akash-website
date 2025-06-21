@@ -838,7 +838,7 @@ elif menu == "🛠️ Projects":
             "description": "Estimate OMZ/DSL depths. *(link coming soon)*"
         },
         {
-            "title": "🌊🌟 Ocean View Dashboard",
+            "title": "🌊🌟 Ocean View App",
             "url": "https://oceanview.streamlit.app/",
             "description": "App for view and plot ocean data (currently only NetCDF format compatible)"
         }
@@ -852,7 +852,7 @@ elif menu == "🛠️ Projects":
             if i + j < len(tile_data):
                 tile = tile_data[i + j]
                 with cols[j]:
-                    if tile["title"] == "Ocean View":
+                    if tile["title"] == "Ocean View App":
                         st.markdown(render_tile_highlight(**tile), unsafe_allow_html=True)
                     else:
                         st.markdown(render_tile(**tile), unsafe_allow_html=True)
