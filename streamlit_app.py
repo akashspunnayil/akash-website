@@ -783,9 +783,9 @@ elif menu == "🛠️ Projects":
             "description": "Estimate OMZ/DSL depths. *(link coming soon)*"
         },
         {
-            "title": "DSL Depth Estimator (Alt)",
-            "url": "",
-            "description": "Another version for DSL estimation. *(link coming soon)*"
+            "title": "Ocean View",
+            "url": "https://oceanview.streamlit.app/",
+            "description": "App for view and plot ocean data (currently only NetCDF format compatible)"
         }
     ]
     
