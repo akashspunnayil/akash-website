@@ -850,7 +850,7 @@ elif menu == "🛠️ Projects":
             if i + j < len(tile_data):
                 tile = tile_data[i + j]
                 with cols[j]:
-                    if tile["title"] == "Ocean View App":
+                    if tile["title"] == "🌊🌟 Ocean View App":
                         st.markdown(render_tile_highlight(**tile), unsafe_allow_html=True)
                     else:
                         st.markdown(render_tile(**tile), unsafe_allow_html=True)
