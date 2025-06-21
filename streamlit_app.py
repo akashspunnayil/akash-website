@@ -351,7 +351,7 @@ def render_tile_highlight(title, url, description, img_base64=shared_img_base64)
             color: #fff;
             font-size: 13px;
             line-height: 1.4;
-            text-shadow: 0 0 6px rgba(100, 200, 255, 0.6);
+            text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: {line_clamp};
