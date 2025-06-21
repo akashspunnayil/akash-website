@@ -821,6 +821,12 @@ elif menu == "🛠️ Projects":
     st.subheader("🌊 Oceanography & Climate Tools")
     tile_data = [
         {
+            "title": "🌊🌟 Ocean View App",
+            "url": "https://oceanview.streamlit.app/",
+            "description": "App for view and plot ocean data (currently only NetCDF format compatible)",
+            "highlight": True
+        },
+        {
             "title": "argohycom: toolbox",
             "url": "https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/argohycom_toolbox",
             "description": "Colocation and filtering of BGC Argo profiles with HYCOM outputs."
@@ -835,12 +841,7 @@ elif menu == "🛠️ Projects":
             "url": "",
             "description": "Estimate OMZ/DSL depths. *(link coming soon)*"
         },
-        {
-            "title": "🌊🌟 Ocean View App",
-            "url": "https://oceanview.streamlit.app/",
-            "description": "App for view and plot ocean data (currently only NetCDF format compatible)",
-            "highlight": True
-        }
+        
     ]
     
     # n_cols = 3  # 3 tiles per row
@@ -850,7 +851,7 @@ elif menu == "🛠️ Projects":
         for j in range(3):
             if i + j < len(tile_data):
                 tile = tile_data[i + j]
-                highlight = tile.get("highlight", False)  # ✅ Optional helper line
+                highlight = tile.get("highlight", False)
     
                 with cols[j]:
                     if highlight:
