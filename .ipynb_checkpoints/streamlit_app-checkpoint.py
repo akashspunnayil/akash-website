@@ -314,6 +314,56 @@ def render_tile(title, url, description, img_base64=shared_img_base64):
     </div>
     """
 
+def render_tile_highlight(title, url, description, img_base64=shared_img_base64):
+    tile_height = 380
+    image_height = 150
+    line_clamp = 4
+
+    return f"""
+    <div class="highlighted-tile" style="
+        background: rgba(255, 250, 230, 0.2);
+        border: 2px solid #ffd700;
+        border-radius: 12px;
+        padding: 16px;
+        margin: 6px;
+        height: {tile_height}px;
+        box-shadow: 4px 4px 12px rgba(255, 215, 0, 0.4);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-sizing: border-box;
+    ">
+        <img src="data:image/png;base64,{img_base64}" alt="{title} image" style="
+            width: 100%;
+            height: {image_height}px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: 2px solid #ffd700;
+        " />
+        <h4 style="margin-bottom: 8px; font-size: 16px; line-height: 1.3;">
+            <a href="{url}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: #e69a00; font-weight:700;">🌟 {title}</a>
+        </h4>
+        <p style="
+            color: #333;
+            font-size: 13px;
+            line-height: 1.4;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: {line_clamp};
+            -webkit-box-orient: vertical;
+            min-height: 60px;
+        ">
+            {description}
+        </p>
+        <div style="margin-top: auto; text-align: right;">
+            <a href="{url}" target="_blank" rel="noopener noreferrer" style="font-size: 12px; text-decoration: none; color: #ff8c00;">→ Launch App</a>
+        </div>
+    </div>
+    """
+
 
 
 # --- Blog Page ---
@@ -783,7 +833,7 @@ elif menu == "🛠️ Projects":
             "description": "Estimate OMZ/DSL depths. *(link coming soon)*"
         },
         {
-            "title": "Ocean View",
+            "title": "🌊🌟 Ocean View Dashboard",
             "url": "https://oceanview.streamlit.app/",
             "description": "App for view and plot ocean data (currently only NetCDF format compatible)"
         }
@@ -796,7 +846,12 @@ elif menu == "🛠️ Projects":
         for j in range(n_cols):
             if i + j < len(tile_data):
                 with cols[j]:
-                    st.markdown(render_tile(**tile_data[i + j]), unsafe_allow_html=True)
+                    # st.markdown(render_tile(**tile_data[i + j]), unsafe_allow_html=True)
+                    if tile["title"] == "Ocean View Dashboard":
+                        st.markdown(render_tile_highlight(**tile), unsafe_allow_html=True)
+                    else:
+                        st.markdown(render_tile(**tile), unsafe_allow_html=True)
+
 
 
 
