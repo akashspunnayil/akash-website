@@ -935,27 +935,27 @@ elif menu == "🛠️ Projects":
     ]
     
     for i in range(0, len(tile_data_2), 3):
-    cols = st.columns(3)
-    for j in range(3):
-        if i + j < len(tile_data_2):
-            tile = tile_data_2[i + j]
-            highlight = tile.get("highlight", False)
-
-            with cols[j]:
-                if highlight:
-                    st.markdown(render_tile_highlight(
-                        title=tile["title"],
-                        url=tile["url"],
-                        description=tile["description"],
-                        img_base64=shared_img_base64  
-                    ), unsafe_allow_html=True)
-                else:
-                    st.markdown(render_tile(
-                        title=tile["title"],
-                        url=tile["url"],
-                        description=tile["description"],
-                        img_base64=shared_img_base64  
-                    ), unsafe_allow_html=True)
+        cols = st.columns(3)
+        for j in range(3):
+            if i + j < len(tile_data_2):
+                tile = tile_data_2[i + j]
+                highlight = tile.get("highlight", False)
+    
+                with cols[j]:
+                    if highlight:
+                        st.markdown(render_tile_highlight(
+                            title=tile["title"],
+                            url=tile["url"],
+                            description=tile["description"],
+                            img_base64=shared_img_base64  
+                        ), unsafe_allow_html=True)
+                    else:
+                        st.markdown(render_tile(
+                            title=tile["title"],
+                            url=tile["url"],
+                            description=tile["description"],
+                            img_base64=shared_img_base64  
+                        ), unsafe_allow_html=True)
 
     # for i in range(0, len(tile_data_2), 3):
     #     cols = st.columns(3)
