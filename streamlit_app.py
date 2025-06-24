@@ -914,7 +914,7 @@ elif menu == "🛠️ Projects":
     # 🧠 Computer Vision Projects
     st.subheader("🧠 Computer Vision Projects")
     
-    tile_data = [
+    tile_data_2 = [
         {
             "title": "Face Mask Detection App",
             "url": "https://facemask-app.streamlit.app/",
@@ -935,11 +935,11 @@ elif menu == "🛠️ Projects":
     ]
     
     
-    for i in range(0, len(tile_data), 3):
+    for i in range(0, len(tile_data_2), 3):
         cols = st.columns(3)
         for j in range(3):
-            if i + j < len(tile_data):
-                tile = tile_data[i + j]
+            if i + j < len(tile_data_2):
+                tile = tile_data_2[i + j]
                 highlight = tile.get("highlight", False)
     
                 with cols[j]:
