@@ -823,7 +823,7 @@ elif menu == "🛠️ Projects":
     tile_data = [
         {
             "title": "🌊🌟 Ocean View App",
-            "url": "https://oceanview.streamlit.app/",
+            "url": "https://oceanviewer.streamlit.app/",
             "description": "App for view and plot ocean data (currently only NetCDF format compatible)",
             "highlight": True
         },
