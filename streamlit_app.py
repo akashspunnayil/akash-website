@@ -822,7 +822,7 @@ elif menu == "🛠️ Projects":
     st.subheader("🌊 Oceanography & Climate Tools")
     tile_data = [
         {
-            "title": "🌊🌟 Ocean View App",
+            "title": "🌊🌟 Ocean Viewer App",
             "url": "https://oceanviewer.streamlit.app/",
             "description": "App for view and plot ocean data (currently only NetCDF format compatible)",
             "highlight": True
