@@ -7,9 +7,6 @@ from PIL import Image
 # --- Configuration ---
 st.set_page_config(page_title="AKASH.S", layout="wide") # centered # wide
 
-
-
-
 # st.markdown("""
 #     <style>
 #     [data-testid="stAppViewContainer"] {
@@ -822,8 +819,8 @@ elif menu == "🛠️ Projects":
     st.subheader("🌊 Oceanography & Climate Tools")
     tile_data = [
         {
-            "title": "🌊🌟 Ocean View App",
-            "url": "https://oceanview.streamlit.app/",
+            "title": "🌊🌟 Ocean Viewer App",
+            "url": "https://oceanviewer.streamlit.app/",
             "description": "App for view and plot ocean data (currently only NetCDF format compatible)",
             "highlight": True
         },
@@ -869,48 +866,6 @@ elif menu == "🛠️ Projects":
                         ), unsafe_allow_html=True)
 
 
-
-    # for i in range(0, len(tile_data), n_cols):
-    #     cols = st.columns(n_cols)  # always create 3 columns
-    #     for j in range(n_cols):
-    #         if i + j < len(tile_data):
-    #             with cols[j]:
-    #                 st.markdown(render_tile(**tile_data[i + j]), unsafe_allow_html=True)
-                    
-
-
-
-
-    # col1, col2, col3 = st.columns(3)
-
-    # with col1:
-    #     st.markdown(render_tile(
-    #         title="argohycom-toolbox",
-    #         url="https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/argohycom_toolbox",
-    #         description="Colocation and filtering of BGC-Argo profiles with HYCOM outputs.",
-    #         img_base64=shared_img_base64  # ✅ Required fourth argument
-    #     ), unsafe_allow_html=True)
-
-    # with col2:
-    #     st.markdown(render_tile(
-    #         title="Ocean Transport Estimator",
-    #         url="#",
-    #         description="Compute zonal & meridional transport of scalar variables. *(link coming soon)*"
-    #     ), unsafe_allow_html=True)
-
-    # with col3:
-    #     st.markdown(render_tile(
-    #         title="DSL Depth Estimator",
-    #         url="#",
-    #         description="Estimate OMZ/DSL depths from cruise observations. *(link coming soon)*"
-    #     ), unsafe_allow_html=True)
-
-    # with col4:
-    #     st.markdown(render_tile(
-    #         title="DSL Depth Estimator",
-    #         url="#",
-    #         description="Estimate OMZ/DSL depths from cruise observations. *(link coming soon)*"
-    #     ), unsafe_allow_html=True)
 
     # 🏥 Health, Water, and Urban Analytics
     st.subheader("🏥 Health, Water, and Urban Analytics")
@@ -958,39 +913,54 @@ elif menu == "🛠️ Projects":
 
     # 🧠 Computer Vision Projects
     st.subheader("🧠 Computer Vision Projects")
-    col1, col2, col3 = st.columns(3)
     
-    with col1:
-        st.markdown(render_tile(
-            title="Face Detection App",
-            url="https://a-face-detection-app.streamlit.app/?app=face-detection", #"https://testfacerecog.streamlit.app/",  # actual external URL
-            description="Streamlit demo of live webcam face detection with Haar cascades."
-        ), unsafe_allow_html=True)
+    tile_data = [
+        {
+            "title": "Face Mask Detection App",
+            "url": "https://facemask-app.streamlit.app/",
+            "description": "Streamlit demo app to detect face mask from image, video and live cam",
+            "highlight": True
+        },
+        {
+            "title": "Face Detection App",
+            "url": "https://a-face-detection-app.streamlit.app/?app=face-detection",
+            "description": "Streamlit demo of live webcam face detection with Haar cascades."
+        },
+        {
+            "title": "House Intrusion Detection App",
+            "url": "https://a-house-intrusion-detection-app.streamlit.app/",
+            "description": "Streamlit demo of live house intrusion detection system with YOLO."
+        }
         
-    with col2:
-        st.markdown(render_tile(
-            title="House Intrusion Detection App",
-            url="https://a-house-intrusion-detection-app.streamlit.app/", #"https://testfacerecog.streamlit.app/",  # actual external URL
-            description="Streamlit demo of live house intrusion detection system with YOLO."
-        ), unsafe_allow_html=True)
+    ]
+    
+    
+    for i in range(0, len(tile_data), 3):
+        cols = st.columns(3)
+        for j in range(3):
+            if i + j < len(tile_data):
+                tile = tile_data[i + j]
+                highlight = tile.get("highlight", False)
+    
+                with cols[j]:
+                    if highlight:
+                        st.markdown(render_tile_highlight(
+                            title=tile["title"],
+                            url=tile["url"],
+                            description=tile["description"]
+                        ), unsafe_allow_html=True)
+                    else:
+                        st.markdown(render_tile(
+                            title=tile["title"],
+                            url=tile["url"],
+                            description=tile["description"]
+                        ), unsafe_allow_html=True)
+
 
 
         
     # 🧠 AI/ML Practice Notebooks
     st.subheader("🧠 AI/ML Practice Notebooks")
-    #notebooks = [
-    #    ("Automobiles EDA + ML", "1_Automobiles_EDA_ML.ipynb"),
-    #    ("Diabetes EDA + ML", "2_Diabetes_EDA_ML.ipynb"),
-    #    ("Housing Price Prediction", "3_Housing_EDA_ML.ipynb"),
-    #    ("Insurance Risk Analysis", "4_Insurance_EDA_ML.ipynb"),
-    #    ("MNIST ANN", "5_MNIST_hyperparameter_ANN.ipynb"),
-    #    ("Fashion MNIST with ANN", "6_FASHION_MNIST_ANN.ipynb"),
-    #    ("CIFAR-10 with ANN", "7_CIFAR_ANN.ipynb"),
-    #    ("Fashion MNIST with CNN", "8_FASHION_MNIST_CNN.ipynb"),
-    #   ("CIFAR-10 with CNN", "9_CIFAR_CNN.ipynb"),
-    #    ("CIFAR-10 with CNN", "9_CIFAR_CNN.ipynb"),
-    #    
-    #]
     
     notebooks = [
         ("Automobiles EDA + ML", "1_Automobiles_EDA_ML.ipynb"),

@@ -7,9 +7,6 @@ from PIL import Image
 # --- Configuration ---
 st.set_page_config(page_title="AKASH.S", layout="wide") # centered # wide
 
-
-
-
 # st.markdown("""
 #     <style>
 #     [data-testid="stAppViewContainer"] {
@@ -917,7 +914,6 @@ elif menu == "🛠️ Projects":
     # 🧠 Computer Vision Projects
     st.subheader("🧠 Computer Vision Projects")
     
-    
     tile_data = [
         {
             "title": "Face Mask Detection App",
@@ -934,7 +930,7 @@ elif menu == "🛠️ Projects":
             "title": "House Intrusion Detection App",
             "url": "https://a-house-intrusion-detection-app.streamlit.app/",
             "description": "Streamlit demo of live house intrusion detection system with YOLO."
-        },
+        }
         
     ]
     
@@ -965,19 +961,6 @@ elif menu == "🛠️ Projects":
         
     # 🧠 AI/ML Practice Notebooks
     st.subheader("🧠 AI/ML Practice Notebooks")
-    #notebooks = [
-    #    ("Automobiles EDA + ML", "1_Automobiles_EDA_ML.ipynb"),
-    #    ("Diabetes EDA + ML", "2_Diabetes_EDA_ML.ipynb"),
-    #    ("Housing Price Prediction", "3_Housing_EDA_ML.ipynb"),
-    #    ("Insurance Risk Analysis", "4_Insurance_EDA_ML.ipynb"),
-    #    ("MNIST ANN", "5_MNIST_hyperparameter_ANN.ipynb"),
-    #    ("Fashion MNIST with ANN", "6_FASHION_MNIST_ANN.ipynb"),
-    #    ("CIFAR-10 with ANN", "7_CIFAR_ANN.ipynb"),
-    #    ("Fashion MNIST with CNN", "8_FASHION_MNIST_CNN.ipynb"),
-    #   ("CIFAR-10 with CNN", "9_CIFAR_CNN.ipynb"),
-    #    ("CIFAR-10 with CNN", "9_CIFAR_CNN.ipynb"),
-    #    
-    #]
     
     notebooks = [
         ("Automobiles EDA + ML", "1_Automobiles_EDA_ML.ipynb"),
