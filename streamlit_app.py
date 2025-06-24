@@ -870,48 +870,6 @@ elif menu == "🛠️ Projects":
 
 
 
-    # for i in range(0, len(tile_data), n_cols):
-    #     cols = st.columns(n_cols)  # always create 3 columns
-    #     for j in range(n_cols):
-    #         if i + j < len(tile_data):
-    #             with cols[j]:
-    #                 st.markdown(render_tile(**tile_data[i + j]), unsafe_allow_html=True)
-                    
-
-
-
-
-    # col1, col2, col3 = st.columns(3)
-
-    # with col1:
-    #     st.markdown(render_tile(
-    #         title="argohycom-toolbox",
-    #         url="https://github.com/akashspunnayil/ClimoMarineLabProjects/tree/main/projects/argohycom_toolbox",
-    #         description="Colocation and filtering of BGC-Argo profiles with HYCOM outputs.",
-    #         img_base64=shared_img_base64  # ✅ Required fourth argument
-    #     ), unsafe_allow_html=True)
-
-    # with col2:
-    #     st.markdown(render_tile(
-    #         title="Ocean Transport Estimator",
-    #         url="#",
-    #         description="Compute zonal & meridional transport of scalar variables. *(link coming soon)*"
-    #     ), unsafe_allow_html=True)
-
-    # with col3:
-    #     st.markdown(render_tile(
-    #         title="DSL Depth Estimator",
-    #         url="#",
-    #         description="Estimate OMZ/DSL depths from cruise observations. *(link coming soon)*"
-    #     ), unsafe_allow_html=True)
-
-    # with col4:
-    #     st.markdown(render_tile(
-    #         title="DSL Depth Estimator",
-    #         url="#",
-    #         description="Estimate OMZ/DSL depths from cruise observations. *(link coming soon)*"
-    #     ), unsafe_allow_html=True)
-
     # 🏥 Health, Water, and Urban Analytics
     st.subheader("🏥 Health, Water, and Urban Analytics")
     col1, col2, col3 = st.columns(3)
@@ -958,21 +916,50 @@ elif menu == "🛠️ Projects":
 
     # 🧠 Computer Vision Projects
     st.subheader("🧠 Computer Vision Projects")
-    col1, col2, col3 = st.columns(3)
     
-    with col1:
-        st.markdown(render_tile(
-            title="Face Detection App",
-            url="https://a-face-detection-app.streamlit.app/?app=face-detection", #"https://testfacerecog.streamlit.app/",  # actual external URL
-            description="Streamlit demo of live webcam face detection with Haar cascades."
-        ), unsafe_allow_html=True)
+    
+    tile_data = [
+        {
+            "title": "Face Mask Detection App",
+            "url": "https://facemask-app.streamlit.app/",
+            "description": "Streamlit demo app to detect face mask from image, video and live cam",
+            "highlight": True
+        },
+        {
+            "title": "Face Detection App",
+            "url": "https://a-face-detection-app.streamlit.app/?app=face-detection",
+            "description": "Streamlit demo of live webcam face detection with Haar cascades."
+        },
+        {
+            "title": "House Intrusion Detection App",
+            "url": "https://a-house-intrusion-detection-app.streamlit.app/",
+            "description": "Streamlit demo of live house intrusion detection system with YOLO."
+        },
         
-    with col2:
-        st.markdown(render_tile(
-            title="House Intrusion Detection App",
-            url="https://a-house-intrusion-detection-app.streamlit.app/", #"https://testfacerecog.streamlit.app/",  # actual external URL
-            description="Streamlit demo of live house intrusion detection system with YOLO."
-        ), unsafe_allow_html=True)
+    ]
+    
+    
+    for i in range(0, len(tile_data), 3):
+        cols = st.columns(3)
+        for j in range(3):
+            if i + j < len(tile_data):
+                tile = tile_data[i + j]
+                highlight = tile.get("highlight", False)
+    
+                with cols[j]:
+                    if highlight:
+                        st.markdown(render_tile_highlight(
+                            title=tile["title"],
+                            url=tile["url"],
+                            description=tile["description"]
+                        ), unsafe_allow_html=True)
+                    else:
+                        st.markdown(render_tile(
+                            title=tile["title"],
+                            url=tile["url"],
+                            description=tile["description"]
+                        ), unsafe_allow_html=True)
+
 
 
         
