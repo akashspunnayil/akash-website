@@ -891,6 +891,7 @@ elif menu == "🛠️ Projects":
             url="https://github.com/akashspunnayil/AI_ML_DS_projects/tree/master/2_Diabetes_EDA_ML",
             description="ML-based health risk classification with PDF reports."
         ), unsafe_allow_html=True)
+        
 
     # 🚗 ML Models & Predictive Analytics
     st.subheader("🚗 ML Models & Predictive Analytics")
