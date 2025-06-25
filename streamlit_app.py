@@ -2,6 +2,7 @@
 import streamlit as st
 # from streamlit_scroll_navigation import scroll_navbar
 from PIL import Image
+import os
 
 
 # --- Configuration ---
