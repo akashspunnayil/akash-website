@@ -1010,10 +1010,11 @@ elif menu == "🛠️ Projects":
         cols = st.columns(3)
         for col, (title, link) in zip(cols, notebooks[i:i+3]):
             with col:
+            	folder = os.path.splitext(link)[0]  # Remove .ipynb extension
+                url=f"https://github.com/akashspunnayil/AI_ML_DS_projects/tree/master/{folder}"
                 st.markdown(render_tile(
                     title=title,
-                    folder = os.path.splitext(link)[0],  # Remove .ipynb extension
-                    url=f"https://github.com/akashspunnayil/AI_ML_DS_projects/tree/master/{folder}",
+                    url=url,
                     description="Click to view notebook."
                     # In future: img_base64=get_base64_image("static/preview/your_custom.png")
                 ), unsafe_allow_html=True)
