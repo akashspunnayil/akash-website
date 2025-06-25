@@ -4,4 +4,3 @@ numpy
 pillow
 requests
 beautifulsoup4
-os

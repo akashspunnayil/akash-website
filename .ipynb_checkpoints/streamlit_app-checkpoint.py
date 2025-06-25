@@ -2,6 +2,7 @@
 import streamlit as st
 # from streamlit_scroll_navigation import scroll_navbar
 from PIL import Image
+import os
 
 
 # --- Configuration ---
@@ -257,7 +258,6 @@ def get_base64_image(path):
     return base64.b64encode(buffered.getvalue()).decode()
 
 shared_img_base64 = get_base64_image("static/preview/preview.jpeg")  # ✅ Your current shared image
-
 
 
 # --- Tile Renderer with Preview ---
@@ -727,7 +727,6 @@ elif menu == "🔬 Research":
     ("Experiment Findings", 2),
     ("Presentation", 4),
     ("Poster", 16),
-    ("Full-texts", 5),
     ("", ""),  # Empty row
     ("", ""),  # Another empty row
     ("Total Research Items", 30)
@@ -888,9 +887,10 @@ elif menu == "🛠️ Projects":
     with col3:
         st.markdown(render_tile(
             title="Diabetes Risk Classifier",
-            url="https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/2_Diabetes_EDA_ML.ipynb",
+            url="https://github.com/akashspunnayil/AI_ML_DS_projects/tree/master/2_Diabetes_EDA_ML",
             description="ML-based health risk classification with PDF reports."
         ), unsafe_allow_html=True)
+        
 
     # 🚗 ML Models & Predictive Analytics
     st.subheader("🚗 ML Models & Predictive Analytics")
@@ -899,7 +899,7 @@ elif menu == "🛠️ Projects":
     with col1:
         st.markdown(render_tile(
             title="Car Price Prediction Dashboard",
-            url="https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/1_Automobiles_EDA_ML.ipynb",
+            url="https://github.com/akashspunnayil/AI_ML_DS_projects/tree/master/1_Automobiles_EDA_ML",
             description="EDA and regression modeling on automobile pricing data."
         ), unsafe_allow_html=True)
 
@@ -1005,17 +1005,33 @@ elif menu == "🛠️ Projects":
         ("Object Detection - YOLO on Traffic Video Input", "18_Object_detection_input_traffic_video.ipynb"),
     ]
 
+    import os  # Make sure this is at the top
 
     for i in range(0, len(notebooks), 3):
         cols = st.columns(3)
         for col, (title, link) in zip(cols, notebooks[i:i+3]):
             with col:
+                folder = os.path.splitext(link)[0]  # Remove .ipynb extension
+                url = f"https://github.com/akashspunnayil/AI_ML_DS_projects/tree/master/{folder}"
                 st.markdown(render_tile(
                     title=title,
-                    url=f"https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/{link}",
+                    url=url,
                     description="Click to view notebook."
-                    # In future: img_base64=get_base64_image("static/preview/your_custom.png")
+                    # img_base64=... (optional future use)
                 ), unsafe_allow_html=True)
+
+    # for i in range(0, len(notebooks), 3):
+    #     cols = st.columns(3)
+    #     for col, (title, link) in zip(cols, notebooks[i:i+3]):
+    #         with col:
+    #         	folder = os.path.splitext(link)[0]  # Remove .ipynb extension
+    #             url=f"https://github.com/akashspunnayil/AI_ML_DS_projects/tree/master/{folder}"
+    #             st.markdown(render_tile(
+    #                 title=title,
+    #                 url=url,
+    #                 description="Click to view notebook."
+    #                 # In future: img_base64=get_base64_image("static/preview/your_custom.png")
+    #             ), unsafe_allow_html=True)
 
 
 # --- Blog Page ---
