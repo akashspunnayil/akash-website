@@ -888,7 +888,7 @@ elif menu == "🛠️ Projects":
     with col3:
         st.markdown(render_tile(
             title="Diabetes Risk Classifier",
-            url="https://github.com/akashspunnayil/AI_ML_DS_projects/tree/main/2_Diabetes_EDA_ML",
+            url="https://github.com/akashspunnayil/AI_ML_DS_projects/tree/master/2_Diabetes_EDA_ML",
             description="ML-based health risk classification with PDF reports."
         ), unsafe_allow_html=True)
 
