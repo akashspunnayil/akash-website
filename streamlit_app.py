@@ -1012,7 +1012,7 @@ elif menu == "🛠️ Projects":
             with col:
                 st.markdown(render_tile(
                     title=title,
-                    folder = os.path.splitext(link)[0]  # Remove .ipynb extension
+                    folder = os.path.splitext(link)[0],  # Remove .ipynb extension
                     url=f"https://github.com/akashspunnayil/AI_ML_DS_projects/tree/master/{folder}",
                     description="Click to view notebook."
                     # In future: img_base64=get_base64_image("static/preview/your_custom.png")
