@@ -259,7 +259,6 @@ def get_base64_image(path):
 shared_img_base64 = get_base64_image("static/preview/preview.jpeg")  # ✅ Your current shared image
 
 
-
 # --- Tile Renderer with Preview ---
 #def render_tile(title, url, description, img_base64):
 def render_tile(title, url, description, img_base64=shared_img_base64):
