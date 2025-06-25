@@ -888,7 +888,7 @@ elif menu == "🛠️ Projects":
     with col3:
         st.markdown(render_tile(
             title="Diabetes Risk Classifier",
-            url="https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/2_Diabetes_EDA_ML.ipynb",
+            url="https://github.com/akashspunnayil/AI_ML_DS_projects/tree/master/2_Diabetes_EDA_ML",
             description="ML-based health risk classification with PDF reports."
         ), unsafe_allow_html=True)
 
@@ -899,7 +899,7 @@ elif menu == "🛠️ Projects":
     with col1:
         st.markdown(render_tile(
             title="Car Price Prediction Dashboard",
-            url="https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/1_Automobiles_EDA_ML.ipynb",
+            url="https://github.com/akashspunnayil/AI_ML_DS_projects/tree/master/1_Automobiles_EDA_ML",
             description="EDA and regression modeling on automobile pricing data."
         ), unsafe_allow_html=True)
 
@@ -1012,7 +1012,7 @@ elif menu == "🛠️ Projects":
             with col:
                 st.markdown(render_tile(
                     title=title,
-                    url=f"https://github.com/akashspunnayil/AI_ML_DS_projects/blob/master/{link}",
+                    url=f"https://github.com/akashspunnayil/AI_ML_DS_projects/tree/master/{link}",
                     description="Click to view notebook."
                     # In future: img_base64=get_base64_image("static/preview/your_custom.png")
                 ), unsafe_allow_html=True)
