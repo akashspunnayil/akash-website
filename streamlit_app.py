@@ -917,7 +917,7 @@ elif menu == "🛠️ Projects":
     tile_data_2 = [
         {
             "title": "Face Mask Detection App",
-            "url": "https://facemask-app.streamlit.app/",
+            "url": "https://facemask-detection.streamlit.app/",
             "description": "Streamlit demo app to detect face mask from image, video and live cam",
             "highlight": True
         },
