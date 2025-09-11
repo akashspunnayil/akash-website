@@ -87,7 +87,8 @@ labels = {
 }
 
 # --- Get current query param ---
-params = st.query_params
+# params = st.query_params
+params = st.experimental_get_query_params()
 nav = params.get("nav", "🏠 Home")
 
 # Ensure the current nav is valid
@@ -917,7 +918,7 @@ elif menu == "🛠️ Projects":
     tile_data_2 = [
         {
             "title": "Face Mask Detection App",
-            "url": "https://facemask-app.streamlit.app/",
+            "url": "https://facemask-detection.streamlit.app/",
             "description": "Streamlit demo app to detect face mask from image, video and live cam",
             "highlight": True
         },
@@ -956,6 +957,7 @@ elif menu == "🛠️ Projects":
                             description=tile["description"],
                             img_base64=shared_img_base64  
                         ), unsafe_allow_html=True)
+                        
 
     # for i in range(0, len(tile_data_2), 3):
     #     cols = st.columns(3)
@@ -979,6 +981,68 @@ elif menu == "🛠️ Projects":
     #                     ), unsafe_allow_html=True)
 
 
+
+    # ---- NLP Projects ----
+    st.subheader("🧠 Natural Language Processing (NLP) Projects")
+    
+    tile_data_nlp = [
+        {
+            "title": "Sentiment Analysis App",
+            "url": "https://sentiment-nlp-app.streamlit.app/",
+            "description": "TF-IDF + ML (LogReg / NB / SVC) demo with upload, train, predict and download.",
+            "highlight": True
+        },
+        # {
+        #     "title": "Topic Modeling Explorer",
+        #     "url": "https://your-topic-model-app.streamlit.app",
+        #     "description": "Explore LDA/NMF topics with interactive tuning for number of topics and terms."
+        # },
+        # {
+        #     "title": "Named Entity Recognizer",
+        #     "url": "https://your-ner-app.streamlit.app",
+        #     "description": "Upload text and visualize entities (PERSON, ORG, LOC) with confidence scores."
+        # },
+        # {
+        #     "title": "Text Summarization Demo",
+        #     "url": "https://your-summarization-app.streamlit.app",
+        #     "description": "Extractive & abstractive summarization examples with adjustable summary length."
+        # },
+        # {
+        #     "title": "Question Answering Playground",
+        #     "url": "https://your-qa-app.streamlit.app",
+        #     "description": "Try BERT-style QA on your documents; upload PDF or paste text."
+        # }
+    ]
+    
+    # display tiles in rows of `n_cols`
+    n_cols = 3
+    for i in range(0, len(tile_data_nlp), n_cols):
+        cols = st.columns(n_cols)
+        for j in range(n_cols):
+            if i + j < len(tile_data_nlp):
+                tile = tile_data_nlp[i + j]
+                highlight = tile.get("highlight", False)
+                with cols[j]:
+                    if highlight:
+                        st.markdown(
+                            render_tile_highlight(
+                                title=tile["title"],
+                                url=tile["url"],
+                                description=tile["description"],
+                                img_base64=shared_img_base64
+                            ),
+                            unsafe_allow_html=True
+                        )
+                    else:
+                        st.markdown(
+                            render_tile(
+                                title=tile["title"],
+                                url=tile["url"],
+                                description=tile["description"],
+                                img_base64=shared_img_base64
+                            ),
+                            unsafe_allow_html=True
+                        )
 
         
     # 🧠 AI/ML Practice Notebooks
