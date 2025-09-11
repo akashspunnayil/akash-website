@@ -87,8 +87,8 @@ labels = {
 }
 
 # --- Get current query param ---
-# params = st.query_params
-params = st.experimental_get_query_params()
+params = st.query_params
+# params = st.experimental_get_query_params()
 nav = params.get("nav", "🏠 Home")
 
 # Ensure the current nav is valid
