@@ -989,7 +989,7 @@ elif menu == "🛠️ Projects":
         {
             "title": "Sentiment Analysis App",
             "url": "https://sentiment-nlp-app.streamlit.app/",
-            "description": "TF-IDF + ML (LogReg / NB / SVC) demo with upload, train, predict and download.",
+            "description": "TF-IDF + ML (LogReg / NB / SVC) + Biredirectional LSTM demo with upload, train, predict and download.",
             "highlight": True
         },
         {
