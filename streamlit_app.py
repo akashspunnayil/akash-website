@@ -992,11 +992,13 @@ elif menu == "🛠️ Projects":
             "description": "TF-IDF + ML (LogReg / NB / SVC) demo with upload, train, predict and download.",
             "highlight": True
         },
-        # {
-        #     "title": "Topic Modeling Explorer",
-        #     "url": "https://your-topic-model-app.streamlit.app",
-        #     "description": "Explore LDA/NMF topics with interactive tuning for number of topics and terms."
-        # },
+        {
+            "title": "Resume Parser -  Details extraction app from resume/CV",
+            "url": "https://a-resume-parser.streamlit.app/",
+            "description": "Parse resumes with LLMs to extract details and match skills in an interactive Streamlit app.",
+            "highlight": True
+
+        },
         # {
         #     "title": "Named Entity Recognizer",
         #     "url": "https://your-ner-app.streamlit.app",
