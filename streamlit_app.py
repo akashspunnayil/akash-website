@@ -31,6 +31,23 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
+## ======================================================
+## REMOVE STREAMLIT CHROME - BAR contain 'Deploy' option
+## ======================================================
+## Hide bar
+#st.markdown(
+#    """
+#    <style>
+#    header[data-testid="stHeader"] {
+#        display: none;
+#    }
+#
+#    </style>
+#    """,
+#    unsafe_allow_html=True
+#)
+
+
 # # --- Sidebar Navigation ---
 # # menu = st.sidebar.radio("Navigation", ["Home", "Research", "Projects", "Blog", "CV"])
 # # --- Custom Sidebar Navigation ---
